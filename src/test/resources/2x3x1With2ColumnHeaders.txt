@@ -1,0 +1,27 @@
+this line should be skipped
+Continent,Direction,Country,Gender,Age,Count
+Europe,North,Sweden,Males,under 30,1
+Europe,North,Sweden,Males,between 31 and 60,2
+Europe,North,Sweden,Males,over 61,3
+Europe,North,Sweden,Females,under 30,4
+Europe,North,Sweden,Females,between 31 and 60,5
+Europe,North,Sweden,Females,over 61,6
+Europe,North,Finland,Males,under 30,7
+Europe,North,Finland,Males,between 31 and 60,8
+Europe,North,Finland,Males,over 61,9
+Europe,North,Finland,Females,under 30,10
+Europe,North,Finland,Females,between 31 and 60,11
+Europe,North,Finland,Females,over 61,12
+Europe,South,Italy,Males,under 30,13
+Europe,South,Italy,Males,between 31 and 60,14
+Europe,South,Italy,Males,over 61,15
+Europe,South,Italy,Females,under 30,16
+Europe,South,Italy,Females,under 30,17
+Europe,South,Italy,Females,between 31 and 60,18
+Europe,South,Italy,Females,over 61,19
+Asia,South,Thailand,Males,under 30,20
+Asia,South,Thailand,Males,between 31 and 60,21
+Asia,South,Thailand,Males,over 61,22
+Asia,South,Thailand,Females,under 30,23
+Asia,South,Thailand,Females,between 31 and 60,24
+Asia,South,Thailand,Females,over 61,25

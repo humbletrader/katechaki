@@ -1,0 +1,4 @@
+10	john	200	doe
+17	jack	125	nicholson
+22	tom	134	jones
+34	bill	254	clinton	

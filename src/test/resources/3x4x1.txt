@@ -1,0 +1,94 @@
+Europe,North,Sweden,Males,Catholic,under 30,urban,1
+Europe,North,Sweden,Males,Catholic,under 30,rural,2
+Europe,North,Sweden,Males,Catholic,between 31 and 60,urban,3
+Europe,North,Sweden,Males,Catholic,over 61,urban,5
+Europe,North,Sweden,Males,Catholic,over 61,rural,6
+Europe,North,Sweden,Males,Muslim,under 30,urban,7
+Europe,North,Sweden,Males,Muslim,under 30,rural,8
+Europe,North,Sweden,Males,Muslim,between 31 and 60,urban,9
+Europe,North,Sweden,Males,Muslim,between 31 and 60,rural,10
+Europe,North,Sweden,Males,Muslim,over 61,urban,11
+Europe,North,Sweden,Males,Muslim,over 61,rural,12
+Europe,North,Sweden,Females,Catholic,under 30,urban,13
+Europe,North,Sweden,Females,Catholic,under 30,rural,14
+Europe,North,Sweden,Females,Catholic,between 31 and 60,urban,15
+Europe,North,Sweden,Females,Catholic,between 31 and 60,rural,16
+Europe,North,Sweden,Females,Catholic,over 61,urban,17
+Europe,North,Sweden,Females,Catholic,over 61,rural,18
+Europe,North,Sweden,Females,Muslim,under 30,urban,19
+Europe,North,Sweden,Females,Muslim,under 30,rural,20
+Europe,North,Sweden,Females,Muslim,between 31 and 60,urban,21
+Europe,North,Sweden,Females,Muslim,between 31 and 60,rural,22
+Europe,North,Sweden,Females,Muslim,over 61,urban,23
+Europe,North,Sweden,Females,Muslim,over 61,rural,24
+Europe,North,Finland,Males,Catholic,under 30,urban,25
+Europe,North,Finland,Males,Catholic,under 30,rural,26
+Europe,North,Finland,Males,Catholic,between 31 and 60,urban,27
+Europe,North,Finland,Males,Catholic,between 31 and 60,rural,28
+Europe,North,Finland,Males,Catholic,over 61,urban,29
+Europe,North,Finland,Males,Catholic,over 61,rural,30
+Europe,North,Finland,Males,Muslim,under 30,urban,31
+Europe,North,Finland,Males,Muslim,under 30,rural,32
+Europe,North,Finland,Males,Muslim,between 31 and 60,urban,33
+Europe,North,Finland,Males,Muslim,between 31 and 60,rural,34
+Europe,North,Finland,Males,Muslim,over 61,urban,35
+Europe,North,Finland,Males,Muslim,over 61,rural,36
+Europe,North,Finland,Females,Catholic,under 30,urban,37
+Europe,North,Finland,Females,Catholic,under 30,rural,38
+Europe,North,Finland,Females,Catholic,between 31 and 60,urban,39
+Europe,North,Finland,Females,Catholic,between 31 and 60,rural,40
+Europe,North,Finland,Females,Catholic,over 61,urban,41
+Europe,North,Finland,Females,Catholic,over 61,rural,42
+Europe,North,Finland,Females,Muslim,under 30,urban,43
+Europe,North,Finland,Females,Muslim,under 30,rural,44
+Europe,North,Finland,Females,Muslim,between 31 and 60,urban,45
+Europe,North,Finland,Females,Muslim,between 31 and 60,rural,46
+Europe,North,Finland,Females,Muslim,over 61,urban,47
+Europe,North,Finland,Females,Muslim,over 61,rural,48
+Europe,South,Italy,Males,Catholic,under 30,urban,49
+Europe,South,Italy,Males,Catholic,under 30,rural,50
+Europe,South,Italy,Males,Catholic,between 31 and 60,urban,51
+Europe,South,Italy,Males,Catholic,between 31 and 60,rural,52
+Europe,South,Italy,Males,Catholic,over 61,urban,53
+Europe,South,Italy,Males,Catholic,over 61,rural,54
+Europe,South,Italy,Males,Muslim,under 30,urban,55
+Europe,South,Italy,Males,Muslim,under 30,rural,56
+Europe,South,Italy,Males,Muslim,between 31 and 60,urban,57
+Europe,South,Italy,Males,Muslim,between 31 and 60,rural,58
+Europe,South,Italy,Males,Muslim,over 61,urban,59
+Europe,South,Italy,Males,Muslim,over 61,rural,60
+Europe,South,Italy,Females,Catholic,under 30,urban,61
+Europe,South,Italy,Females,Catholic,under 30,rural,62
+Europe,South,Italy,Females,Catholic,between 31 and 60,urban,63
+Europe,South,Italy,Females,Catholic,between 31 and 60,rural,64
+Europe,South,Italy,Females,Catholic,over 61,urban,65
+Europe,South,Italy,Females,Catholic,over 61,rural,66
+Europe,South,Italy,Females,Muslim,under 30,urban,67
+Europe,South,Italy,Females,Muslim,under 30,rural,68
+Europe,South,Italy,Females,Muslim,between 31 and 60,urban,69
+Europe,South,Italy,Females,Muslim,between 31 and 60,rural,70
+Europe,South,Italy,Females,Muslim,over 61,urban,71
+Europe,South,Italy,Females,Muslim,over 61,rural,72
+Asia,South,Thailand,Males,Catholic,under 30,urban,73
+Asia,South,Thailand,Males,Catholic,under 30,rural,74
+Asia,South,Thailand,Males,Catholic,between 31 and 60,urban,75
+Asia,South,Thailand,Males,Catholic,between 31 and 60,rural,76
+Asia,South,Thailand,Males,Catholic,over 61,urban,77
+Asia,South,Thailand,Males,Muslim,under 30,urban,79
+Asia,South,Thailand,Males,Muslim,under 30,rural,80
+Asia,South,Thailand,Males,Muslim,between 31 and 60,urban,81
+Asia,South,Thailand,Males,Muslim,between 31 and 60,rural,82
+Asia,South,Thailand,Males,Muslim,over 61,urban,83
+Asia,South,Thailand,Males,Muslim,over 61,rural,84
+Asia,South,Thailand,Females,Catholic,under 30,urban,85
+Asia,South,Thailand,Females,Catholic,under 30,rural,86
+Asia,South,Thailand,Females,Catholic,between 31 and 60,urban,87
+Asia,South,Thailand,Females,Catholic,between 31 and 60,rural,88
+Asia,South,Thailand,Females,Catholic,over 61,urban,89
+Asia,South,Thailand,Females,Catholic,over 61,rural,90
+Asia,South,Thailand,Females,Muslim,under 30,urban,91
+Asia,South,Thailand,Females,Muslim,under 30,rural,92
+Asia,South,Thailand,Females,Muslim,between 31 and 60,urban,93
+Asia,South,Thailand,Females,Muslim,between 31 and 60,rural,94
+Asia,South,Thailand,Females,Muslim,over 61,urban,95
+Asia,South,Thailand,Females,Muslim,over 61,rural,96

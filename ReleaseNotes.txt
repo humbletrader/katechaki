@@ -1,0 +1,8 @@
+ReportEngine 0.13.2
+----------------------------------------------------------------
+Bugfixes: 
+1. All Table inputs closed
+
+New features: 
+1. Improvements in the engine
+2. Temporary files programatically deleted when the engine finishes ( this is server friendly)

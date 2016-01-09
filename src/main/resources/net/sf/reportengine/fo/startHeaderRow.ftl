@@ -1,0 +1,1 @@
+<fo:table-row background-color="black">

@@ -1,0 +1,1 @@
+[HeaderCell cspan=${colspan} value=${value} hAlign=${horizAlign} vAlign=${vertAlign}]

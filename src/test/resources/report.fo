@@ -1,0 +1,1567 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
+<fo:layout-master-set>
+        	<fo:simple-page-master 	master-name="A3" 
+        						page-height="59.4cm" 
+        						page-width="42cm" 
+        						margin-top="2cm" 
+        						margin-bottom="2cm" 
+        						margin-left="2cm" 
+        						margin-right="2cm">
+          		<fo:region-body/>
+        	</fo:simple-page-master>
+        
+        	<fo:simple-page-master 	master-name="A4" 
+        						page-width="297mm"
+								page-height="210mm" 
+								margin-top="1cm" 
+								margin-bottom="1cm"
+								margin-left="1cm" 
+								margin-right="1cm">
+  				<fo:region-body margin="3cm"/>
+  				<fo:region-before extent="2cm"/>
+  				<fo:region-after extent="2cm"/>
+  				<fo:region-start extent="2cm"/>
+  				<fo:region-end extent="2cm"/>
+			</fo:simple-page-master>
+		</fo:layout-master-set>
+      
+      
+      	<fo:page-sequence master-reference="A4">
+      		<fo:flow flow-name="xsl-region-body">
+<fo:block color="black" font-family="ArialUnicodeMS" font-size="12pt" font-style="normal" font-weight="normal" margin-left="10pt" text-align="center">
+	Yearly expenses report
+</fo:block>
+<fo:block>
+	<fo:table border-top-style="solid" border-bottom-style="solid" border-left-style="solid" border-right-style="solid">
+		<fo:table-body><fo:table-row background-color="black"><fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="white"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="center"
+								display-align="center"
+								>
+						Year
+					</fo:block>
+</fo:table-cell><fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="white"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="center"
+								display-align="center"
+								>
+						Month
+					</fo:block>
+</fo:table-cell><fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="white"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="center"
+								display-align="center"
+								>
+						Spent on
+					</fo:block>
+</fo:table-cell><fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="white"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="center"
+								display-align="center"
+								>
+						Amount
+					</fo:block>
+</fo:table-cell></fo:table-row><!-- row 0 -->
+<fo:table-row background-color="#C0C0C0"><fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						2011
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						August
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						food
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="right"
+								display-align="center"
+								>
+						500
+					</fo:block>
+</fo:table-cell>
+</fo:table-row><!-- row 1 -->
+<fo:table-row background-color="#FFFFFF"><fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						 
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						 
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						transportation
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="right"
+								display-align="center"
+								>
+						300
+					</fo:block>
+</fo:table-cell>
+</fo:table-row><!-- row 2 -->
+<fo:table-row background-color="#C0C0C0"><fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						Count August
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="center"
+								display-align="center"
+								>
+						 
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="center"
+								display-align="center"
+								>
+						 
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="right"
+								display-align="center"
+								>
+						2
+					</fo:block>
+</fo:table-cell>
+</fo:table-row><!-- row 3 -->
+<fo:table-row background-color="#FFFFFF"><fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						2011
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						September
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						food
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="right"
+								display-align="center"
+								>
+						567
+					</fo:block>
+</fo:table-cell>
+</fo:table-row><!-- row 4 -->
+<fo:table-row background-color="#C0C0C0"><fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						 
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						 
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						transportation
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="right"
+								display-align="center"
+								>
+						154
+					</fo:block>
+</fo:table-cell>
+</fo:table-row><!-- row 5 -->
+<fo:table-row background-color="#FFFFFF"><fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						 
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						 
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						entertainment
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="right"
+								display-align="center"
+								>
+						200
+					</fo:block>
+</fo:table-cell>
+</fo:table-row><!-- row 6 -->
+<fo:table-row background-color="#C0C0C0"><fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						Count September
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="center"
+								display-align="center"
+								>
+						 
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="center"
+								display-align="center"
+								>
+						 
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="right"
+								display-align="center"
+								>
+						3
+					</fo:block>
+</fo:table-cell>
+</fo:table-row><!-- row 7 -->
+<fo:table-row background-color="#FFFFFF"><fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						Count 2011
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="center"
+								display-align="center"
+								>
+						 
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="center"
+								display-align="center"
+								>
+						 
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="right"
+								display-align="center"
+								>
+						5
+					</fo:block>
+</fo:table-cell>
+</fo:table-row><!-- row 8 -->
+<fo:table-row background-color="#C0C0C0"><fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						2012
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						January
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						food
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="right"
+								display-align="center"
+								>
+						205
+					</fo:block>
+</fo:table-cell>
+</fo:table-row><!-- row 9 -->
+<fo:table-row background-color="#FFFFFF"><fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						 
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						 
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						transportation
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="right"
+								display-align="center"
+								>
+						100
+					</fo:block>
+</fo:table-cell>
+</fo:table-row><!-- row 10 -->
+<fo:table-row background-color="#C0C0C0"><fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						Count January
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="center"
+								display-align="center"
+								>
+						 
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="center"
+								display-align="center"
+								>
+						 
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="right"
+								display-align="center"
+								>
+						2
+					</fo:block>
+</fo:table-cell>
+</fo:table-row><!-- row 11 -->
+<fo:table-row background-color="#FFFFFF"><fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						2012
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						February
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						food
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="right"
+								display-align="center"
+								>
+						301
+					</fo:block>
+</fo:table-cell>
+</fo:table-row><!-- row 12 -->
+<fo:table-row background-color="#C0C0C0"><fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						Count February
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="center"
+								display-align="center"
+								>
+						 
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="center"
+								display-align="center"
+								>
+						 
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="right"
+								display-align="center"
+								>
+						1
+					</fo:block>
+</fo:table-cell>
+</fo:table-row><!-- row 13 -->
+<fo:table-row background-color="#FFFFFF"><fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						2012
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						March
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						entertainment
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="right"
+								display-align="center"
+								>
+						302
+					</fo:block>
+</fo:table-cell>
+</fo:table-row><!-- row 14 -->
+<fo:table-row background-color="#C0C0C0"><fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						Count March
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="center"
+								display-align="center"
+								>
+						 
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="center"
+								display-align="center"
+								>
+						 
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="right"
+								display-align="center"
+								>
+						1
+					</fo:block>
+</fo:table-cell>
+</fo:table-row><!-- row 15 -->
+<fo:table-row background-color="#FFFFFF"><fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						Count 2012
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="center"
+								display-align="center"
+								>
+						 
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="center"
+								display-align="center"
+								>
+						 
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="right"
+								display-align="center"
+								>
+						4
+					</fo:block>
+</fo:table-cell>
+</fo:table-row><!-- row 16 -->
+<fo:table-row background-color="#C0C0C0"><fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="left"
+								display-align="center"
+								>
+						Grand Count 
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="center"
+								display-align="center"
+								>
+						 
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="center"
+								display-align="center"
+								>
+						 
+					</fo:block>
+</fo:table-cell>
+<fo:table-cell 	number-columns-spanned="1"
+				padding-left="3pt"
+				padding-right="3pt"
+				padding-top="1pt"
+				padding-bottom="1pt"
+				border-top-style="solid"
+				border-bottom-style="solid"
+				border-left-style="solid"
+				border-right-style="solid">				 									
+		 			<fo:block 	color="black"
+		 						font-family="ArialUnicodeMS" 
+								font-size="12pt"
+								font-style="normal" 
+								font-weight="normal"
+								margin-left="10pt"
+								text-align="right"
+								display-align="center"
+								>
+						9
+					</fo:block>
+</fo:table-cell>
+</fo:table-row>		</fo:table-body>
+	</fo:table>
+</fo:block>		
+		</fo:flow>
+	</fo:page-sequence>
+</fo:root>

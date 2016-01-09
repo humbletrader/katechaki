@@ -1,0 +1,28 @@
+USA,East,New York,M,Catholic,1001
+USA,East,New York,M,Orthodox,2001
+USA,East,New York,M,Muslim,2001
+USA,East,New York,F,Catholic,1002
+USA,East,New York,F,Orthodox,2002
+USA,East,Chicago,M,Orthodox,1
+USA,East,Chicago,M,Catholic,2
+USA,East,Chicago,F,Muslim,3
+USA,West,Washington,M,Catholic,4
+USA,West,Washington,M,Orthodox,5
+USA,West,Washington,M,Muslim,6
+USA,West,Washington,F,Catholic,7
+USA,South,Dallas,M,Catholic,8
+USA,South,Dallas,F,Muslim,9
+USA,North,Cincinatti,M,Orthodox,10
+USA,North,Cincinatti,F,Orthodox,11
+France,East,Grenoble,M,Muslim,12
+France,East,Grenoble,F,Catholic,13
+France,West,Paris,M,Muslim,14
+France,West,Paris,F,Muslim,15
+France,South,Monaco,M,Muslim,16
+France,South,Monaco,F,Muslim,17
+France,North,NorthVille,M,Muslim,18
+France,North,NorthVille,F,Muslim,19
+Romania,South,Calarasi,M,Muslim,20
+Romania,South,Calarasi,F,Muslim,21
+Romania,North,Suceava,M,Muslim,22
+Romania,North,Suceava,F,Muslim,23

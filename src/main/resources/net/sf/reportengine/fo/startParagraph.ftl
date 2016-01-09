@@ -1,0 +1,2 @@
+<fo:block>
+${text}
