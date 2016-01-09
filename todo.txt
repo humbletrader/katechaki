@@ -1,4 +1,0 @@
-the plan for the next release is : 
-1. task 1 here 
-2. task 2 here
-3. task 3 here
