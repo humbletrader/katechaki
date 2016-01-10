@@ -28,9 +28,9 @@ import net.sf.reportengine.out.PostProcessedFoReportOutput;
  * @author dragos balan
  * @since 0.13
  */
-class PostProcessReport extends AbstractReport<PostProcessedFoReportOutput> {
+class PostProcessedFoReport extends AbstractReport<PostProcessedFoReportOutput> {
 
-    PostProcessReport(PostProcessedFoReportOutput reportOutput, List<ReportComponent> components) {
+    PostProcessedFoReport(PostProcessedFoReportOutput reportOutput, List<ReportComponent> components) {
         super(reportOutput, components);
     }
 

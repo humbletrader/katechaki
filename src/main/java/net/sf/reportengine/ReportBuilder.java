@@ -114,7 +114,7 @@ public class ReportBuilder {
     public Report build() {
         Report result = null;
         if (reportNeedsPostProcessing) {
-            result = new PostProcessReport((PostProcessedFoReportOutput) reportOutput, components);
+            result = new PostProcessedFoReport((PostProcessedFoReportOutput) reportOutput, components);
         } else {
             result = new DefaultReport(reportOutput, components);
         }
