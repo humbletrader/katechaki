@@ -19,15 +19,24 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringWriter;
 
+import org.apache.commons.lang.SystemUtils;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
+
 import net.sf.reportengine.components.EmptyLine;
 import net.sf.reportengine.components.FlatTable;
 import net.sf.reportengine.components.FlatTableBuilder;
+import net.sf.reportengine.components.Paragraph;
 import net.sf.reportengine.components.PivotTable;
 import net.sf.reportengine.components.PivotTableBuilder;
 import net.sf.reportengine.components.ReportTitle;
+import net.sf.reportengine.out.ExcelXmlOutputFormat;
 import net.sf.reportengine.out.ExcelXmlReportOutput;
 import net.sf.reportengine.out.FoOutputFormat;
 import net.sf.reportengine.out.FoReportOutput;
+import net.sf.reportengine.out.HtmlOutputFormat;
 import net.sf.reportengine.out.HtmlReportOutput;
 import net.sf.reportengine.out.MockReportOutput;
 import net.sf.reportengine.out.PageSize;
@@ -36,12 +45,6 @@ import net.sf.reportengine.scenarios.Scenario1;
 import net.sf.reportengine.scenarios.ScenarioFormatedValues;
 import net.sf.reportengine.scenarios.ct.CtScenario2x2x1With1G1D;
 import net.sf.reportengine.scenarios.ct.CtScenarioFormatting4x3x1;
-
-import org.apache.commons.lang.SystemUtils;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
 
 public class TestDefaultReport {
 
@@ -114,12 +117,16 @@ public class TestDefaultReport {
 
         Report report = new ReportBuilder(new ExcelXmlReportOutput(new FileWriter("./target/ReportWithMultipleTables.xml")))
                 .add(new ReportTitle("this report contains multiple tables"))
+                .add(new Paragraph("below is a first flat table"))
                 .add(flatTable1)
                 .add(new EmptyLine())
+                .add(new Paragraph("below is the second flat table"))
                 .add(flatTable2)
                 .add(new EmptyLine())
+                .add(new Paragraph("below is the first pivot table")) 
                 .add(pivotTable1)
                 .add(new EmptyLine())
+                .add(new Paragraph("below is the last pivot table"))
                 .add(pivotTable2)
                 .build();
         report.execute();
@@ -166,7 +173,49 @@ public class TestDefaultReport {
 
         reportBuilder.build().execute();
     }
+    
+    @Test
+    public void testImbricatedHtmlComponents() throws IOException {
+        ReportBuilder reportBuilder =
+            new ReportBuilder(new HtmlReportOutput(new FileWriter("./target/TestImbricatedComponents.html"),
+                                                 true,
+                                                 new HtmlOutputFormat()));
+        
+        Paragraph paragraph = new Paragraph("this paragraph contains two components: one table and another paragraph"); 
+        paragraph.addComponent(new FlatTableBuilder(ScenarioFormatedValues.INPUT)
+                               .showTotals(true)
+                               .showGrandTotal(true)
+                               .groupColumns(ScenarioFormatedValues.GROUP_COLUMNS)
+                               .dataColumns(ScenarioFormatedValues.DATA_COLUMNS)
+                               .build());
+        paragraph.addComponent(new Paragraph("end of paragraph"));
+        reportBuilder.add(new ReportTitle("Testing several imbricated components"));
+        reportBuilder.add(paragraph);
 
+        reportBuilder.build().execute();
+    }
+    
+    @Test
+    public void testImbricatedExcelComponents() throws IOException {
+        ReportBuilder reportBuilder =
+            new ReportBuilder(new ExcelXmlReportOutput(new FileWriter("./target/TestImbricatedComponents.xml"),
+                                                 true,
+                                                 new ExcelXmlOutputFormat()));
+        
+        Paragraph paragraph = new Paragraph("this paragraph contains two components: one table and another paragraph"); 
+        paragraph.addComponent(new FlatTableBuilder(ScenarioFormatedValues.INPUT)
+                               .showTotals(true)
+                               .showGrandTotal(true)
+                               .groupColumns(ScenarioFormatedValues.GROUP_COLUMNS)
+                               .dataColumns(ScenarioFormatedValues.DATA_COLUMNS)
+                               .build());
+        paragraph.addComponent(new Paragraph("end of paragraph"));
+        reportBuilder.add(new ReportTitle("Testing several imbricated components"));
+        reportBuilder.add(paragraph);
+
+        reportBuilder.build().execute();
+    }
+    
     @Test
     public void testOutputOpenInCaseOfError() throws IOException {
         StringWriter testWriter = new StringWriter();
