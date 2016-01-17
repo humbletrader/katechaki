@@ -15,5 +15,4 @@ Java 6 or higher
 * The project's [website](http://reportengine.sourceforge.net/)
 
 #Limitations
-* Katechaki does not have a Paragraph component - I'm working on this right now
 * Katechaki does not have a chart component (but I encourage you to create a report component for charts)
