@@ -15,6 +15,8 @@
  */
 package net.sf.reportengine.components;
 
+import net.sf.reportengine.config.HorizAlign;
+
 /**
  * This is the title of a report
  * 
@@ -32,6 +34,6 @@ public final class ReportTitle extends DefaultReportComponent<ParagraphProps> {
 	 * @param title
 	 */
 	public ReportTitle(String title){
-	    super(FM_TEMPLATE_NAME, new ParagraphProps(title)); 
+	    super(FM_TEMPLATE_NAME, new ParagraphProps(title, HorizAlign.CENTER)); 
 	}
 }

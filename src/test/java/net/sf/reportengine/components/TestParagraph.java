@@ -99,12 +99,12 @@ public class TestParagraph {
     }
     
     public final static String EXPECTED_HTML_OUT = 
-            "<p>"+LINE_SEPARATOR+
+            "<p style=\"text-align:left\">"+LINE_SEPARATOR+
             "unit test"+LINE_SEPARATOR+
             "</p>";
     
     public final static String EXPECTED_FO_OUT = 
-            "<fo:block>"+LINE_SEPARATOR+
+            "<fo:block text-align=\"left\">"+LINE_SEPARATOR+
             "unit test"+LINE_SEPARATOR+
             "</fo:block>";
     

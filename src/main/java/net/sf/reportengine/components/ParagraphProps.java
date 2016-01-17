@@ -18,6 +18,8 @@
  */
 package net.sf.reportengine.components;
 
+import net.sf.reportengine.config.HorizAlign;
+
 /**
  * @author dragos balan
  *
@@ -25,13 +27,22 @@ package net.sf.reportengine.components;
 public final class ParagraphProps {
 	
 	private final String text; 
-	
+	private final HorizAlign align; 
 	
 	public ParagraphProps(String text){
+	    this(text, HorizAlign.CENTER); 
+	}
+	
+	public ParagraphProps(String text, HorizAlign align){
 		this.text = text; 
+		this.align = align; 
 	}
 	
 	public String getText(){
 		return text; 
+	}
+	
+	public HorizAlign getAlign(){
+	    return align; 
 	}
 }
