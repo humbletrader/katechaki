@@ -31,12 +31,10 @@ import net.sf.reportengine.components.FlatTableBuilder;
 import net.sf.reportengine.components.Paragraph;
 import net.sf.reportengine.components.PivotTable;
 import net.sf.reportengine.components.PivotTableBuilder;
-import net.sf.reportengine.components.ReportTitle;
-import net.sf.reportengine.out.ExcelXmlOutputFormat;
+import net.sf.reportengine.config.HorizAlign;
 import net.sf.reportengine.out.ExcelXmlReportOutput;
 import net.sf.reportengine.out.FoOutputFormat;
 import net.sf.reportengine.out.FoReportOutput;
-import net.sf.reportengine.out.HtmlOutputFormat;
 import net.sf.reportengine.out.HtmlReportOutput;
 import net.sf.reportengine.out.MockReportOutput;
 import net.sf.reportengine.out.PageSize;
@@ -51,19 +49,50 @@ public class TestDefaultReport {
     @Before
     public void setUp() throws Exception {
     }
-
+    
+    private static final String EXPECTED_OUTPUT_TEST_TWO_COMPONENTS = 
+            "startReport" + SystemUtils.LINE_SEPARATOR + 
+            "paragraph unit test" + SystemUtils.LINE_SEPARATOR + 
+            "start table" + SystemUtils.LINE_SEPARATOR + 
+            "start header row" + SystemUtils.LINE_SEPARATOR + 
+            "[HeaderCell cspan=1 value=col 3 hAlign=CENTER vAlign=MIDDLE][HeaderCell cspan=1 value=col 4 hAlign=CENTER vAlign=MIDDLE][HeaderCell cspan=1 value=col 5 hAlign=CENTER vAlign=MIDDLE]" + SystemUtils.LINE_SEPARATOR + 
+            "end header row" + SystemUtils.LINE_SEPARATOR + 
+            "startRow 0" + SystemUtils.LINE_SEPARATOR + 
+            "[Cell cspan=1 value=4][Cell cspan=1 value=5][Cell cspan=1 value=6]" + SystemUtils.LINE_SEPARATOR + 
+            "endRow" + SystemUtils.LINE_SEPARATOR + 
+            "startRow 1" + SystemUtils.LINE_SEPARATOR + 
+            "[Cell cspan=1 value=3][Cell cspan=1 value=3][Cell cspan=1 value=3]" + SystemUtils.LINE_SEPARATOR + 
+            "endRow" + SystemUtils.LINE_SEPARATOR + 
+            "startRow 2" + SystemUtils.LINE_SEPARATOR + 
+            "[Cell cspan=1 value=2][Cell cspan=1 value=2][Cell cspan=1 value=2]" + SystemUtils.LINE_SEPARATOR + 
+            "endRow" + SystemUtils.LINE_SEPARATOR + 
+            "startRow 3" + SystemUtils.LINE_SEPARATOR + 
+            "[Cell cspan=1 value=1][Cell cspan=1 value=1][Cell cspan=1 value=1]" + SystemUtils.LINE_SEPARATOR + 
+            "endRow" + SystemUtils.LINE_SEPARATOR + 
+            "startRow 4" + SystemUtils.LINE_SEPARATOR + 
+            "[Cell cspan=1 value=1][Cell cspan=1 value=1][Cell cspan=1 value=1]" + SystemUtils.LINE_SEPARATOR + 
+            "endRow" + SystemUtils.LINE_SEPARATOR + 
+            "startRow 5" + SystemUtils.LINE_SEPARATOR + 
+            "[Cell cspan=1 value=1][Cell cspan=1 value=7][Cell cspan=1 value=1]" + SystemUtils.LINE_SEPARATOR + 
+            "endRow" + SystemUtils.LINE_SEPARATOR + 
+            "startRow 6" + SystemUtils.LINE_SEPARATOR + 
+            "[Cell cspan=1 value= ][Cell cspan=1 value=6][Cell cspan=1 value=14]" + SystemUtils.LINE_SEPARATOR + 
+            "endRow" + SystemUtils.LINE_SEPARATOR + 
+            "end table" + SystemUtils.LINE_SEPARATOR + 
+            "end report";
+    
     @Test
     public void testTwoComponents() throws IOException {
         StringWriter testWriter = new StringWriter();
         MockReportOutput mockOutput = new MockReportOutput(testWriter);
-        new ReportBuilder(mockOutput).add(new ReportTitle("unit test"))
+        new ReportBuilder(mockOutput).add(new Paragraph("unit test", HorizAlign.CENTER))
                                      .add(new FlatTableBuilder(Scenario1.INPUT)
                                               .dataColumns(Scenario1.DATA_COLUMNS)
                                               .build())
                                      .build()
                                      .execute();
 
-        Assert.assertEquals("startReport" + SystemUtils.LINE_SEPARATOR + "title unit test" + SystemUtils.LINE_SEPARATOR + "start table" + SystemUtils.LINE_SEPARATOR + "start header row" + SystemUtils.LINE_SEPARATOR + "[HeaderCell cspan=1 value=col 3 hAlign=CENTER vAlign=MIDDLE][HeaderCell cspan=1 value=col 4 hAlign=CENTER vAlign=MIDDLE][HeaderCell cspan=1 value=col 5 hAlign=CENTER vAlign=MIDDLE]" + SystemUtils.LINE_SEPARATOR + "end header row" + SystemUtils.LINE_SEPARATOR + "startRow 0" + SystemUtils.LINE_SEPARATOR + "[Cell cspan=1 value=4][Cell cspan=1 value=5][Cell cspan=1 value=6]" + SystemUtils.LINE_SEPARATOR + "endRow" + SystemUtils.LINE_SEPARATOR + "startRow 1" + SystemUtils.LINE_SEPARATOR + "[Cell cspan=1 value=3][Cell cspan=1 value=3][Cell cspan=1 value=3]" + SystemUtils.LINE_SEPARATOR + "endRow" + SystemUtils.LINE_SEPARATOR + "startRow 2" + SystemUtils.LINE_SEPARATOR + "[Cell cspan=1 value=2][Cell cspan=1 value=2][Cell cspan=1 value=2]" + SystemUtils.LINE_SEPARATOR + "endRow" + SystemUtils.LINE_SEPARATOR + "startRow 3" + SystemUtils.LINE_SEPARATOR + "[Cell cspan=1 value=1][Cell cspan=1 value=1][Cell cspan=1 value=1]" + SystemUtils.LINE_SEPARATOR + "endRow" + SystemUtils.LINE_SEPARATOR + "startRow 4" + SystemUtils.LINE_SEPARATOR + "[Cell cspan=1 value=1][Cell cspan=1 value=1][Cell cspan=1 value=1]" + SystemUtils.LINE_SEPARATOR + "endRow" + SystemUtils.LINE_SEPARATOR + "startRow 5" + SystemUtils.LINE_SEPARATOR + "[Cell cspan=1 value=1][Cell cspan=1 value=7][Cell cspan=1 value=1]" + SystemUtils.LINE_SEPARATOR + "endRow" + SystemUtils.LINE_SEPARATOR + "startRow 6" + SystemUtils.LINE_SEPARATOR + "[Cell cspan=1 value= ][Cell cspan=1 value=6][Cell cspan=1 value=14]" + SystemUtils.LINE_SEPARATOR + "endRow" + SystemUtils.LINE_SEPARATOR + "end table" + SystemUtils.LINE_SEPARATOR + "end report",
+        Assert.assertEquals(EXPECTED_OUTPUT_TEST_TWO_COMPONENTS,
                             testWriter.getBuffer().toString());
     }
 
@@ -71,18 +100,18 @@ public class TestDefaultReport {
     public void testTwoComponentsAndFoOutput() throws IOException {
         new ReportBuilder(new FoReportOutput(new FileWriter("./target/TestTwoComponents.fo"),
                                              true,
-                                             new FoOutputFormat(PageSize.A3_PORTRAIT))).add(new ReportTitle("this is the report title "))
-                                                                              .add(new FlatTableBuilder(Scenario1.INPUT).dataColumns(Scenario1.DATA_COLUMNS)
-                                                                                                                        .build())
-                                                                              .build()
-                                                                              .execute();
+                                             new FoOutputFormat(PageSize.A3_PORTRAIT)))
+        .add(new Paragraph("this is the report title", HorizAlign.CENTER))
+        .add(new FlatTableBuilder(Scenario1.INPUT).dataColumns(Scenario1.DATA_COLUMNS).build())
+        .build()
+        .execute();
     }
 
     @Test
     public void testTwoComponentsAndExcelXmlOutput() throws IOException {
         new ReportBuilder(new ExcelXmlReportOutput(new FileWriter("./target/TestTwoComponents.xml"),
                                                    true))
-            .add(new ReportTitle("this is the report title"))
+            .add(new Paragraph("this is the report title", HorizAlign.CENTER))
             .add(new FlatTableBuilder(Scenario1.INPUT)
                           .dataColumns(Scenario1.DATA_COLUMNS)
                           .build())
@@ -116,7 +145,7 @@ public class TestDefaultReport {
                                                                   .build();
 
         Report report = new ReportBuilder(new ExcelXmlReportOutput(new FileWriter("./target/ReportWithMultipleTables.xml")))
-                .add(new ReportTitle("this report contains multiple tables"))
+                .add(new Paragraph("this report contains multiple tables", HorizAlign.CENTER))
                 .add(new Paragraph("below is a first flat table"))
                 .add(flatTable1)
                 .add(new EmptyLine())
@@ -137,7 +166,7 @@ public class TestDefaultReport {
         ReportBuilder reportBuilder =
             new ReportBuilder(new HtmlReportOutput(new FileWriter("./target/TestMemoryLeaks.html")));
 
-        reportBuilder.add(new ReportTitle("Testing the html output for memory leaks"));
+        reportBuilder.add(new Paragraph("Testing the html output for memory leaks"));
         // add 1000 flat tables
         for (int i = 0; i < 1000; i++) {
 
@@ -159,7 +188,7 @@ public class TestDefaultReport {
                                                  true,
                                                  new FoOutputFormat()));
 
-        reportBuilder.add(new ReportTitle("Testing the fo output for memory leaks"));
+        reportBuilder.add(new Paragraph("Testing the fo output for memory leaks"));
         // add 1000 flat tables
         for (int i = 0; i < 1000; i++) {
             reportBuilder.add(new FlatTableBuilder(ScenarioFormatedValues.INPUT)
@@ -175,53 +204,11 @@ public class TestDefaultReport {
     }
     
     @Test
-    public void testImbricatedHtmlComponents() throws IOException {
-        ReportBuilder reportBuilder =
-            new ReportBuilder(new HtmlReportOutput(new FileWriter("./target/TestImbricatedComponents.html"),
-                                                 true,
-                                                 new HtmlOutputFormat()));
-        
-        Paragraph paragraph = new Paragraph("this paragraph contains two components: one table and another paragraph"); 
-        paragraph.addComponent(new FlatTableBuilder(ScenarioFormatedValues.INPUT)
-                               .showTotals(true)
-                               .showGrandTotal(true)
-                               .groupColumns(ScenarioFormatedValues.GROUP_COLUMNS)
-                               .dataColumns(ScenarioFormatedValues.DATA_COLUMNS)
-                               .build());
-        paragraph.addComponent(new Paragraph("end of paragraph"));
-        reportBuilder.add(new ReportTitle("Testing several imbricated components"));
-        reportBuilder.add(paragraph);
-
-        reportBuilder.build().execute();
-    }
-    
-    @Test
-    public void testImbricatedExcelComponents() throws IOException {
-        ReportBuilder reportBuilder =
-            new ReportBuilder(new ExcelXmlReportOutput(new FileWriter("./target/TestImbricatedComponents.xml"),
-                                                 true,
-                                                 new ExcelXmlOutputFormat()));
-        
-        Paragraph paragraph = new Paragraph("this paragraph contains two components: one table and another paragraph"); 
-        paragraph.addComponent(new FlatTableBuilder(ScenarioFormatedValues.INPUT)
-                               .showTotals(true)
-                               .showGrandTotal(true)
-                               .groupColumns(ScenarioFormatedValues.GROUP_COLUMNS)
-                               .dataColumns(ScenarioFormatedValues.DATA_COLUMNS)
-                               .build());
-        paragraph.addComponent(new Paragraph("end of paragraph"));
-        reportBuilder.add(new ReportTitle("Testing several imbricated components"));
-        reportBuilder.add(paragraph);
-
-        reportBuilder.build().execute();
-    }
-    
-    @Test
     public void testOutputOpenInCaseOfError() throws IOException {
         StringWriter testWriter = new StringWriter();
         MockReportOutput mockOutput = new MockReportOutput(testWriter);
         try {
-            new ReportBuilder(mockOutput).add(new ReportTitle("test output open"))
+            new ReportBuilder(mockOutput).add(new Paragraph("test output open", HorizAlign.CENTER))
                                          .add(new FlatTableBuilder(null).build())
                                          .build()
                                          .execute();

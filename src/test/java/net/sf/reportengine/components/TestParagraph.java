@@ -17,10 +17,7 @@ public class TestParagraph {
     
     private Paragraph componentUnderTest; 
     
-    private final static String EXPECTED_OUTPUT_EMPTY_PARAGRAPH = 
-            "paragraph" +LINE_SEPARATOR +
-            LINE_SEPARATOR +
-            "end paragraph"+LINE_SEPARATOR; 
+    private final static String EXPECTED_OUTPUT_EMPTY_PARAGRAPH = "paragraph " +LINE_SEPARATOR;
     
     @Test
     public void testOutputEmptyParagraph() {
@@ -34,10 +31,7 @@ public class TestParagraph {
     }
     
     
-    private final static String EXPECTED_OUTPUT_PARAGRAPH_WITH_TEXT = 
-            "paragraph" + LINE_SEPARATOR +
-            "unit test" + LINE_SEPARATOR +
-            "end paragraph" + LINE_SEPARATOR;
+    private final static String EXPECTED_OUTPUT_PARAGRAPH_WITH_TEXT = "paragraph unit test" + LINE_SEPARATOR ; 
     
     @Test
     public void testOutputParagraphWithText() {
@@ -50,68 +44,20 @@ public class TestParagraph {
         assertEquals(EXPECTED_OUTPUT_PARAGRAPH_WITH_TEXT, testWriter.getBuffer().toString());
     }
     
-    private final static String EXPECTED_OUTPUT_ENCLOSED_EMPTY_PARAGRAPHS = 
-            "paragraph" +LINE_SEPARATOR +
-            LINE_SEPARATOR +
-            "paragraph" +LINE_SEPARATOR +
-            LINE_SEPARATOR +
-            "end paragraph"+LINE_SEPARATOR+
-            "paragraph" +LINE_SEPARATOR +
-            LINE_SEPARATOR +
-            "end paragraph"+LINE_SEPARATOR+
-            "end paragraph"+LINE_SEPARATOR;
-    
-    @Test
-    public void testOutputEnclosedEmptyParagraphs() {
-        StringWriter testWriter = new StringWriter(); 
-        MockReportOutput testOutput = new MockReportOutput(testWriter); 
-        componentUnderTest = new Paragraph();
-        componentUnderTest.addComponent(new Paragraph());
-        componentUnderTest.addComponent(new Paragraph());
-        testOutput.open();
-        componentUnderTest.output(testOutput);
-        testOutput.close();
-        assertEquals(EXPECTED_OUTPUT_ENCLOSED_EMPTY_PARAGRAPHS, testWriter.getBuffer().toString());
-    }
-    
-    private final static String EXPECTED_OUTPUT_ENCLOSED_PARAGRAPHS_WITH_TEXT = 
-            "paragraph" +LINE_SEPARATOR +
-            LINE_SEPARATOR +
-            "paragraph" +LINE_SEPARATOR +
-            "unit test line 1"+LINE_SEPARATOR +
-            "end paragraph"+LINE_SEPARATOR+
-            "paragraph" +LINE_SEPARATOR +
-            "unit test line 2" +LINE_SEPARATOR +
-            "end paragraph"+LINE_SEPARATOR+
-            "end paragraph"+LINE_SEPARATOR;
-    
-    @Test
-    public void testOutputEnclosedParagraphsWithText() {
-        StringWriter testWriter = new StringWriter(); 
-        MockReportOutput testOutput = new MockReportOutput(testWriter); 
-        componentUnderTest = new Paragraph();
-        componentUnderTest.addComponent(new Paragraph("unit test line 1"));
-        componentUnderTest.addComponent(new Paragraph("unit test line 2"));
-        testOutput.open();
-        componentUnderTest.output(testOutput);
-        testOutput.close();
-        assertEquals(EXPECTED_OUTPUT_ENCLOSED_PARAGRAPHS_WITH_TEXT, testWriter.getBuffer().toString());
-    }
-    
     public final static String EXPECTED_HTML_OUT = 
             "<p style=\"text-align:left\">"+LINE_SEPARATOR+
             "unit test"+LINE_SEPARATOR+
-            "</p>";
+            "</p>"+LINE_SEPARATOR;
     
     public final static String EXPECTED_FO_OUT = 
             "<fo:block text-align=\"left\">"+LINE_SEPARATOR+
             "unit test"+LINE_SEPARATOR+
-            "</fo:block>";
+            "</fo:block>"+LINE_SEPARATOR ;
     
     public final static String EXPECTED_EXCEL_OUT = 
             "<Row>"+LINE_SEPARATOR+
             "<Cell><Data ss:Type=\"String\">unit test</Data></Cell>"+LINE_SEPARATOR+
-            "</Row>";
+            "</Row>"+LINE_SEPARATOR;
     
     @Test
     public void testHtmlFoAndExcelParagraphWithText(){

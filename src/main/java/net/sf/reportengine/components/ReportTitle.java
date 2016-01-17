@@ -21,6 +21,7 @@ import net.sf.reportengine.config.HorizAlign;
  * This is the title of a report
  * 
  * @author dragos balan
+ * @deprecated use Paragraph instead. This component will be removed in 1.0
  */
 public final class ReportTitle extends DefaultReportComponent<ParagraphProps> {
 	
