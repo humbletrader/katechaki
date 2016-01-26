@@ -9,10 +9,13 @@ Well, the former reportengine.sourceforge.net has been revived while I was stayi
 # What java version is Katechaki designed for? 
 Java 6 or higher
 
+# Download
+* Download the full bundle from [here](http://sourceforge.net/projects/reportengine/)
+
 # Documentation
 * A complete tutorial can be found [here](http://reportengine.sourceforge.net/html/tutorial/reportengine_tutorial.htm)
 * The javadoc is [here](http://reportengine.sourceforge.net/html/apidocs/index.html)
 * The project's [website](http://reportengine.sourceforge.net/)
 
-#Limitations
+# Limitations
 * Katechaki does not have a chart component (but I encourage you to create a report component for charts)
