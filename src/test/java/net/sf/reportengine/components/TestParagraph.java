@@ -17,7 +17,7 @@ public class TestParagraph {
     
     private Paragraph componentUnderTest; 
     
-    private final static String EXPECTED_OUTPUT_EMPTY_PARAGRAPH = "paragraph " +LINE_SEPARATOR;
+    private final static String EXPECTED_OUTPUT_EMPTY_PARAGRAPH = "paragraph ";
     
     @Test
     public void testOutputEmptyParagraph() {
@@ -31,7 +31,7 @@ public class TestParagraph {
     }
     
     
-    private final static String EXPECTED_OUTPUT_PARAGRAPH_WITH_TEXT = "paragraph unit test" + LINE_SEPARATOR ; 
+    private final static String EXPECTED_OUTPUT_PARAGRAPH_WITH_TEXT = "paragraph unit test"; 
     
     @Test
     public void testOutputParagraphWithText() {
