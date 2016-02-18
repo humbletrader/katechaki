@@ -43,6 +43,9 @@ import org.slf4j.LoggerFactory;
  */
 public final class ReportIoUtils {
 	
+	/**
+	 * the one and only logger
+	 */
 	private static final Logger LOGGER = LoggerFactory.getLogger(ReportIoUtils.class);
 	
 	/**
@@ -59,6 +62,12 @@ public final class ReportIoUtils {
 	 * the default system line separator
 	 */
 	public final static String LINE_SEPARATOR = System.getProperty("line.separator");
+	
+	/**
+	 * the line separator used inside the ftl templates. 
+	 * This is useful inside assert statements in unit tests. 
+	 */
+	public final static String FM_TEMPLATES_LINE_SEPARATOR = "\r\n"; 
 	
 	/**
 	 * 
