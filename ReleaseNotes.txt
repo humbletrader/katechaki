@@ -1,8 +1,10 @@
-ReportEngine 0.13.2
+ReportEngine 0.14.0
 ----------------------------------------------------------------
 Bugfixes: 
-1. All Table inputs closed
+1. Font configuration no longer depends on the operating system
 
 New features: 
-1. Improvements in the engine
-2. Temporary files programatically deleted when the engine finishes ( this is server friendly)
+1. Changed default font (from Arial Unicode MS to NotoSans)
+2. New report component added Paragraph 
+3. ReportTitle component deprecated (replaced by Paragraph)
+

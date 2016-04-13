@@ -8,7 +8,7 @@
 				border-left-style="solid"
 				border-right-style="solid">				 									
 		 			<fo:block 	color="white"
-		 						font-family="ArialUnicodeMS" 
+		 						font-family="NotoSans" 
 								font-size="12pt"
 								font-style="normal" 
 								font-weight="normal"

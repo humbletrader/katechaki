@@ -44,6 +44,8 @@ import net.sf.reportengine.scenarios.ScenarioFormatedValues;
 import net.sf.reportengine.scenarios.ct.CtScenario2x2x1With1G1D;
 import net.sf.reportengine.scenarios.ct.CtScenarioFormatting4x3x1;
 
+import static net.sf.reportengine.util.ReportIoUtils.FM_TEMPLATES_LINE_SEPARATOR;
+
 public class TestDefaultReport {
 
     @Before
@@ -51,34 +53,34 @@ public class TestDefaultReport {
     }
     
     private static final String EXPECTED_OUTPUT_TEST_TWO_COMPONENTS = 
-            "startReport" + SystemUtils.LINE_SEPARATOR + 
-            "paragraph unit test" + SystemUtils.LINE_SEPARATOR + 
-            "start table" + SystemUtils.LINE_SEPARATOR + 
-            "start header row" + SystemUtils.LINE_SEPARATOR + 
-            "[HeaderCell cspan=1 value=col 3 hAlign=CENTER vAlign=MIDDLE][HeaderCell cspan=1 value=col 4 hAlign=CENTER vAlign=MIDDLE][HeaderCell cspan=1 value=col 5 hAlign=CENTER vAlign=MIDDLE]" + SystemUtils.LINE_SEPARATOR + 
-            "end header row" + SystemUtils.LINE_SEPARATOR + 
-            "startRow 0" + SystemUtils.LINE_SEPARATOR + 
-            "[Cell cspan=1 value=4][Cell cspan=1 value=5][Cell cspan=1 value=6]" + SystemUtils.LINE_SEPARATOR + 
-            "endRow" + SystemUtils.LINE_SEPARATOR + 
-            "startRow 1" + SystemUtils.LINE_SEPARATOR + 
-            "[Cell cspan=1 value=3][Cell cspan=1 value=3][Cell cspan=1 value=3]" + SystemUtils.LINE_SEPARATOR + 
-            "endRow" + SystemUtils.LINE_SEPARATOR + 
-            "startRow 2" + SystemUtils.LINE_SEPARATOR + 
-            "[Cell cspan=1 value=2][Cell cspan=1 value=2][Cell cspan=1 value=2]" + SystemUtils.LINE_SEPARATOR + 
-            "endRow" + SystemUtils.LINE_SEPARATOR + 
-            "startRow 3" + SystemUtils.LINE_SEPARATOR + 
-            "[Cell cspan=1 value=1][Cell cspan=1 value=1][Cell cspan=1 value=1]" + SystemUtils.LINE_SEPARATOR + 
-            "endRow" + SystemUtils.LINE_SEPARATOR + 
-            "startRow 4" + SystemUtils.LINE_SEPARATOR + 
-            "[Cell cspan=1 value=1][Cell cspan=1 value=1][Cell cspan=1 value=1]" + SystemUtils.LINE_SEPARATOR + 
-            "endRow" + SystemUtils.LINE_SEPARATOR + 
-            "startRow 5" + SystemUtils.LINE_SEPARATOR + 
-            "[Cell cspan=1 value=1][Cell cspan=1 value=7][Cell cspan=1 value=1]" + SystemUtils.LINE_SEPARATOR + 
-            "endRow" + SystemUtils.LINE_SEPARATOR + 
-            "startRow 6" + SystemUtils.LINE_SEPARATOR + 
-            "[Cell cspan=1 value= ][Cell cspan=1 value=6][Cell cspan=1 value=14]" + SystemUtils.LINE_SEPARATOR + 
-            "endRow" + SystemUtils.LINE_SEPARATOR + 
-            "end table" + SystemUtils.LINE_SEPARATOR + 
+            "startReport" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "paragraph unit test" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "start table" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "start header row" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "[HeaderCell cspan=1 value=col 3 hAlign=CENTER vAlign=MIDDLE][HeaderCell cspan=1 value=col 4 hAlign=CENTER vAlign=MIDDLE][HeaderCell cspan=1 value=col 5 hAlign=CENTER vAlign=MIDDLE]" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "end header row" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "startRow 0" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "[Cell cspan=1 value=4][Cell cspan=1 value=5][Cell cspan=1 value=6]" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "endRow" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "startRow 1" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "[Cell cspan=1 value=3][Cell cspan=1 value=3][Cell cspan=1 value=3]" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "endRow" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "startRow 2" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "[Cell cspan=1 value=2][Cell cspan=1 value=2][Cell cspan=1 value=2]" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "endRow" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "startRow 3" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "[Cell cspan=1 value=1][Cell cspan=1 value=1][Cell cspan=1 value=1]" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "endRow" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "startRow 4" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "[Cell cspan=1 value=1][Cell cspan=1 value=1][Cell cspan=1 value=1]" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "endRow" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "startRow 5" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "[Cell cspan=1 value=1][Cell cspan=1 value=7][Cell cspan=1 value=1]" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "endRow" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "startRow 6" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "[Cell cspan=1 value= ][Cell cspan=1 value=6][Cell cspan=1 value=14]" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "endRow" + FM_TEMPLATES_LINE_SEPARATOR + 
+            "end table" + FM_TEMPLATES_LINE_SEPARATOR + 
             "end report";
     
     @Test

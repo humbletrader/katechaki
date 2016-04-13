@@ -5,9 +5,10 @@
   <!-- Base URL for resolving relative URLs -->
   <base>.</base>
   
-  <!-- Font Base URL for resolving relative font URLs   -->
+  <!-- Font Base URL for resolving relative font URLs  
   <font-base>c:/Windows/Fonts</font-base>
-
+   -->
+  <font-base>.</font-base>
   
   <!-- Source resolution in dpi (dots/pixels per inch) for determining the size of pixels in SVG and bitmap images, default: 72dpi -->
   <source-resolution>72</source-resolution>
@@ -71,16 +72,17 @@
         </font>
         -->
         
-	<!-- -->
-	<font kerning="yes" embed-url="ARIALUNI.TTF">
+	<!-- a good option for windows is ARIALUNI.TTF -->
+	<font kerning="yes" embed-url="NotoSans-Regular.ttf">
 		<!--<font-triplet name="ArialUnicodeMS" style="normal" weight="normal"/>-->
-		<font-triplet name="ArialUnicodeMS" style="normal" weight="normal"/>
+		<font-triplet name="NotoSans" style="normal" weight="normal"/>
          </font>
 	
 	
-	<!-- automatically detect operating system installed fonts and classpath fonts
+	<!-- automatically detect operating system installed fonts and classpath fonts 
 	<auto-detect/>  
 	-->
+	
         
       </fonts>
 

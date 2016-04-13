@@ -17,7 +17,7 @@
       	<fo:page-sequence master-reference="report">
       		<fo:flow flow-name="xsl-region-body">
 				<#-- this is for later use
-				<fo:block 	font-family="ArialUnicodeMS" 
+				<fo:block 	font-family="NotoSans" 
 						font-size="24pt" 
 						font-style="normal" 
 						space-after="5mm"

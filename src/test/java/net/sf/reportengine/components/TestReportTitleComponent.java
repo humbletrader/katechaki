@@ -36,6 +36,6 @@ public class TestReportTitleComponent {
 		testOutput.open();
 		componentUnderTest.output(testOutput);
 		testOutput.close();
-		assertEquals("title unit test"+SystemUtils.LINE_SEPARATOR, testWriter.getBuffer().toString()); 
+		assertEquals("title unit test", testWriter.getBuffer().toString()); 
 	}
 }
