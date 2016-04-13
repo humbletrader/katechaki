@@ -76,7 +76,7 @@
 	<font kerning="yes" embed-url="NotoSans-Regular.ttf">
 		<!--<font-triplet name="ArialUnicodeMS" style="normal" weight="normal"/>-->
 		<font-triplet name="NotoSans" style="normal" weight="normal"/>
-         </font>
+        </font>
 	
 	
 	<!-- automatically detect operating system installed fonts and classpath fonts 
