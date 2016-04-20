@@ -63,9 +63,9 @@ public class TestParagraph {
     }
     
     public final static String EXPECTED_FO_OUT = 
-            "<fo:block text-align=\"left\">"+FM_TEMPLATES_LINE_SEPARATOR+
+    		"<fo:block color=\"black\" font-family=\"NotoSans\" font-size=\"12pt\" font-style=\"normal\" font-weight=\"normal\" margin-left=\"10pt\" text-align=\"left\">"+FM_TEMPLATES_LINE_SEPARATOR+
             "unit test"+FM_TEMPLATES_LINE_SEPARATOR+
-            "</fo:block>"+FM_TEMPLATES_LINE_SEPARATOR ;
+            "</fo:block>"+FM_TEMPLATES_LINE_SEPARATOR;
     
     @Test
     public void testFoParagraphWithText(){

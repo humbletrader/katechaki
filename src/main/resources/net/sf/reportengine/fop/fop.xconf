@@ -72,11 +72,12 @@
         </font>
         -->
         
-	<!-- a good option for windows is ARIALUNI.TTF -->
+	<!-- a good font for windows (with unicode support) is ARIALUNI.TTF but NotoSans
+	is a free font with unicode suport -->
 	<font kerning="yes" embed-url="NotoSans-Regular.ttf">
 		<!--<font-triplet name="ArialUnicodeMS" style="normal" weight="normal"/>-->
 		<font-triplet name="NotoSans" style="normal" weight="normal"/>
-         </font>
+    </font>
 	
 	
 	<!-- automatically detect operating system installed fonts and classpath fonts 
@@ -448,11 +449,21 @@
 
     <renderer mime="image/png">
       <!--transparent-page-background>true</transparent-page-background-->
+      <fonts>
+      	<font kerning="yes" embed-url="NotoSans-Regular.ttf">
+			<font-triplet name="NotoSans" style="normal" weight="normal"/>
+    	</font>
+      </fonts>
     </renderer>
 
     <renderer mime="image/tiff">
       <!--transparent-page-background>true</transparent-page-background-->
       <!--compression>CCITT T.6</compression-->
+      <fonts>
+      	<font kerning="yes" embed-url="NotoSans-Regular.ttf">
+			<font-triplet name="NotoSans" style="normal" weight="normal"/>
+    	</font>
+      </fonts>
     </renderer>
 
     <renderer mime="text/xml">

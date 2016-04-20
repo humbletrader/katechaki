@@ -180,26 +180,16 @@ public class TestPivotTable extends TestCase {
             new HtmlReportOutput(new FileWriter("target/Pivot3x2x1xT.html"));
         reportOutput.open();
 
-        new PivotTableBuilder(new TextTableInput(ReportIoUtils.createInputStreamFromClassPath("3x2x1.txt"),
-                                                 ",")).addGroupColumn(new DefaultGroupColumn.Builder(0).header("Country")
-                                                                                                       .build())
-                                                      .addGroupColumn(new DefaultGroupColumn.Builder(1).header("Region")
-                                                                                                       .build())
-
-                                                      .addDataColumn(new DefaultDataColumn("City",
-                                                                                           2,
-                                                                                           GroupCalculators.COUNT))
-
-                                                      .addHeaderRow(new DefaultPivotHeaderRow(3))
-                                                      .addHeaderRow(new DefaultPivotHeaderRow(4))
-
-                                                      .pivotData(new DefaultPivotData(5,
-                                                                                      GroupCalculators.SUM))
-
-                                                      .showTotals(true)
-                                                      .showGrandTotal(true)
-                                                      .build()
-                                                      .output(reportOutput);
+        new PivotTableBuilder(new TextTableInput(ReportIoUtils.createInputStreamFromClassPath("3x2x1.txt"),","))
+        	.addGroupColumn(new DefaultGroupColumn.Builder(0).header("Country").build())
+        	.addGroupColumn(new DefaultGroupColumn.Builder(1).header("Region").build())
+        	.addDataColumn(new DefaultDataColumn("City", 2, GroupCalculators.COUNT))
+        	.addHeaderRow(new DefaultPivotHeaderRow(3))
+        	.addHeaderRow(new DefaultPivotHeaderRow(4))
+        	.pivotData(new DefaultPivotData(5,GroupCalculators.SUM))                                                      .showTotals(true)
+        	.showGrandTotal(true)
+        	.build()
+        	.output(reportOutput);
 
         reportOutput.close();
     }

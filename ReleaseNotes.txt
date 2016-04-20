@@ -5,6 +5,6 @@ Bugfixes:
 
 New features: 
 1. Changed default font (from Arial Unicode MS to NotoSans)
-2. New report component added Paragraph 
+2. New report component: Paragraph 
 3. ReportTitle component deprecated (replaced by Paragraph)
 

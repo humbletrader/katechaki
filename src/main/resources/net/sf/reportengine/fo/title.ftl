@@ -1,4 +1,5 @@
-<fo:block color="black" 
+<fo:block 
+		color="black" 
 		font-family="NotoSans" 
 		font-size="12pt" 
 		font-style="normal" 

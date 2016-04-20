@@ -35,7 +35,7 @@ import net.sf.reportengine.util.AlgoIOKeys;
 import org.junit.Test;
 
 /**
- * @author dragos
+ * @author dragos balan
  *
  */
 public class TestColumnHeaderOutputInitStep  {
