@@ -79,7 +79,6 @@
 		<font-triplet name="NotoSans" style="normal" weight="normal"/>
     </font>
 	
-	
 	<!-- automatically detect operating system installed fonts and classpath fonts 
 	<auto-detect/>  
 	-->

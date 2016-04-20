@@ -1,4 +1,46 @@
-#eclipse project files
-/.project
-/.classpath
-/.settings/**
+# Compiled source #
+###################
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.war
+*.ear
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+
+# Eclipse cfg files  #
+######################
+.project
+.classpath
+.settings/
+bin/
+build/
+
+# Idea cfg files     #
+######################
+*.iml
+.idea
+*.ipr
+*.iws
+/out/
+
+# Maven specific     #
+######################
+target/*
