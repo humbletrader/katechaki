@@ -209,7 +209,7 @@ public final class ReportIoUtils {
 	public static Reader createReaderFromClassPath(String classPath, String encoding){
 		try {
 			return new InputStreamReader(
-					ClassLoader.getSystemResourceAsStream(classPath), 
+					ReportIoUtils.class.getClassLoader().getResourceAsStream(classPath), 
 					encoding);
 		} catch (UnsupportedEncodingException e) {
 			throw new ReportEngineRuntimeException(e); 
@@ -222,7 +222,7 @@ public final class ReportIoUtils {
 	 * @return
 	 */
 	public static InputStream createInputStreamFromClassPath(String classPath){
-		return ClassLoader.getSystemResourceAsStream(classPath); 
+		return ReportIoUtils.class.getClassLoader().getResourceAsStream(classPath); 
 	}
 	
 	
