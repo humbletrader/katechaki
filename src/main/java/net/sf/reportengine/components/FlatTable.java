@@ -102,7 +102,7 @@ import net.sf.reportengine.out.ReportOutput;
  *  reportOutput.open(); 
  *  flatTable.output(reportOutput); 
  *  reportOuptut.close(); 
- *  }
+ *  }`
  * </pre>
  * </p>
  * 

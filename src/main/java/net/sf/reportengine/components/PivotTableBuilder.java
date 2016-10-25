@@ -24,6 +24,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.sf.reportengine.config.DataColumn;
+import net.sf.reportengine.config.DefaultDataColumn;
+import net.sf.reportengine.config.DefaultGroupColumn;
 import net.sf.reportengine.config.GroupColumn;
 import net.sf.reportengine.config.PivotData;
 import net.sf.reportengine.config.PivotHeaderRow;
@@ -128,7 +130,12 @@ public class PivotTableBuilder {
             }
         }
     }
-
+    
+    public PivotTableBuilder addDataColumn(int columnIndex){
+    	return addDataColumn(new DefaultDataColumn.Builder(columnIndex).build()); 
+    			
+    }
+    
     public PivotTableBuilder addDataColumn(DataColumn dataCol) {
         internalAddDataColumn(dataCol);
         return this;
@@ -138,7 +145,11 @@ public class PivotTableBuilder {
         this.groupColumns = groupCols;
         return this;
     }
-
+    
+    public PivotTableBuilder addGroupColumn(int columnIndex){
+    	return addGroupColumn(new DefaultGroupColumn.Builder(columnIndex).build()); 
+    }
+    
     public PivotTableBuilder addGroupColumn(GroupColumn groupCol) {
         this.groupColumns.add(groupCol);
         return this;
