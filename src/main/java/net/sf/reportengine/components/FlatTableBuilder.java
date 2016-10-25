@@ -23,6 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.sf.reportengine.config.DataColumn;
+import net.sf.reportengine.config.DefaultDataColumn;
+import net.sf.reportengine.config.DefaultGroupColumn;
 import net.sf.reportengine.config.GroupColumn;
 import net.sf.reportengine.in.TableInput;
 import net.sf.reportengine.util.UserRequestedBoolean;
@@ -33,7 +35,7 @@ import net.sf.reportengine.util.UserRequestedBoolean;
  * The typical usage is: 
  * <pre>
  * {@code
- *     FlatTable flatTable = new FlatTableBuilder(new TextTableInput("./input/blah.csv", ","))
+ *     FlatTable flatTable = new FlatTableBuilder(new TextTableInput("./input/employees.csv", ","))
  *              .addGroupColumn(...)
  *              .addGroupColumn(...)    
  *              .addDataColumn(...)
@@ -48,8 +50,8 @@ import net.sf.reportengine.util.UserRequestedBoolean;
  * @since 0.13
  */
 public class FlatTableBuilder {
-
-    private UserRequestedBoolean showTotals = UserRequestedBoolean.FALSE_NOT_REQUESTED_BY_USER;
+	
+	private UserRequestedBoolean showTotals = UserRequestedBoolean.FALSE_NOT_REQUESTED_BY_USER;
 
     private UserRequestedBoolean showGrandTotal = UserRequestedBoolean.FALSE_NOT_REQUESTED_BY_USER;
 
@@ -72,34 +74,70 @@ public class FlatTableBuilder {
     public FlatTableBuilder(TableInput input) {
         this.tableInput = input;
     }
-
+    
+    /**
+     * instructs the builder to show the totals in accordance with the show parameter
+     * 
+     * @param show	true or false
+     * @return	this builder
+     */
     public FlatTableBuilder showTotals(boolean show) {
         this.showTotals = show ? TRUE_REQUESTED_BY_USER : FALSE_REQUESTED_BY_USER;
         return this;
     }
-
+    
+    /**
+     * shows the totals
+     * 
+     * @return
+     */
     public FlatTableBuilder showTotals() {
         return showTotals(true);
     }
-
+    
+    /**
+     * shows the grand total in accordance with the show parameter
+     * 
+     * @param show	true or false
+     * @return
+     */
     public FlatTableBuilder showGrandTotal(boolean show) {
         this.showGrandTotal = show ? TRUE_REQUESTED_BY_USER : FALSE_REQUESTED_BY_USER;
         return this;
     }
-
+    
+    /**
+     * shows the grand total
+     * 
+     * @return
+     */
     public FlatTableBuilder showGrandTotal() {
         return showGrandTotal(true);
     }
-
+    
+    /**
+     * shows the data rows as per the given flag
+     * 
+     * @param show
+     * @return
+     */
     public FlatTableBuilder showDataRows(boolean show) {
         this.showDataRows = show;
         return this;
     }
-
+    
+    /**
+     * shows the data rows
+     * @return
+     */
     public FlatTableBuilder showDataRows() {
         return showDataRows(true);
     }
-
+    
+    /**
+     * sorts the values 
+     * @return
+     */
     public FlatTableBuilder sortValues() {
         this.valuesSorted = false;
         return this;
@@ -138,29 +176,75 @@ public class FlatTableBuilder {
             // else we keep the user value
         }
     }
-
+    
+    /**
+     * adds the given data column to the table
+     * 
+     * @param columnIndex	the index of the column (counted from zero in the input)
+     * @return
+     */
+    public FlatTableBuilder addDataColumn(int columnIndex){
+    	return addDataColumn(new DefaultDataColumn.Builder(columnIndex).build());
+    }
+    
+    /**
+     * adds the given data column to the table
+     * 
+     * @param dataCol
+     * @return
+     */
     public FlatTableBuilder addDataColumn(DataColumn dataCol) {
         internalAddDataColumn(dataCol);
         return this;
     }
-
+    
+    /**
+     * adds the given list of columns to the table
+     * 
+     * @param dataCols
+     * @return
+     */
     public FlatTableBuilder dataColumns(List<DataColumn> dataCols) {
         for (DataColumn dataColumn : dataCols) {
             internalAddDataColumn(dataColumn);
         }
         return this;
     }
-
+    
+    /**
+     * adds the given columns to the table
+     * @param groupCols
+     * @return
+     */
     public FlatTableBuilder groupColumns(List<GroupColumn> groupCols) {
         this.groupColumns = groupCols;
         return this;
     }
-
+    
+    /**
+     * adds a group column to the table (the column is referenced by its zero-based index)
+     * 
+     * @param columnIndex
+     * @return
+     */
+    public FlatTableBuilder addGroupColumn(int columnIndex){
+    	return addGroupColumn(new DefaultGroupColumn.Builder(columnIndex).build()); 
+    }
+    
+    /**
+     * adds the given group column to the report
+     * @param groupCol
+     * @return
+     */
     public FlatTableBuilder addGroupColumn(GroupColumn groupCol) {
         this.groupColumns.add(groupCol);
         return this;
     }
-
+    
+    /**
+     * builds the flat table based on the parameters provided by the user of this class
+     * @return
+     */
     public FlatTable build() {
         return new DefaultFlatTable(tableInput,
                                     dataColumns,

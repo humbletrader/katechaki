@@ -184,10 +184,10 @@ public class TestFlatTable {
         assertNotNull(inputStream);
 
         new FlatTableBuilder(new TextTableInput(inputStream, ",", "UTF-8"))
-            .addDataColumn(new DefaultDataColumn(0))
-            .addDataColumn(new DefaultDataColumn(1))
-            .addDataColumn(new DefaultDataColumn(2))
-            .addDataColumn(new DefaultDataColumn(3))
+            .addDataColumn(0)
+            .addDataColumn(1)
+            .addDataColumn(2)
+            .addDataColumn(3)
             .build()
             .output(reportOutput);
 

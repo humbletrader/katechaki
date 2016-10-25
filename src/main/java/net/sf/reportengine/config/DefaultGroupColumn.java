@@ -211,6 +211,11 @@ public class DefaultGroupColumn extends AbstractGroupColumn {
 		.toString(); 
 	}
 	
+	/**
+	 * a fluent builder for default group columns
+	 * 
+	 * @author dragos balan
+	 */
 	public static class Builder{
 		private int columnIndex; 
 		private String header; 

@@ -237,6 +237,12 @@ public class DefaultDataColumn extends AbstractDataColumn {
 		return result.toString(); 
 	}
 	
+	/**
+	 * a fluent builder for default data columns 
+	 * 
+	 * @author dragos balan
+	 *
+	 */
 	public static class Builder{
 		
 		private int columnIndex; 
