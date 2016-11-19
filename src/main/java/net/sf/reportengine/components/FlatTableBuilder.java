@@ -15,9 +15,9 @@
  */
 package net.sf.reportengine.components;
 
-import static net.sf.reportengine.util.UserRequestedBoolean.FALSE_REQUESTED_BY_USER;
-import static net.sf.reportengine.util.UserRequestedBoolean.TRUE_NOT_REQUESTED_BY_USER;
-import static net.sf.reportengine.util.UserRequestedBoolean.TRUE_REQUESTED_BY_USER;
+import static net.sf.reportengine.util.UserProvidedBoolean.FALSE_PROVIDED_BY_USER;
+import static net.sf.reportengine.util.UserProvidedBoolean.TRUE_NOT_PROVIDED_BY_USER;
+import static net.sf.reportengine.util.UserProvidedBoolean.TRUE_PROVIDED_BY_USER;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ import net.sf.reportengine.config.DefaultDataColumn;
 import net.sf.reportengine.config.DefaultGroupColumn;
 import net.sf.reportengine.config.GroupColumn;
 import net.sf.reportengine.in.TableInput;
-import net.sf.reportengine.util.UserRequestedBoolean;
+import net.sf.reportengine.util.UserProvidedBoolean;
 
 /**
  * <p>Builder for a {@link FlatTable} component</p>
@@ -51,16 +51,16 @@ import net.sf.reportengine.util.UserRequestedBoolean;
  */
 public class FlatTableBuilder {
 	
-	private UserRequestedBoolean showTotals = UserRequestedBoolean.FALSE_NOT_REQUESTED_BY_USER;
+	private UserProvidedBoolean showTotals = UserProvidedBoolean.FALSE_NOT_PROVIDED_BY_USER;
 
-    private UserRequestedBoolean showGrandTotal = UserRequestedBoolean.FALSE_NOT_REQUESTED_BY_USER;
+    private UserProvidedBoolean showGrandTotal = UserProvidedBoolean.FALSE_NOT_PROVIDED_BY_USER;
 
     private boolean showDataRows = true;
 
     private boolean valuesSorted = true;
 
     private TableInput tableInput = null;
-
+    
     private List<DataColumn> dataColumns = new ArrayList<DataColumn>();
 
     private List<GroupColumn> groupColumns = new ArrayList<GroupColumn>();
@@ -82,7 +82,7 @@ public class FlatTableBuilder {
      * @return	this builder
      */
     public FlatTableBuilder showTotals(boolean show) {
-        this.showTotals = show ? TRUE_REQUESTED_BY_USER : FALSE_REQUESTED_BY_USER;
+        this.showTotals = show ? TRUE_PROVIDED_BY_USER : FALSE_PROVIDED_BY_USER;
         return this;
     }
     
@@ -102,7 +102,7 @@ public class FlatTableBuilder {
      * @return
      */
     public FlatTableBuilder showGrandTotal(boolean show) {
-        this.showGrandTotal = show ? TRUE_REQUESTED_BY_USER : FALSE_REQUESTED_BY_USER;
+        this.showGrandTotal = show ? TRUE_PROVIDED_BY_USER : FALSE_PROVIDED_BY_USER;
         return this;
     }
     
@@ -143,12 +143,6 @@ public class FlatTableBuilder {
         return this;
     }
 
-    @Deprecated
-    public FlatTableBuilder input(TableInput input) {
-        this.tableInput = input;
-        return this;
-    }
-
     /**
      * adds the data column to the internal list of data columns and checks if
      * there is any calculator assigned to it. If there is a calculator then the
@@ -159,21 +153,19 @@ public class FlatTableBuilder {
      */
     private void internalAddDataColumn(DataColumn dataCol) {
         this.dataColumns.add(dataCol);
+        
         if (dataCol.getCalculator() != null) {
-
-            // if the user didn't requested to show totals
-            if (!showTotals.isRequestedByUser()) {
-                this.showTotals = TRUE_NOT_REQUESTED_BY_USER;
+            // if the user didn't request to show totals
+            if (!showTotals.isValueProvidedByUser()) {
+                this.showTotals = TRUE_NOT_PROVIDED_BY_USER;
             }
-            // else ( the user requested a specific value for the
-            // showTotals)
-            // we keep that value
+            // else the user requested a specific value for the showTotals
+            // and we keep that value
 
             // if the user didn't requested to show the grand total
-            if (!showGrandTotal.isRequestedByUser()) {
-                this.showGrandTotal = TRUE_NOT_REQUESTED_BY_USER;
-            }
-            // else we keep the user value
+            if (!showGrandTotal.isValueProvidedByUser()) {
+                this.showGrandTotal = TRUE_NOT_PROVIDED_BY_USER;
+            }// else we keep the value provided by the user
         }
     }
     

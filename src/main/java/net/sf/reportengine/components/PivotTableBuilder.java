@@ -15,10 +15,10 @@
  */
 package net.sf.reportengine.components;
 
-import static net.sf.reportengine.util.UserRequestedBoolean.FALSE_NOT_REQUESTED_BY_USER;
-import static net.sf.reportengine.util.UserRequestedBoolean.FALSE_REQUESTED_BY_USER;
-import static net.sf.reportengine.util.UserRequestedBoolean.TRUE_NOT_REQUESTED_BY_USER;
-import static net.sf.reportengine.util.UserRequestedBoolean.TRUE_REQUESTED_BY_USER;
+import static net.sf.reportengine.util.UserProvidedBoolean.FALSE_NOT_PROVIDED_BY_USER;
+import static net.sf.reportengine.util.UserProvidedBoolean.FALSE_PROVIDED_BY_USER;
+import static net.sf.reportengine.util.UserProvidedBoolean.TRUE_NOT_PROVIDED_BY_USER;
+import static net.sf.reportengine.util.UserProvidedBoolean.TRUE_PROVIDED_BY_USER;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,7 @@ import net.sf.reportengine.config.GroupColumn;
 import net.sf.reportengine.config.PivotData;
 import net.sf.reportengine.config.PivotHeaderRow;
 import net.sf.reportengine.in.TableInput;
-import net.sf.reportengine.util.UserRequestedBoolean;
+import net.sf.reportengine.util.UserProvidedBoolean;
 
 /**
  * <p>Builder for a {@link PivotTable} component</p>
@@ -49,8 +49,8 @@ import net.sf.reportengine.util.UserRequestedBoolean;
  */
 public class PivotTableBuilder {
 
-    private UserRequestedBoolean showTotals = FALSE_NOT_REQUESTED_BY_USER;
-    private UserRequestedBoolean showGrandTotal = FALSE_NOT_REQUESTED_BY_USER;
+    private UserProvidedBoolean showTotals = FALSE_NOT_PROVIDED_BY_USER;
+    private UserProvidedBoolean showGrandTotal = FALSE_NOT_PROVIDED_BY_USER;
 
     private boolean showDataRows = true;
     private boolean valuesSorted = true;
@@ -73,7 +73,7 @@ public class PivotTableBuilder {
     }
 
     public PivotTableBuilder showTotals(boolean show) {
-        this.showTotals = show ? TRUE_REQUESTED_BY_USER : FALSE_REQUESTED_BY_USER;
+        this.showTotals = show ? TRUE_PROVIDED_BY_USER : FALSE_PROVIDED_BY_USER;
         return this;
     }
 
@@ -82,7 +82,7 @@ public class PivotTableBuilder {
     }
 
     public PivotTableBuilder showGrandTotal(boolean show) {
-        this.showGrandTotal = show ? TRUE_REQUESTED_BY_USER : FALSE_REQUESTED_BY_USER;
+        this.showGrandTotal = show ? TRUE_PROVIDED_BY_USER : FALSE_PROVIDED_BY_USER;
         return this;
     }
 
@@ -122,11 +122,11 @@ public class PivotTableBuilder {
     private void internalAddDataColumn(DataColumn dataCol) {
         this.dataColumns.add(dataCol);
         if (dataCol.getCalculator() != null) {
-            if (!showTotals.isRequestedByUser()) {
-                this.showTotals = TRUE_NOT_REQUESTED_BY_USER;
+            if (!showTotals.isValueProvidedByUser()) {
+                this.showTotals = TRUE_NOT_PROVIDED_BY_USER;
             }
-            if (!showGrandTotal.isRequestedByUser()) {
-                this.showGrandTotal = TRUE_NOT_REQUESTED_BY_USER;
+            if (!showGrandTotal.isValueProvidedByUser()) {
+                this.showGrandTotal = TRUE_NOT_PROVIDED_BY_USER;
             }
         }
     }

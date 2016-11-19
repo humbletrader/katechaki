@@ -20,6 +20,8 @@ package net.sf.reportengine.util;
 
 /**
  * This is a utility enumeration for default boolean values which might interfere with the user's choice. 
+ * Obviously, the user have has always priority
+ * 
  * Example: 
  * 		A flat report doesn't show by default the totals (showTotals = FALSE_NOT_REQUESTED_BY_USER) 
  * 		The user adds a dataColumn (with a groupCalculator) -> the report builder decides it can show totals (showTotals = TRUE_NOT_REQUESTED_BY_USER)
@@ -29,41 +31,45 @@ package net.sf.reportengine.util;
  * @author dragos balan
  *
  */
-public enum UserRequestedBoolean {
+public enum UserProvidedBoolean {
 	
-	//this is the default true without being requested by the user
-	TRUE_NOT_REQUESTED_BY_USER(true, false), 
+	//this is the default true without being provided by the user
+	TRUE_NOT_PROVIDED_BY_USER(true, false), 
 	
-	//default false without being requested by the user
-	FALSE_NOT_REQUESTED_BY_USER(false, false), 
+	//default false without being provided by the user
+	FALSE_NOT_PROVIDED_BY_USER(false, false), 
 	
-	//true requested by the user
-	TRUE_REQUESTED_BY_USER(true, true), 
+	//true value provided by the user
+	TRUE_PROVIDED_BY_USER(true, true), 
 	
-	//false requested by the user
-	FALSE_REQUESTED_BY_USER(false, true);
+	//false value provided by the user
+	FALSE_PROVIDED_BY_USER(false, true);
 	
+	/**
+	 * this is the boolean value 
+	 */
 	private boolean value; 
-	private boolean isUserRequested; 
 	
-	private UserRequestedBoolean(boolean value, boolean isRequestedByUser){
+	/**
+	 * flags the value as being provided by the user (true) or being the default value provided by this api
+	 */
+	private boolean isValueProvidedByUser; 
+	
+	/**
+	 * 
+	 * @param value
+	 * @param isProvidedByUser
+	 */
+	private UserProvidedBoolean(boolean value, boolean isProvidedByUser){
 		this.value = value; 
-		this.isUserRequested = isRequestedByUser; 
+		this.isValueProvidedByUser = isProvidedByUser; 
 	}
 	
 	public boolean getValue(){
 		return value; 
 	}
 	
-	public boolean isRequestedByUser(){
-		return isUserRequested; 
-	}
-	
-	public boolean isTrue(){
-		return (value == true); 
-	}
-	
-	public boolean isFalse(){
-		return (value == false); 
+	public boolean isValueProvidedByUser(){
+		return isValueProvidedByUser; 
 	}
 }
