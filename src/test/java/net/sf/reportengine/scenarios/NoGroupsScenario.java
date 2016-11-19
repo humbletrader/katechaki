@@ -51,15 +51,14 @@ public final class NoGroupsScenario {
 	
 	public static final List<GroupColumn> GROUPING_COLUMNS = null; 
 			
-	public static final List<DataColumn> DATA_COLUMNS = Arrays.asList( 
-			new DataColumn[]{
-		new DefaultDataColumn("Zero or one", 0, null), 
-		new DefaultDataColumn("2 multiples", 2, GroupCalculators.SUM), 
-		new DefaultDataColumn("3 multiples", 4, GroupCalculators.AVG), 
-		new DefaultDataColumn("Column A", 1), 
-		new DefaultDataColumn("Column A", 3), 
-		new DefaultDataColumn("Column A", 5, GroupCalculators.COUNT), 
-	});
+	public static final List<DefaultDataColumn> DATA_COLUMNS = Arrays.asList( 
+		new DefaultDataColumn.Builder(0).header("Zero or one").build(), 
+		new DefaultDataColumn.Builder(2).header("2 multiples").useCalculator(GroupCalculators.SUM).build(), 
+		new DefaultDataColumn.Builder(4).header("3 multiples").useCalculator(GroupCalculators.AVG).build(), 
+		new DefaultDataColumn.Builder(1).header("Column A").build(), 
+		new DefaultDataColumn.Builder(3).header("Column A").build(), 
+		new DefaultDataColumn.Builder(5).header("Column A").useCalculator(GroupCalculators.COUNT).build() 
+	);
 	
 	public final static int[] AGG_LEVEL = new int[]{
 		-1, 

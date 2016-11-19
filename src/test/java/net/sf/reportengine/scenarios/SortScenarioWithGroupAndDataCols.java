@@ -38,13 +38,6 @@ import net.sf.reportengine.core.calc.SumGroupCalculator;
  */
 public class SortScenarioWithGroupAndDataCols {
 	
-//	public static final List<Object> ROW_OF_DATA_1 = Arrays.asList(new Object[]{"1","2","3",    "4",  "5","6"});
-//	public static final List<Object> ROW_OF_DATA_2 = Arrays.asList(new Object[]{"1","2","3",    "3",  "3","3"});
-//	public static final List<Object> ROW_OF_DATA_3 = Arrays.asList(new Object[]{"1","2","2",    "2",  "2","2"});
-//	public static final List<Object> ROW_OF_DATA_4 = Arrays.asList(new Object[]{"1","1","1",    "1",  "1","1"});
-//	public static final List<Object> ROW_OF_DATA_5 = Arrays.asList(new Object[]{"1","1","1",    "1",  "1","1"});
-//	public static final List<Object> ROW_OF_DATA_6 = Arrays.asList(new Object[]{"7","1","1",    "1",  "7","1"});
-	
 	/**
 	 * 
 	 */
@@ -58,10 +51,9 @@ public class SortScenarioWithGroupAndDataCols {
 	/**
 	 * 
 	 */
-	public static final List<DataColumn> DATA_COLUMNS = Arrays.asList(
-		new DataColumn[]{
-			new DefaultDataColumn("col 3", 3), //no ordering
-			new DefaultDataColumn("col 4", 4, new CountGroupCalculator(), null, HorizAlign.CENTER, VertAlign.MIDDLE, 1, SortType.ASC), 
-			new DefaultDataColumn("col 5", 5, new SumGroupCalculator(), null, HorizAlign.CENTER, VertAlign.MIDDLE, 0, SortType.ASC) //higher order priority
-	});
+	public static final List<? extends DataColumn> DATA_COLUMNS = Arrays.asList(
+			new DefaultDataColumn.Builder(3).header("col 3").build(), //no ordering
+			new DefaultDataColumn.Builder(4).header("col 4").useCalculator(new CountGroupCalculator()).horizAlign(HorizAlign.CENTER).vertAlign(VertAlign.MIDDLE).sortAsc(1).build(), 
+			new DefaultDataColumn.Builder(5).header("col 5").useCalculator(new SumGroupCalculator()).horizAlign(HorizAlign.CENTER).vertAlign(VertAlign.MIDDLE).sortAsc(0).build() //higher order priority
+	);
 }

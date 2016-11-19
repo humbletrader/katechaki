@@ -69,12 +69,11 @@ public class Scenario2 {
 		new DefaultGroupColumn("3 Multiples", 4, 2), 
 	});
 	
-	public static final List<DataColumn> DATA_COLUMNS = Arrays.asList( 
-			new DataColumn[]{
-		new DefaultDataColumn("Column A", 1), 
-		new DefaultDataColumn("Column A", 3), 
-		new DefaultDataColumn("Column A", 5, new CountGroupCalculator()), 
-	});
+	public static final List<DefaultDataColumn> DATA_COLUMNS = Arrays.asList( 
+		new DefaultDataColumn.Builder(1).header("Column A").build(), 
+		new DefaultDataColumn.Builder(3).header("Column A").build(), 
+		new DefaultDataColumn.Builder(5).header("Column A").useCalculator(new CountGroupCalculator()).build()
+	);
 	
 	public static final int[] AGG_COLUMNS_INDEX = new int[]{0,2,4};
 	

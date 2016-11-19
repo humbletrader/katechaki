@@ -30,6 +30,7 @@ import net.sf.reportengine.config.GroupColumn;
 import net.sf.reportengine.config.HorizAlign;
 import net.sf.reportengine.core.algorithm.NewRowEvent;
 import net.sf.reportengine.core.calc.CalcIntermResult;
+import net.sf.reportengine.core.calc.CountGroupCalculator;
 import net.sf.reportengine.core.calc.DefaultCalcIntermResult;
 import net.sf.reportengine.core.calc.GroupCalculators;
 import net.sf.reportengine.in.InMemoryTableInput;
@@ -84,17 +85,17 @@ public class CalculatedColumnsScenario {
 		
 	});
 	
-	public static final List<DataColumn> DATA_COLUMNS = Arrays.asList(new DataColumn[] {
-		new DefaultDataColumn("Column A", 1),
-		new DefaultDataColumn("Column B", 3), 
-		new DefaultDataColumn("Column C", 5, GroupCalculators.COUNT),
+	public static final List<? extends DataColumn> DATA_COLUMNS = Arrays.asList(
+		new DefaultDataColumn.Builder(1).header("Column A").build(),
+		new DefaultDataColumn.Builder(3).header("Column B").build(), 
+		new DefaultDataColumn.Builder(5).header("Column C").useCalculator(new CountGroupCalculator()).build(),
 		new AbstractDataColumn("0+3", null, null, HorizAlign.CENTER) {
 			public String getValue(NewRowEvent newRowEvent) {
 				List<Object> data = newRowEvent.getInputDataRow();
 				return ""+data.get(0)+data.get(3);
 			}
 		}
-	});
+	);
 	
 	
 	public final static Object[][] COMPUTED_VALUES = new Object[][]{

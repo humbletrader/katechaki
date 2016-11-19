@@ -80,10 +80,7 @@ public class CtScenario4x3x1 {
 					new DefaultGroupColumn("Region", 2, 2),
 	});
 	
-	public final static List<DataColumn> DATA_COLUMNS = Arrays.asList( 
-			new DataColumn[]{
-					new DefaultDataColumn("Country", 3)
-	});
+	public final static List<DefaultDataColumn> DATA_COLUMNS = Arrays.asList(new DefaultDataColumn.Builder(3).header("Country").build());
 	
 	public final static List<PivotHeaderRow> HEADER_ROWS = Arrays.asList(
 			new PivotHeaderRow[]{

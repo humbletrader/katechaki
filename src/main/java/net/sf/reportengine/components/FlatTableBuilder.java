@@ -170,13 +170,24 @@ public class FlatTableBuilder {
     }
     
     /**
-     * adds the given data column to the table
+     * adds a new column to the table based on the information found on the input column having the columnIndex index
      * 
      * @param columnIndex	the index of the column (counted from zero in the input)
      * @return
      */
     public FlatTableBuilder addDataColumn(int columnIndex){
     	return addDataColumn(new DefaultDataColumn.Builder(columnIndex).build());
+    }
+    
+    /**
+     * adds a new column tot he table based on the provided input column and having the specified header 
+     * 
+     * @param columnIndex
+     * @param columnHeader
+     * @return
+     */
+    public FlatTableBuilder addDataColumn(int columnIndex, String columnHeader){
+    	return addDataColumn(new DefaultDataColumn.Builder(columnIndex).header(columnHeader).build()); 
     }
     
     /**
@@ -196,7 +207,7 @@ public class FlatTableBuilder {
      * @param dataCols
      * @return
      */
-    public FlatTableBuilder dataColumns(List<DataColumn> dataCols) {
+    public FlatTableBuilder dataColumns(List<? extends DataColumn> dataCols) {
         for (DataColumn dataColumn : dataCols) {
             internalAddDataColumn(dataColumn);
         }

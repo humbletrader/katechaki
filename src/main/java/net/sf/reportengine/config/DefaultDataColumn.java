@@ -65,123 +65,6 @@ public class DefaultDataColumn extends AbstractDataColumn {
 	 */
 	private int inputColumnIndex; 
 	
-	
-	/**
-	 * default constructor. 
-	 * 
-	 * Assumes 
-	 * 	inputColumn=0
-	 * 	no calculator
-	 *  header=Column 0 
-	 *  no valuesFormatter
-	 */
-	public DefaultDataColumn(){
-		this(0); 
-	}
-	
-	/**
-	 * 
-	 * @param inputColumnIndex
-	 */
-	public DefaultDataColumn(int inputColumnIndex){
-		this("Column "+inputColumnIndex, inputColumnIndex);
-	}
-	
-	/**
-	 * 
-	 * @param header
-	 * @param inputColumnIndex
-	 */
-	public DefaultDataColumn(String header, int inputColumnIndex){
-		this(header, inputColumnIndex, null);
-	}
-	
-	/**
-	 * 
-	 * @param header
-	 * @param inputColumnIndex
-	 * @param calculatorsFactory
-	 */
-	public DefaultDataColumn(String header, int inputColumnIndex, GroupCalculator calculator){
-		this(header, inputColumnIndex, calculator, null);
-	}
-	
-	/**
-	 * 
-	 * @param header
-	 * @param inputColumnIndex
-	 * @param calculator
-	 * @param valuesFormatter
-	 */
-	public DefaultDataColumn(	String header,
-								int inputColumnIndex, 
-								GroupCalculator calculator, 
-								String formatter){
-		this(header, inputColumnIndex, calculator, formatter, HorizAlign.CENTER);
-	}
-	
-	
-	/**
-	 * 
-	 * @param header
-	 * @param inputColumnIndex
-	 * @param calculator
-	 * @param valuesFormatter
-	 * @param horizAlign	horizontal alignment 
-	 */
-	public DefaultDataColumn(	String header,
-								int inputColumnIndex, 
-								GroupCalculator calculator, 
-								String formatter, 
-								HorizAlign horizAlign){
-		this(header, inputColumnIndex, calculator, formatter, horizAlign, NO_SORTING); 
-	}
-	
-	/**
-	 * 
-	 * @param header
-	 * @param inputColumnIndex
-	 * @param calculator
-	 * @param valuesFormatter
-	 * @param horizAlign	horizontal alignment
-	 * @param sortLevel 
-	 */
-	public DefaultDataColumn(	String header,
-								int inputColumnIndex, 
-								GroupCalculator calculator, 
-								String formatter, 
-								HorizAlign horizAlign, 
-								int sortLevel){
-		
-		super(header, calculator, formatter, horizAlign, sortLevel);
-		setInputColumnIndex(inputColumnIndex);
-	}
-	
-	
-	/**
-	 * 
-	 * @param header
-	 * @param inputColumnIndex
-	 * @param calculator
-	 * @param valuesFormatter
-	 * @param horizAlign	the horizontal alignment
-	 * @param vertAlign 	the vertical alignment
-	 * @param sortLevel 
-	 * @param sortType
-	 */
-	public DefaultDataColumn(	String header,
-								int inputColumnIndex, 
-								GroupCalculator calculator, 
-								String formatter, 
-								HorizAlign horizAlign, 
-								VertAlign vertAlign, 
-								int sortLevel, 
-								SortType sortType){
-		
-		super(header, calculator, formatter, horizAlign, vertAlign, sortLevel, sortType);
-		setInputColumnIndex(inputColumnIndex);
-	}
-	
 	/**
 	 * 
 	 * @param builder
@@ -195,7 +78,7 @@ public class DefaultDataColumn extends AbstractDataColumn {
 				builder.vAlign, 
 				builder.sortLevel, 
 				builder.sortType); 
-		setInputColumnIndex(builder.columnIndex); 
+		this.inputColumnIndex = builder.columnIndex; 
 	}
 	
 	
@@ -214,15 +97,6 @@ public class DefaultDataColumn extends AbstractDataColumn {
 		return inputColumnIndex;
 	}
 
-	/**
-	 * sets the index of the original (input) column to be displayed on this column
-	 * @param inputColumnIndex
-	 */
-	public void setInputColumnIndex(int inputColumnIndex) {
-		this.inputColumnIndex = inputColumnIndex;
-	}
-	
-	
 	public String toString(){
 		StringBuilder result = new StringBuilder("DefaultDataColumn[");
 		result.append("inputIdx=").append(inputColumnIndex);

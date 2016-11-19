@@ -58,11 +58,10 @@ public class CtScenario2x2x1With0G2D {
 	
 	public static final List<GroupColumn> GROUPING_COLUMNS = null; 
 	
-	public static final List<DataColumn> DATA_COLUMNS = Arrays.asList(
-			new DataColumn[]{
-					new DefaultDataColumn("Region", 0), 
-					new DefaultDataColumn("Country", 1)
-			});
+	public static final List<DefaultDataColumn> DATA_COLUMNS = Arrays.asList(
+					new DefaultDataColumn.Builder(0).header("Region").build(), 
+					new DefaultDataColumn.Builder(1).header("Country").build()
+	);
 	
 	public static final List<PivotHeaderRow> HEADER_ROWS = Arrays.asList(new PivotHeaderRow[]{
 			new DefaultPivotHeaderRow(2, null), //Sex 

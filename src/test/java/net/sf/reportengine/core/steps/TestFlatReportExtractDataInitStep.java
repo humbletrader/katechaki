@@ -43,14 +43,14 @@ import org.junit.Test;
  */
 public class TestFlatReportExtractDataInitStep {
 	
-	private static List<DataColumn> TEST_DATA_COLUMNS = Arrays.asList(new DataColumn[]{
-		new DefaultDataColumn("No calculator column", 0, null),
-		new DefaultDataColumn("Count Column", 1, new CountGroupCalculator()), 
-		new DefaultDataColumn("Sum Column", 2, new SumGroupCalculator()), 
-		new DefaultDataColumn("We don't care about this one", 3), 
-		new DefaultDataColumn("Another column without calculator", 4), 
-		new DefaultDataColumn("Last calculator column", 5, new AvgGroupCalculator())
-	});
+	private static List<DefaultDataColumn> TEST_DATA_COLUMNS = Arrays.asList(
+		new DefaultDataColumn.Builder(0).header("No calculator column").build(),
+		new DefaultDataColumn.Builder(1).header("Count Column").useCalculator(new CountGroupCalculator()).build(), 
+		new DefaultDataColumn.Builder(2).header("Sum Column").useCalculator(new SumGroupCalculator()).build(), 
+		new DefaultDataColumn.Builder(3).header("We don't care about this one").build(), 
+		new DefaultDataColumn.Builder(4).header("Another column without calculator").build(), 
+		new DefaultDataColumn.Builder(5).header("Last calculator column").useCalculator(new AvgGroupCalculator()).build()
+	);
 	
 	
 

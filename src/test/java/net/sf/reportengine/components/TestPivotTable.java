@@ -183,10 +183,10 @@ public class TestPivotTable extends TestCase {
         new PivotTableBuilder(new TextTableInput(ReportIoUtils.createInputStreamFromClassPath("3x2x1.txt"),","))
         	.addGroupColumn(new DefaultGroupColumn.Builder(0).header("Country").build())
         	.addGroupColumn(new DefaultGroupColumn.Builder(1).header("Region").build())
-        	.addDataColumn(new DefaultDataColumn("City", 2, GroupCalculators.COUNT))
+        	.addDataColumn(new DefaultDataColumn.Builder(2).header("City").useCalculator(GroupCalculators.COUNT).build())
         	.addHeaderRow(new DefaultPivotHeaderRow(3))
         	.addHeaderRow(new DefaultPivotHeaderRow(4))
-        	.pivotData(new DefaultPivotData(5,GroupCalculators.SUM))                                                      .showTotals(true)
+        	.pivotData(new DefaultPivotData(5,GroupCalculators.SUM)).showTotals(true)
         	.showGrandTotal(true)
         	.build()
         	.output(reportOutput);
@@ -203,9 +203,9 @@ public class TestPivotTable extends TestCase {
         new PivotTableBuilder(new TextTableInput(ReportIoUtils.createInputStreamFromClassPath("3x2x1.txt"),
                                                  ","))
 
-        .addDataColumn(new DefaultDataColumn("Country", 0))
-        .addDataColumn(new DefaultDataColumn("Region", 1))
-        .addDataColumn(new DefaultDataColumn("City", 2))
+        .addDataColumn(0, "Country")
+        .addDataColumn(1, "Region")
+        .addDataColumn(2, "City")
 
         .addHeaderRow(new DefaultPivotHeaderRow(3))
         .addHeaderRow(new DefaultPivotHeaderRow(4))

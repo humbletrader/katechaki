@@ -49,11 +49,11 @@ public class FlatReportFromSqlQuery {
 		
 		FlatTable table = new FlatTableBuilder(input)
 			//the configuration below skips some columns so it doesn't make too much sense 
-			//but it's just for demo purposes
-			.addDataColumn(new DefaultDataColumn("country", 0))
-			.addDataColumn(new DefaultDataColumn("city", 2)) 
-			.addDataColumn(new DefaultDataColumn("sex", 3))
-			.addDataColumn(new DefaultDataColumn("value", 5))
+			//but it's just for test purposes
+			.addDataColumn(0, "country")
+			.addDataColumn(2, "city") 
+			.addDataColumn(3, "sex")
+			.addDataColumn(5, "value")
 		.build(); 
 		
 		//the one and only execute

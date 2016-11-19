@@ -45,13 +45,12 @@ public class TestCalculatorIntermResultMatrix {
 	
 	private static List<Object> TEST_VALUES = Arrays.asList(new Object[]{1,2,3,4,5,6,7});
 	
-	private static List<DataColumn> TEST_DATA_COLUMNS = Arrays.asList(
-			new DataColumn[]{
-					new DefaultDataColumn("No calculator column", 0, null),
-					new DefaultDataColumn("Count Column", 1, GroupCalculators.COUNT), 
-					new DefaultDataColumn("Sum Column", 2, GroupCalculators.SUM), 
-					new DefaultDataColumn("We don't care about this one", 3)
-	});
+	private static List<DefaultDataColumn> TEST_DATA_COLUMNS = Arrays.asList(
+			new DefaultDataColumn.Builder(0).header("No calculator column").build(),
+			new DefaultDataColumn.Builder(1).header("Count Column").useCalculator(GroupCalculators.COUNT).build(), 
+			new DefaultDataColumn.Builder(2).header("Sum Column").useCalculator(GroupCalculators.SUM).build(), 
+			new DefaultDataColumn.Builder(3).header("We don't care about this one").build()
+	);
 	
 	@Test
 	public void testExtractCalculatorsData(){

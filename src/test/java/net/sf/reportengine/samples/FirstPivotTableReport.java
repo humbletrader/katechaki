@@ -39,11 +39,11 @@ public class FirstPivotTableReport {
     public static void main(String[] args) throws IOException {
 
         PivotTable table =
-            new PivotTableBuilder(new TextTableInput("./input/expenses.csv", ",")).addDataColumn(new DefaultDataColumn("Month",
-                                                                                                                       0))
-                                                                                  .addHeaderRow(new DefaultPivotHeaderRow(1))
-                                                                                  .pivotData(new DefaultPivotData(2))
-                                                                                  .build();
+            new PivotTableBuilder(new TextTableInput("./input/expenses.csv", ","))
+            		.addDataColumn(0, "Month")
+                    .addHeaderRow(new DefaultPivotHeaderRow(1))
+                    .pivotData(new DefaultPivotData(2))
+                    .build();
 
         new ReportBuilder(new HtmlReportOutput(new FileWriter("./target/ExpensesPivot.html"))).add(new ReportTitle("This is my first report with a pivot table"))
                                                                                               .add(table)

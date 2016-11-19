@@ -74,12 +74,11 @@ public class ScenarioSort {
 					new DefaultGroupColumn("col 2", 2, 2, null, HorizAlign.CENTER, VertAlign.MIDDLE, true, SortType.ASC)
 			});
 		
-	public static final List<DataColumn> DATA_COLUMNS = Arrays.asList(
-				new DataColumn[]{
-			new DefaultDataColumn("col 3", 3), 
-			new DefaultDataColumn("col 4", 4, new CountGroupCalculator()), 
-			new DefaultDataColumn("col 5", 5, new SumGroupCalculator())
-	});
+	public static final List<? extends DataColumn> DATA_COLUMNS = Arrays.asList(
+			new DefaultDataColumn.Builder(3).header("col 3").build(), 
+			new DefaultDataColumn.Builder(4).header("col 4").useCalculator(new CountGroupCalculator()).build(), 
+			new DefaultDataColumn.Builder(5).header("col 5").useCalculator(new SumGroupCalculator()).build()
+	);
 	
 	public final static CalcIntermResult[][] ROW_6_CALCULATORS_RESULTS = new CalcIntermResult[][]{
 	    	new CalcIntermResult[]{new DefaultCalcIntermResult<Integer>(NumberUtils.INTEGER_ONE), new DefaultCalcIntermResult<BigDecimal>(new BigDecimal(1))},

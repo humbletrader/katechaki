@@ -70,10 +70,7 @@ public class CtScenario1x3x1 {
 		//new DefaultGroupColumn("Country",  0, 0) 
 	//};
 	
-	public final static List<DataColumn> DATA_COLUMNS = Arrays.asList(
-		new DataColumn[]{
-				new DefaultDataColumn("Country", 0)
-	});
+	public final static List<? extends DataColumn> DATA_COLUMNS = Arrays.asList(new DefaultDataColumn.Builder(0).header("Country").build());
 	
 	public final static List<PivotHeaderRow> HEADER_ROWS = Arrays.asList( 
 			new PivotHeaderRow[]{

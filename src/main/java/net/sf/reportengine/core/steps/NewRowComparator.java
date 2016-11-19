@@ -75,7 +75,7 @@ public class NewRowComparator implements Comparator<NewRowEvent> {
 	 * @param dataCols
 	 */
 	public NewRowComparator(List<GroupColumn> groupCols, 
-							List<DataColumn> dataCols){
+							List<? extends DataColumn> dataCols){
 		this.groupCols = groupCols; 
 		for (DataColumn dataColumn : dataCols) {
 			if(dataColumn.getSortLevel() > AbstractDataColumn.NO_SORTING){

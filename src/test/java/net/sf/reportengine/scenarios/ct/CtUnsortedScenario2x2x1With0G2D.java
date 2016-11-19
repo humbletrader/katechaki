@@ -60,11 +60,10 @@ public class CtUnsortedScenario2x2x1With0G2D {
 	
 	public static final List<GroupColumn> GROUPING_COLUMNS = null; 
 	
-	public static final List<DataColumn> DATA_COLUMNS = Arrays.asList(
-			new DataColumn[]{
-					new DefaultDataColumn("Region", 0, null, null, HorizAlign.CENTER, 0/*first sort level*/), 
-					new DefaultDataColumn("Country", 1, null, null, HorizAlign.CENTER, 1/*second sort level*/)
-			});
+	public static final List<DefaultDataColumn> DATA_COLUMNS = Arrays.asList(
+			new DefaultDataColumn.Builder(0).header("Region").horizAlign(HorizAlign.CENTER).sortAsc(0).build(), 
+			new DefaultDataColumn.Builder(1).header("Country").horizAlign(HorizAlign.CENTER).sortAsc(1).build()
+	);
 	
 	public static final List<PivotHeaderRow> HEADER_ROWS = Arrays.asList(new PivotHeaderRow[]{
 			new DefaultPivotHeaderRow(2, null), //Sex 

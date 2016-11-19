@@ -43,17 +43,16 @@ public class OhlcComputationScenario {
 	
 	public static final TableInput INPUT = new TextTableInput(ReportIoUtils.createInputStreamFromClassPath("2010-1MIN-DATA.tsv"), "\t");
 	
-	public static final List<DataColumn> DATA_COLUMNS = Arrays.asList(
-	new DataColumn[]{
-		new DefaultDataColumn("Time",1, GroupCalculators.FIRST),
+	public static final List<? extends DataColumn> DATA_COLUMNS = Arrays.asList(
+		new DefaultDataColumn.Builder(1).header("Time").useCalculator(GroupCalculators.FIRST).build(),
 		
-		new DefaultDataColumn("Volume",2, GroupCalculators.SUM),
+		new DefaultDataColumn.Builder(2).header("Volume").useCalculator(GroupCalculators.SUM).build(),
 		
-		new DefaultDataColumn("Open",3, GroupCalculators.FIRST),
-		new DefaultDataColumn("High",4, GroupCalculators.MAX),
-		new DefaultDataColumn("Low",5, 	GroupCalculators.MIN),
-		new DefaultDataColumn("Close",6, GroupCalculators.LAST)
-	});
+		new DefaultDataColumn.Builder(3).header("Open").useCalculator(GroupCalculators.FIRST).build(),
+		new DefaultDataColumn.Builder(4).header("High").useCalculator(GroupCalculators.MAX).build(),
+		new DefaultDataColumn.Builder(5).header("Low").useCalculator(GroupCalculators.MIN).build(),
+		new DefaultDataColumn.Builder(6).header("Close").useCalculator(GroupCalculators.LAST).build()
+	);
 	
 	public static final List<GroupColumn> GROUPING_COLUMNS = Arrays.asList(
 	new GroupColumn[] {

@@ -32,9 +32,7 @@ public class TestPivotTableBuilder {
         // should result in no showing of totals in the end
         PivotTable table =
             new PivotTableBuilder(null).showTotals(false)
-                                       .addDataColumn(new DefaultDataColumn("",
-                                                                            0,
-                                                                            GroupCalculators.AVG))
+                                       .addDataColumn(new DefaultDataColumn.Builder(0).header("").useCalculator(GroupCalculators.AVG).build())
                                        .build();
         assertTrue(table instanceof DefaultPivotTable);
         assertFalse(((DefaultPivotTable) table).getShowTotals());
@@ -47,7 +45,7 @@ public class TestPivotTableBuilder {
 
         // because we add a column having a calculator
         // the Builder should set the showTotals to true
-        .addDataColumn(new DefaultDataColumn("", 0, GroupCalculators.AVG))
+        .addDataColumn(new DefaultDataColumn.Builder(0).header("").useCalculator(GroupCalculators.AVG).build())
                                                       .build();
 
         assertTrue(table instanceof DefaultPivotTable);
@@ -61,8 +59,8 @@ public class TestPivotTableBuilder {
 
         // because we add a column having a calculator
         // the Builder should set the showTotals to true
-        .addDataColumn(new DefaultDataColumn("", 0))
-                                                      .build();
+        .addDataColumn(0, "")
+        .build();
 
         assertFalse(((DefaultPivotTable) table).getShowTotals());
         assertFalse(((DefaultPivotTable) table).getShowGrandTotal());

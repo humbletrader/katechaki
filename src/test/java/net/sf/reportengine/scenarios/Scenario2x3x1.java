@@ -45,11 +45,10 @@ public class Scenario2x3x1 {
 				new DefaultGroupColumn("Country", 2, 2)
 	});
 	
-	public static final List<DataColumn> DATA_COLUMNS = Arrays.asList(
-		new DataColumn[]{
-				new DefaultDataColumn("Sex", 3),
-				new DefaultDataColumn("Age", 4),
-				new DefaultDataColumn("Count", 5, new SumGroupCalculator())
-	});
+	public static final List<DefaultDataColumn> DATA_COLUMNS = Arrays.asList(
+				new DefaultDataColumn.Builder(3).header("Sex").build(),
+				new DefaultDataColumn.Builder(4).header("Age").build(),
+				new DefaultDataColumn.Builder(5).header("Count").useCalculator(new SumGroupCalculator()).build()
+	);
 	
 }

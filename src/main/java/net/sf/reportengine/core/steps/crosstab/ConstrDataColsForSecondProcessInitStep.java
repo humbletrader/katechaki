@@ -63,7 +63,7 @@ public class ConstrDataColsForSecondProcessInitStep extends AbstractCrosstabInit
 	 * @return	a list data columns necessary to the second process
 	 */
 	protected List<DataColumn> constructDataColumnsForSecondProcess(	CtMetadata crosstabMetadata, 
-																		List<DataColumn> originalDataColumns,
+																		List<? extends DataColumn> originalDataColumns,
 																		PivotData originalCtData, 
 																		boolean hasTotals, 
 																		boolean hasGrandTotal){

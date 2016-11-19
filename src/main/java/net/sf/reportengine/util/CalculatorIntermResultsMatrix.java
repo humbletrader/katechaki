@@ -60,7 +60,7 @@ public class CalculatorIntermResultsMatrix {
      * @param levelCount    defines how many levels (rows) we will have 
      * @param calculatorFactories   a prototype row of calculators
      */
-    public CalculatorIntermResultsMatrix(int rowCount, List<DataColumn> dataColumns){
+    public CalculatorIntermResultsMatrix(int rowCount, List<? extends DataColumn> dataColumns){
     	extractCalculatorsData(dataColumns);
     	this.intermResultsMatrix = new CalcIntermResult[rowCount][calculatorPrototypes.size()];
     }
@@ -73,7 +73,7 @@ public class CalculatorIntermResultsMatrix {
      *  
      * @param columns	data columns
      */
-    private void extractCalculatorsData(List<DataColumn> columns){
+    private void extractCalculatorsData(List<? extends DataColumn> columns){
     	
     	calculatorPrototypes = new ArrayList<GroupCalculator>();
     	dataColumnsHavingCalculators = new ArrayList<DataColumn>();

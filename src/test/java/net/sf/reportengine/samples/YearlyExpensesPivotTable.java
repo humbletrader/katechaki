@@ -43,8 +43,7 @@ public class YearlyExpensesPivotTable {
             new PivotTableBuilder(new TextTableInput("./input/yearlyExpenses.txt", "\t")).addGroupColumn(new DefaultGroupColumn("Year",
                                                                                                                                 0,
                                                                                                                                 0))
-                                                                                         .addDataColumn(new DefaultDataColumn("Month",
-                                                                                                                              1))
+                                                                                         .addDataColumn(new DefaultDataColumn.Builder(1).header("Month").build())
                                                                                          .addHeaderRow(new DefaultPivotHeaderRow(2))
                                                                                          .pivotData(new DefaultPivotData.Builder(3).useCalculator(GroupCalculators.SUM,
                                                                                                                                                   "%.2f")

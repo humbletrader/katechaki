@@ -54,12 +54,19 @@ public class SortScenarioOnlyDataColsCount {
 	/**
 	 * 
 	 */
-	public static final List<DataColumn> DATA_COLUMNS = Arrays.asList(
-		new DataColumn[]{
-			new DefaultDataColumn("no sorting", 3), //no ordering
-			new DefaultDataColumn("asc. sorted with sorting level 1", 4, new CountGroupCalculator(), null, HorizAlign.CENTER, VertAlign.MIDDLE, 1, SortType.ASC), 
-			new DefaultDataColumn("desc sorted with sorting level 0", 5, new SumGroupCalculator(), null, HorizAlign.CENTER, VertAlign.MIDDLE, 0, SortType.DESC) //higher order priority
-	});
+	public static final List<DefaultDataColumn> DATA_COLUMNS = Arrays.asList(
+			new DefaultDataColumn.Builder(3).header("no sorting").build(), //no ordering
+			new DefaultDataColumn.Builder(4).header("asc. sorted with sorting level 1")
+											.useCalculator(new CountGroupCalculator())
+											.horizAlign(HorizAlign.CENTER)
+											.vertAlign(VertAlign.MIDDLE)
+											.sortAsc(1).build(), 
+			new DefaultDataColumn.Builder(5).header("desc sorted with sorting level 0")
+											.useCalculator(new SumGroupCalculator())
+											.horizAlign(HorizAlign.CENTER)
+											.vertAlign(VertAlign.MIDDLE)
+											.sortDesc(0).build() //higher order priority
+	);
 	
 	public final static TableInput INPUT = new InMemoryTableInput(RAW_DATA);
 }

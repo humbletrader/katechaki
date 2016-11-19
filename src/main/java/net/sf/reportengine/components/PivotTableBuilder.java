@@ -110,7 +110,7 @@ public class PivotTableBuilder {
         return this;
     }
 
-    public PivotTableBuilder dataColumns(List<DataColumn> dataCols) {
+    public PivotTableBuilder dataColumns(List<? extends DataColumn> dataCols) {
         // if(dataCols != null){
         for (DataColumn dataColumn : dataCols) {
             internalAddDataColumn(dataColumn);
@@ -133,7 +133,10 @@ public class PivotTableBuilder {
     
     public PivotTableBuilder addDataColumn(int columnIndex){
     	return addDataColumn(new DefaultDataColumn.Builder(columnIndex).build()); 
-    			
+    }
+    
+    public PivotTableBuilder addDataColumn(int columnIndex, String header){
+    	return addDataColumn(new DefaultDataColumn.Builder(columnIndex).header(header).build()); 
     }
     
     public PivotTableBuilder addDataColumn(DataColumn dataCol) {
