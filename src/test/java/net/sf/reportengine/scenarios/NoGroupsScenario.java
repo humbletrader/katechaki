@@ -29,7 +29,7 @@ import net.sf.reportengine.in.TableInput;
 import net.sf.reportengine.in.InMemoryTableInput;
 
 /**
- * @author Administrator
+ * @author dragos balan
  *
  */
 public final class NoGroupsScenario {
