@@ -144,11 +144,12 @@ public class TestFlatTable {
         InputStream inputStream = ReportIoUtils.createInputStreamFromClassPath("2x3x1.txt");
         assertNotNull(inputStream);
 
-        new FlatTableBuilder(new TextTableInput(inputStream)).groupColumns(Scenario2x3x1.GROUP_COLUMNS)
-                                                             .dataColumns(Scenario2x3x1.DATA_COLUMNS)
-                                                             .showTotals(true)
-                                                             .build()
-                                                             .output(reportOutput);
+        new FlatTableBuilder(new TextTableInput(inputStream))
+        	.groupColumns(Scenario2x3x1.GROUP_COLUMNS)
+            .dataColumns(Scenario2x3x1.DATA_COLUMNS)
+            .showTotals(true)
+            .build()
+            .output(reportOutput);
 
         reportOutput.close();
 

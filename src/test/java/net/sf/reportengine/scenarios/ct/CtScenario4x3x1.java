@@ -73,12 +73,11 @@ public class CtScenario4x3x1 {
 		new Object[]{"Earth", "Asia", "S", "India",	"West",		"M",	"20",	13}, 
     }; 
 	
-	public final static List<GroupColumn> GROUP_COLUMNS = Arrays.asList( 
-			new GroupColumn[]{
-					new DefaultGroupColumn("Planet",  0, 0), 
-					new DefaultGroupColumn("Continent", 1, 1), 
-					new DefaultGroupColumn("Region", 2, 2),
-	});
+	public final static List<DefaultGroupColumn> GROUP_COLUMNS = Arrays.asList( 
+					new DefaultGroupColumn.Builder(0).header("Planet").build(), 
+					new DefaultGroupColumn.Builder(1).header("Continent").build(), 
+					new DefaultGroupColumn.Builder(2).header("Region").build()
+	);
 	
 	public final static List<DefaultDataColumn> DATA_COLUMNS = Arrays.asList(new DefaultDataColumn.Builder(3).header("Country").build());
 	

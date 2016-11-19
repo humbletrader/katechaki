@@ -49,22 +49,22 @@ public class TestPostProcessReport {
 
     @Test
     public void testTwoComponentsAndPdfOutput() throws IOException {
-        new ReportBuilder(new PdfReportOutput(new FileOutputStream("./target/TestTwoComponents.pdf"))).add(new ReportTitle("this is the report title "))
-                                                                                                      .add(new EmptyLine())
-                                                                                                      .add(new FlatTableBuilder(Scenario1.INPUT).dataColumns(Scenario1.DATA_COLUMNS)
-                                                                                                                                                .build())
-                                                                                                      .build()
-                                                                                                      .execute();
+        new ReportBuilder(new PdfReportOutput(new FileOutputStream("./target/TestTwoComponents.pdf")))
+        	.add(new ReportTitle("this is the report title "))
+            .add(new EmptyLine())
+            .add(new FlatTableBuilder(Scenario1.INPUT).dataColumns(Scenario1.DATA_COLUMNS).build())
+        .build()
+        .execute();
     }
 
     @Test
     public void testTwoComponentsAndPngOutput() throws IOException {
-        new ReportBuilder(new PngReportOutput(new FileOutputStream("./target/TestTwoComponents.png"))).add(new ReportTitle("this is the report title "))
-                                                                                                      .add(new EmptyLine())
-                                                                                                      .add(new FlatTableBuilder(Scenario1.INPUT).dataColumns(Scenario1.DATA_COLUMNS)
-                                                                                                                                                .build())
-                                                                                                      .build()
-                                                                                                      .execute();
+        new ReportBuilder(new PngReportOutput(new FileOutputStream("./target/TestTwoComponents.png")))
+        	.add(new ReportTitle("this is the report title "))
+            .add(new EmptyLine())
+            .add(new FlatTableBuilder(Scenario1.INPUT).dataColumns(Scenario1.DATA_COLUMNS).build())
+        .build()
+        .execute();
     }
 
     @Test

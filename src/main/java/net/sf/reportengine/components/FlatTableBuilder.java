@@ -20,6 +20,7 @@ import static net.sf.reportengine.util.UserProvidedBoolean.TRUE_NOT_PROVIDED_BY_
 import static net.sf.reportengine.util.UserProvidedBoolean.TRUE_PROVIDED_BY_USER;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import net.sf.reportengine.config.DataColumn;
@@ -207,6 +208,7 @@ public class FlatTableBuilder {
      * @param dataCols
      * @return
      */
+    @Deprecated
     public FlatTableBuilder dataColumns(List<? extends DataColumn> dataCols) {
         for (DataColumn dataColumn : dataCols) {
             internalAddDataColumn(dataColumn);
@@ -219,8 +221,11 @@ public class FlatTableBuilder {
      * @param groupCols
      * @return
      */
-    public FlatTableBuilder groupColumns(List<GroupColumn> groupCols) {
-        this.groupColumns = groupCols;
+    @Deprecated
+    public FlatTableBuilder groupColumns(List<? extends GroupColumn> groupCols) {
+        for(GroupColumn col: groupCols){
+        	this.groupColumns.add(col);
+        }
         return this;
     }
     

@@ -21,6 +21,7 @@ import static net.sf.reportengine.util.UserProvidedBoolean.TRUE_NOT_PROVIDED_BY_
 import static net.sf.reportengine.util.UserProvidedBoolean.TRUE_PROVIDED_BY_USER;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import net.sf.reportengine.config.DataColumn;
@@ -103,13 +104,8 @@ public class PivotTableBuilder {
         this.valuesSorted = false;
         return this;
     }
-
+    
     @Deprecated
-    public PivotTableBuilder input(TableInput input) {
-        this.tableInput = input;
-        return this;
-    }
-
     public PivotTableBuilder dataColumns(List<? extends DataColumn> dataCols) {
         // if(dataCols != null){
         for (DataColumn dataColumn : dataCols) {
@@ -143,14 +139,21 @@ public class PivotTableBuilder {
         internalAddDataColumn(dataCol);
         return this;
     }
-
-    public PivotTableBuilder groupColumns(List<GroupColumn> groupCols) {
-        this.groupColumns = groupCols;
+    
+    @Deprecated
+    public PivotTableBuilder groupColumns(List<? extends GroupColumn> groupCols) {
+    	for(GroupColumn col: groupCols){
+    		this.groupColumns.add(col);
+    	}
         return this;
     }
     
     public PivotTableBuilder addGroupColumn(int columnIndex){
     	return addGroupColumn(new DefaultGroupColumn.Builder(columnIndex).build()); 
+    }
+    
+    public PivotTableBuilder addGroupColumn(int columnIndex, String header){
+    	return addGroupColumn(new DefaultGroupColumn.Builder(columnIndex).header(header).build()); 
     }
     
     public PivotTableBuilder addGroupColumn(GroupColumn groupCol) {

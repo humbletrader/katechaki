@@ -38,12 +38,11 @@ public class Scenario2x3x1 {
 	
 	public static final TableInput INPUT = new TextTableInput(Scenario2x3x1.class.getClassLoader().getResourceAsStream("2x3x1.txt"),",");
 	
-	public static final List<GroupColumn> GROUP_COLUMNS = Arrays.asList(
-		new GroupColumn[]{
-				new DefaultGroupColumn("Continent", 0, 0),
-				new DefaultGroupColumn("Direction", 1, 1),
-				new DefaultGroupColumn("Country", 2, 2)
-	});
+	public static final List<DefaultGroupColumn> GROUP_COLUMNS = Arrays.asList(
+				new DefaultGroupColumn.Builder(0).header("Continent").build(),
+				new DefaultGroupColumn.Builder(1).header("Direction").build(),
+				new DefaultGroupColumn.Builder(2).header("Country").build()
+	);
 	
 	public static final List<DefaultDataColumn> DATA_COLUMNS = Arrays.asList(
 				new DefaultDataColumn.Builder(3).header("Sex").build(),

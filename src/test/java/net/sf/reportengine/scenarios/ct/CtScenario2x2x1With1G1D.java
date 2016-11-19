@@ -78,10 +78,9 @@ public class CtScenario2x2x1With1G1D {
 													3, 
 													2};  
 	
-	public static final List<GroupColumn> GROUPING_COLUMNS = Arrays.asList(
-			new GroupColumn[]{
-					new DefaultGroupColumn("Region", 0, 0)					
-	});
+	public static final List<DefaultGroupColumn> GROUPING_COLUMNS = Arrays.asList(
+					new DefaultGroupColumn.Builder(0).header("Region").build()					
+	);
 	
 	public static final List<DefaultDataColumn> DATA_COLUMNS = Arrays.asList(new DefaultDataColumn.Builder(3).header("Country").build());
 	

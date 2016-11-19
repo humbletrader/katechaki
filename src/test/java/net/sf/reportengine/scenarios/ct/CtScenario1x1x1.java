@@ -19,6 +19,7 @@
 package net.sf.reportengine.scenarios.ct;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import net.sf.reportengine.config.DefaultPivotData;
@@ -61,7 +62,7 @@ public class CtScenario1x1x1 {
 	};
 	
 	
-	public static final List<GroupColumn> GROUP_COLUMNS = null; 
+	public static final List<GroupColumn> GROUP_COLUMNS = Collections.emptyList(); 
 //		new GroupColumn[]{
 //		new DefaultGroupColumn("Continent", 0, 0)
 //	};

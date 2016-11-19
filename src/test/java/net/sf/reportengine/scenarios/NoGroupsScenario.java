@@ -19,6 +19,7 @@
 package net.sf.reportengine.scenarios;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import net.sf.reportengine.config.DefaultDataColumn;
@@ -49,7 +50,7 @@ public final class NoGroupsScenario {
 	
 	public final static TableInput INPUT = new InMemoryTableInput(RAW_INPUT);
 	
-	public static final List<GroupColumn> GROUPING_COLUMNS = null; 
+	public static final List<GroupColumn> GROUPING_COLUMNS = Collections.emptyList(); 
 			
 	public static final List<DefaultDataColumn> DATA_COLUMNS = Arrays.asList( 
 		new DefaultDataColumn.Builder(0).header("Zero or one").build(), 

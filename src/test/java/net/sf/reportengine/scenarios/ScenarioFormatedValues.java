@@ -56,10 +56,8 @@ public class ScenarioFormatedValues {
 			new Object[]{Integer.valueOf(7), "80000000",Integer.valueOf(800), calendar.getTime()},
 	});
 	
-	public static final List<GroupColumn> GROUP_COLUMNS = Arrays.asList(
-			new GroupColumn[]{
-				new DefaultGroupColumn("Formatted group value", 0, 0, "%d")
-			}
+	public static final List<DefaultGroupColumn> GROUP_COLUMNS = Arrays.asList(
+			new DefaultGroupColumn.Builder(0).header("Formatted group value").valuesFormatter("%d").build()
 	); 
 	
 	public static final List<DataColumn> DATA_COLUMNS = Arrays.asList( 

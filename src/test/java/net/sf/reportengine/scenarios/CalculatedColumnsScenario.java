@@ -1,21 +1,3 @@
-/**
- * Copyright (C) 2006 Dragos Balan (dragos.balan@gmail.com)
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * 
- */
 package net.sf.reportengine.scenarios;
 
 import java.util.Arrays;
@@ -73,15 +55,15 @@ public class CalculatedColumnsScenario {
 	 public final static TableInput INPUT = new InMemoryTableInput(RAW_DATA);
 	    
 	public static final List<GroupColumn> GROUP_COLUMNS = Arrays.asList(new GroupColumn[]{
-		new DefaultGroupColumn("Zero or One", 0, 0), 
+		new DefaultGroupColumn.Builder(0).header("Zero or One").build(), 
 		new AbstractGroupColumn("Computed 0+2", 1, null, HorizAlign.CENTER, false) {
 			public Integer getValue(NewRowEvent newRowEvent) {
 				List<Object> data = newRowEvent.getInputDataRow();
 				return Integer.valueOf((String)data.get(0))+Integer.valueOf((String)data.get(2));
 			}	
 		}, 
-		new DefaultGroupColumn("2 multiples", 2, 2), 
-		new DefaultGroupColumn("3 Multiples", 4, 3),
+		new DefaultGroupColumn.Builder(2).header("2 multiples").build(), 
+		new DefaultGroupColumn.Builder(4).header("3 Multiples").level(3).build(),
 		
 	});
 	

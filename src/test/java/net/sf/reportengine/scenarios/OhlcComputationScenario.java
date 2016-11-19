@@ -54,8 +54,7 @@ public class OhlcComputationScenario {
 		new DefaultDataColumn.Builder(6).header("Close").useCalculator(GroupCalculators.LAST).build()
 	);
 	
-	public static final List<GroupColumn> GROUPING_COLUMNS = Arrays.asList(
-	new GroupColumn[] {
-		new DefaultGroupColumn("Date", 0,0)
-	});
+	public static final List<DefaultGroupColumn> GROUPING_COLUMNS = Arrays.asList(
+		new DefaultGroupColumn.Builder(0).header("Date").build()
+	);
 }

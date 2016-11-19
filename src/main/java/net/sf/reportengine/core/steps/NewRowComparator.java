@@ -45,7 +45,7 @@ public class NewRowComparator implements Comparator<NewRowEvent> {
 	/**
 	 * 
 	 */
-	private List<GroupColumn> groupCols; 
+	private List<? extends GroupColumn> groupCols; 
 	
 	
 	/**
@@ -74,7 +74,7 @@ public class NewRowComparator implements Comparator<NewRowEvent> {
 	 * @param groupCols
 	 * @param dataCols
 	 */
-	public NewRowComparator(List<GroupColumn> groupCols, 
+	public NewRowComparator(List<? extends GroupColumn> groupCols, 
 							List<? extends DataColumn> dataCols){
 		this.groupCols = groupCols; 
 		for (DataColumn dataColumn : dataCols) {

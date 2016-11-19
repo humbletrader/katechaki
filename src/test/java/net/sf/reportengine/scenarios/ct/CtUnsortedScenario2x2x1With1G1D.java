@@ -52,10 +52,9 @@ public class CtUnsortedScenario2x2x1With1G1D {
 	
 	public final static TableInput INPUT = new InMemoryTableInput(RAW_INPUT);
 	
-	public static final List<GroupColumn> GROUPING_COLUMNS = Arrays.asList(
-			new GroupColumn[]{
-					new DefaultGroupColumn("Programatically sorted Region", 0, 0)					
-	});
+	public static final List<DefaultGroupColumn> GROUPING_COLUMNS = Arrays.asList(
+					new DefaultGroupColumn.Builder(0).header("Programatically sorted Region").build()					
+	);
 	
 	public static final List<DefaultDataColumn> DATA_COLUMNS = Arrays.asList(
 					new DefaultDataColumn.Builder(3).header("Country").build()

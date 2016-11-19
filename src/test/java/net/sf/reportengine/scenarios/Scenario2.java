@@ -63,11 +63,11 @@ public class Scenario2 {
 	
 	public static final Object[][] COMPUTED_INPUT = RAW_INPUT;
 	
-	public static final List<GroupColumn> GROUPING_COLUMNS = Arrays.asList(new GroupColumn[]{
-		new DefaultGroupColumn("Zero or One", 0, 0), 
-		new DefaultGroupColumn("2 multiples", 2, 1), 
-		new DefaultGroupColumn("3 Multiples", 4, 2), 
-	});
+	public static final List<DefaultGroupColumn> GROUPING_COLUMNS = Arrays.asList(
+		new DefaultGroupColumn.Builder(0).header("Zero or One").level(0).build(), 
+		new DefaultGroupColumn.Builder(2).header("2 multiples").level(1).build(), 
+		new DefaultGroupColumn.Builder(4).header("3 Multiples").level(2).build() 
+	);
 	
 	public static final List<DefaultDataColumn> DATA_COLUMNS = Arrays.asList( 
 		new DefaultDataColumn.Builder(1).header("Column A").build(), 

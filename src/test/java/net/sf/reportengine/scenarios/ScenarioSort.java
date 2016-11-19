@@ -27,9 +27,9 @@ import net.sf.reportengine.config.DataColumn;
 import net.sf.reportengine.config.DefaultDataColumn;
 import net.sf.reportengine.config.DefaultGroupColumn;
 import net.sf.reportengine.config.GroupColumn;
-import net.sf.reportengine.config.HorizAlign;
+import static net.sf.reportengine.config.HorizAlign.CENTER;
 import net.sf.reportengine.config.SortType;
-import net.sf.reportengine.config.VertAlign;
+import static net.sf.reportengine.config.VertAlign.MIDDLE;
 import net.sf.reportengine.core.calc.CalcIntermResult;
 import net.sf.reportengine.core.calc.CountGroupCalculator;
 import net.sf.reportengine.core.calc.DefaultCalcIntermResult;
@@ -67,12 +67,11 @@ public class ScenarioSort {
 		ROW_OF_DATA_6.toArray(new String[]{})
 	};
 	
-	public static final List<GroupColumn> GROUPING_COLUMNS = Arrays.asList(
-			new GroupColumn[]{
-					new DefaultGroupColumn("col 0", 0, 0, null, HorizAlign.CENTER, VertAlign.MIDDLE, true, SortType.ASC), 
-					new DefaultGroupColumn("col 1", 1, 1, null, HorizAlign.CENTER, VertAlign.MIDDLE, true, SortType.ASC), 
-					new DefaultGroupColumn("col 2", 2, 2, null, HorizAlign.CENTER, VertAlign.MIDDLE, true, SortType.ASC)
-			});
+	public static final List<DefaultGroupColumn> GROUPING_COLUMNS = Arrays.asList(
+			new DefaultGroupColumn.Builder(0).header("col 0").horizAlign(CENTER).vertAlign(MIDDLE).showDuplicateValues().sortAsc().build(), 
+			new DefaultGroupColumn.Builder(1).header("col 1").horizAlign(CENTER).vertAlign(MIDDLE).showDuplicateValues().sortAsc().build(), 
+			new DefaultGroupColumn.Builder(2).header("col 2").horizAlign(CENTER).vertAlign(MIDDLE).showDuplicateValues().sortAsc().build()
+	);
 		
 	public static final List<? extends DataColumn> DATA_COLUMNS = Arrays.asList(
 			new DefaultDataColumn.Builder(3).header("col 3").build(), 

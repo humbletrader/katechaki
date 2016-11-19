@@ -69,8 +69,8 @@ public class CtUnsortedScenario2x2x1With2G0D {
 	
 	public static final List<GroupColumn> GROUPING_COLUMNS = Arrays.asList(
 			new GroupColumn[]{
-					new DefaultGroupColumn("Region", 0, 0/*first group/sort level*/), 
-					new DefaultGroupColumn("Country", 1, 1/*second group/sort level*/)
+					new DefaultGroupColumn.Builder(0).header("Region").build()/*first group/sort level*/, 
+					new DefaultGroupColumn.Builder(1).header("Country").build()/*second group/sort level*/
 			}); 
 	
 	public static final List<DataColumn> DATA_COLUMNS = null; 
