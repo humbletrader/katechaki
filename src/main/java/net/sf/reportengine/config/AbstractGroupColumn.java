@@ -111,13 +111,13 @@ public abstract class AbstractGroupColumn implements GroupColumn {
 								VertAlign vertAlign, 
 								boolean showDuplicates, 
 								SortType sortType){
-		setHeader(header);
-		setGroupingLevel(groupingLevel);
-		setValuesFormatter(valuesFormatter);
-		setHorizAlign(horizAlign); 
-		setVertAlign(vertAlign); 
-		setShowDuplicates(showDuplicates); 
-		setSortType(sortType); 
+		this.header = header;
+		this.groupingLevel = groupingLevel; 
+		this.valuesFormatter = valuesFormatter;
+		this.horizAlign = horizAlign;
+		this.vertAlign = vertAlign;
+		this.showDuplicates = showDuplicates;
+		this.sortType = sortType; 
 	}
 	
 	
@@ -130,25 +130,9 @@ public abstract class AbstractGroupColumn implements GroupColumn {
 	
 	/**
 	 * 
-	 * @param groupingLevel
-	 */
-	public void setGroupingLevel(int groupingLevel) {
-		this.groupingLevel = groupingLevel;
-	}
-
-	/**
-	 * 
 	 */
 	public String getHeader() {
 		return header;
-	}
-	
-	/**
-	 * 
-	 * @param header
-	 */
-	public void setHeader(String header) {
-		this.header = header;
 	}
 	
 	/**
@@ -175,14 +159,6 @@ public abstract class AbstractGroupColumn implements GroupColumn {
 	}
 	
 	/**
-	 * setter for the formatter of this column's values
-	 * @param formatter    the formatter of the values 
-	 */
-	public void setValuesFormatter(String formatter) {
-		this.valuesFormatter = formatter;
-	}
-
-	/**
 	 * @return the horizontal alignment
 	 */
 	public HorizAlign getHorizAlign() {
@@ -190,26 +166,12 @@ public abstract class AbstractGroupColumn implements GroupColumn {
 	}
 
 	/**
-	 * @param horizAlign the horizAlign to set
-	 */
-	public void setHorizAlign(HorizAlign horizAlign) {
-		this.horizAlign = horizAlign;
-	}
-	
-	/**
 	 * @return the vertical alignment
 	 */
 	public VertAlign getVertAlign() {
 		return vertAlign;
 	}
 
-	/**
-	 * @param vertAlign the vertical alignment
-	 */
-	public void setVertAlign(VertAlign vertAlign) {
-		this.vertAlign = vertAlign;
-	}
-	
 	/**
 	 * 
 	 */
@@ -219,24 +181,8 @@ public abstract class AbstractGroupColumn implements GroupColumn {
 	
 	/**
 	 * 
-	 * @param flag
-	 */
-	public void setShowDuplicates(boolean flag){
-		this.showDuplicates = flag; 
-	}
-	
-	/**
-	 * 
 	 */
 	public SortType getSortType(){
 		return sortType; 
-	}
-	
-	/**
-	 * 
-	 * @param sortType
-	 */
-	public void setSortType(SortType sortType){
-		this.sortType = sortType; 
 	}
 }
