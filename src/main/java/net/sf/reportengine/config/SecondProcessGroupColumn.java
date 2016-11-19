@@ -40,7 +40,6 @@ public class SecondProcessGroupColumn implements GroupColumn {
 	public SecondProcessGroupColumn(GroupColumn anotherGroupColumn){
 		this.originalGroupColumn = anotherGroupColumn;  
 	}
-	
 
 	/* (non-Javadoc)
 	 * @see net.sf.reportengine.config.GroupColumn#getValue(net.sf.reportengine.core.algorithm.NewRowEvent)
@@ -55,21 +54,17 @@ public class SecondProcessGroupColumn implements GroupColumn {
 		return intermGroupValues.getGroupValues().get(getGroupingLevel()); 
 	}
 
-
 	public String getHeader() {
 		return originalGroupColumn.getHeader(); 
 	}
-
 
 	public int getGroupingLevel() {
 		return originalGroupColumn.getGroupingLevel();
 	}
 
-
 	public String getFormattedValue(Object object) {
 		return originalGroupColumn.getFormattedValue(object);
 	}
-
 
 	public HorizAlign getHorizAlign() {
 		return originalGroupColumn.getHorizAlign(); 

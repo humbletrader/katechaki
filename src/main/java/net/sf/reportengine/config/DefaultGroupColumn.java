@@ -154,7 +154,7 @@ public class DefaultGroupColumn extends AbstractGroupColumn {
 								boolean showDuplicates, 
 								SortType sortType){
 		super(header, groupingLevel, valuesFormatter, horizAlign, vertAlign, showDuplicates, sortType);
-		setInputColumnIndex(inputColumnIndex);
+		this.inputColumnIndex = inputColumnIndex;
 	}
 	
 	/**
@@ -169,7 +169,7 @@ public class DefaultGroupColumn extends AbstractGroupColumn {
 				builder.vAlign, 
 				builder.showDuplicateValues, 
 				builder.sortType); 
-		setInputColumnIndex(builder.columnIndex); 
+		this.inputColumnIndex = builder.columnIndex; 
 	}
 	
 	/* (non-Javadoc)
@@ -185,14 +185,6 @@ public class DefaultGroupColumn extends AbstractGroupColumn {
 	 */
 	public int getInputColumnIndex() {
 		return inputColumnIndex;
-	}
-	
-	/**
-	 * 
-	 * @param inputColumnIndex
-	 */
-	public void setInputColumnIndex(int inputColumnIndex) {
-		this.inputColumnIndex = inputColumnIndex;
 	}
 	
 	/**
