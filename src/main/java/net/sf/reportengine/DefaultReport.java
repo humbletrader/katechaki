@@ -24,7 +24,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author dragos balan
+ * non public class. Please use the ReportBuilder in order to create Report instances 
+ * 
+ * @author dragos balan (dragos dot balan at gmail dot com)
  *
  */
 final class DefaultReport extends AbstractReport<AbstractReportOutput> {
@@ -32,8 +34,10 @@ final class DefaultReport extends AbstractReport<AbstractReportOutput> {
     private static final Logger LOGGER = LoggerFactory.getLogger(DefaultReport.class);
 
     /**
+     * default report constructor
      * 
-     * @param builder
+     * @param reportOutput	the output of this report
+     * @param components	the components
      */
     DefaultReport(AbstractReportOutput reportOutput, List<ReportComponent> components) {
         super(reportOutput, components);

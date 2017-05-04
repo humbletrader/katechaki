@@ -47,8 +47,7 @@ import org.xml.sax.SAXException;
 /**
  * This is a two step report output: 
  *  1. the first step creates a .fo file, 
- *  2. the second step transforms the .fo file with FOP 
- * (see https://xmlgraphics.apache.org/fop/)
+ *  2. the second step transforms the .fo file with FOP (see https://xmlgraphics.apache.org/fop/)
  * 
  * @author dragos balan
  */
@@ -149,8 +148,7 @@ public class PostProcessedFoReportOutput extends AbstractReportOutput {
             FopFactory fopFactory = FopFactory.newInstance();
             fopFactory.setUserConfig(fopConfiguration);
 
-            // custom configuration for fop (e.g. author of the document, custom
-            // renderers etc)
+            // custom configuration for fop (e.g. author of the document, custom renderers etc)
             Fop fop = null;
             if (fopUserAgentProps != null) {
                 FOUserAgent foUserAgent = fopFactory.newFOUserAgent();

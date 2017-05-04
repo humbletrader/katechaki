@@ -24,12 +24,12 @@ import net.sf.reportengine.out.PostProcessedFoReportOutput;
 import net.sf.reportengine.out.ReportOutput;
 
 /**
- * <p>This is the one and only builder for any report</p>
+ * <p>The builder for any kind of report</p>
  * <p>
  * Typical usage: 
  * <pre>
  *  Report report = new ReportBuilder(new HtmlReportOutput(new FileWriter("/temp/test.html")))
- *                      .add(new ReportTile("My first report"))
+ *                      .add(new Paragraph("My first report"))
  *                      .add(...)
  *                      .add(other report components here)
  *                      .build(); 
@@ -72,7 +72,7 @@ public class ReportBuilder {
     }
     
     /**
-     * constructor of this builder
+     * constructor of this builder for post processed output formats
      * 
      * @param output
      */
@@ -81,9 +81,10 @@ public class ReportBuilder {
     }
     
     /**
+     * private constructor 
      * 
-     * @param out
-     * @param needsPostProcessing
+     * @param out					the output of the resulting report
+     * @param needsPostProcessing	whether or not the resulting report needs post processing
      */
     private ReportBuilder(AbstractReportOutput out, boolean needsPostProcessing){
         this.reportOutput = out;
@@ -91,26 +92,35 @@ public class ReportBuilder {
         this.reportNeedsPostProcessing = needsPostProcessing;
     }
     
-    
     /**
      * adds a new component to the report
      * 
-     * @param newComponent
-     *            the component
+     * @param newComponent 		the component to be added
      */
     public ReportBuilder add(ReportComponent newComponent) {
         components.add(newComponent);
         return this;
     }
-
+    
+    /**
+     * returns the output set into this report builder
+     */
     public AbstractReportOutput getOutput() {
         return reportOutput;
     }
-
+    
+    /**
+     * returns the components of this report
+     */
     public List<ReportComponent> getComponents() {
         return components;
     }
-
+    
+    /**
+     * builds a new Report
+     * 
+     * @return	a new Report instance
+     */
     public Report build() {
         Report result = null;
         if (reportNeedsPostProcessing) {

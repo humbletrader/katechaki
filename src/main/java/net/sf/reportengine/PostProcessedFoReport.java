@@ -22,14 +22,20 @@ import net.sf.reportengine.out.PostProcessedFoReportOutput;
 
 /**
  * This report is executed in two steps: 
- *  1. output into fo objects 
- *  2. processing the previous fo output
+ *  1. output components as fo objects ( see formatting objects from apache.org) 
+ *  2. processing the previous fo output into pdf, rtf. etc.
  *  
  * @author dragos balan
  * @since 0.13
  */
 class PostProcessedFoReport extends AbstractReport<PostProcessedFoReportOutput> {
-
+	
+	/**
+	 * the constructor 
+	 * 
+	 * @param reportOutput	the report output
+	 * @param components	the components of the report
+	 */
     PostProcessedFoReport(PostProcessedFoReportOutput reportOutput, List<ReportComponent> components) {
         super(reportOutput, components);
     }
@@ -47,7 +53,11 @@ class PostProcessedFoReport extends AbstractReport<PostProcessedFoReportOutput> 
             reportOutput.close();
         }
     }
-
+    
+    /**
+     * performs the post processing of the fo report
+     * @param reportOutput
+     */
     private void processFO(PostProcessedFoReportOutput reportOutput) {
         reportOutput.postProcess();
     }

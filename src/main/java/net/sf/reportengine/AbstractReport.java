@@ -22,12 +22,21 @@ import net.sf.reportengine.out.AbstractReportOutput;
 import net.sf.reportengine.out.ReportProps;
 
 /**
- * @author dragos balan
+ * abstract helper report 
+ * 
+ * @author dragos balan (dragos dot balan at gmail dot com)
  *
  */
 abstract class AbstractReport<T extends AbstractReportOutput> implements Report {
-
+	
+	/**
+	 * the default start report template
+	 */
     public final static String START_REPORT_TEMPLATE = "startReport.ftl";
+    
+    /**
+     * default end report template
+     */
     public final static String END_REPORT_TEMPLATE = "endReport.ftl";
 
     /**
@@ -41,22 +50,35 @@ abstract class AbstractReport<T extends AbstractReportOutput> implements Report 
     private final T reportOutput;
 
     /**
+     * report constructor 
      * 
-     * @param builder
+     * @param reportOutput 	the output of this report
+     * @param components	the report components
      */
     AbstractReport(T reportOutput, List<ReportComponent> components) {
         this.reportOutput = reportOutput;
         this.components = components;
     }
-
+    
+    /**
+     * returns the components of this report
+     */
     protected List<ReportComponent> getComponents() {
         return components;
     }
-
+    
+    /**
+     * returns the output of this report
+     */
     protected T getReportOutput() {
         return reportOutput;
     }
-
+    
+    /**
+     * outputs each component of the report
+     * 
+     * @param reportOutput	the output of this report
+     */
     protected void outputFO(T reportOutput) {
         reportOutput.output(START_REPORT_TEMPLATE, new ReportProps(reportOutput.getFormat()));
         for (ReportComponent reportComponent : getComponents()) {

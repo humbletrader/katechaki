@@ -18,7 +18,7 @@ package net.sf.reportengine;
 import net.sf.reportengine.components.ReportComponent;
 
 /**
- * <p>The main interface for reports execution</p>
+ * <p>The main interface for reports</p>
  * <p>
  * The typical usage is:
  * <pre>
@@ -31,9 +31,6 @@ import net.sf.reportengine.components.ReportComponent;
  *            .build(); 
  *  report.execute(); 
  * </pre>
- * </p>
- * <p>
- * Any implementation of {@link ReportComponent} can be added to the report using the {@code ReportBuilder#add(ReportComponent)} method
  * </p>
  * 
  * @see ReportBuilder
