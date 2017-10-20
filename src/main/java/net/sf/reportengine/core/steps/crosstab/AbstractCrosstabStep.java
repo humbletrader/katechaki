@@ -22,7 +22,7 @@ import java.util.List;
 
 import net.sf.reportengine.config.PivotData;
 import net.sf.reportengine.config.PivotHeaderRow;
-import net.sf.reportengine.core.AbstractReportStep;
+import net.sf.reportengine.core.AbstractAlgoContextAwareStep;
 import net.sf.reportengine.core.steps.StepInput;
 import net.sf.reportengine.out.IntermediateCrosstabOutput;
 import net.sf.reportengine.util.StepIOKeys;
@@ -33,7 +33,7 @@ import net.sf.reportengine.util.AlgoIOKeys;
  * @author dragos balan
  *
  */
-public abstract class AbstractCrosstabStep<T,U,V> extends AbstractReportStep<T,U,V> {
+public abstract class AbstractCrosstabStep<T,U,V> extends AbstractAlgoContextAwareStep<T,U,V> {
 	
 	public List<PivotHeaderRow> getCrosstabHeaderRows(StepInput stepInput){
 		return (List<PivotHeaderRow>)stepInput.getAlgoInput(AlgoIOKeys.CROSSTAB_HEADER_ROWS); 

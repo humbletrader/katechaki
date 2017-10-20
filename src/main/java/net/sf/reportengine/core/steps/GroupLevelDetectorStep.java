@@ -16,14 +16,11 @@
 package net.sf.reportengine.core.steps;
 
 import java.util.List;
-import java.util.Map;
 
 import net.sf.reportengine.config.GroupColumn;
-import net.sf.reportengine.core.AbstractReportStep;
-import net.sf.reportengine.core.algorithm.AlgoContext;
+import net.sf.reportengine.core.AbstractAlgoContextAwareStep;
 import net.sf.reportengine.core.algorithm.NewRowEvent;
 import net.sf.reportengine.util.StepIOKeys;
-import net.sf.reportengine.util.AlgoIOKeys;
 
 import org.apache.commons.lang.math.NumberUtils;
 import org.slf4j.Logger;
@@ -64,7 +61,7 @@ import org.slf4j.LoggerFactory;
  * @author dragos balan (dragos dot balan at gmail dot com)
  * @since 0.4
  */
-public class GroupLevelDetectorStep extends AbstractReportStep<String, Integer, String>{
+public class GroupLevelDetectorStep extends AbstractAlgoContextAwareStep<String, Integer, String> {
     
 	/**
 	 * the one and only logger

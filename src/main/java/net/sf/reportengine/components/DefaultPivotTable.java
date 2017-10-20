@@ -15,71 +15,38 @@
  */
 package net.sf.reportengine.components;
 
-import static net.sf.reportengine.core.steps.StepResult.*;
-import static net.sf.reportengine.util.AlgoIOKeys.CROSSTAB_DATA;
-import static net.sf.reportengine.util.AlgoIOKeys.CROSSTAB_HEADER_ROWS;
-import static net.sf.reportengine.util.AlgoIOKeys.DATA_COLS;
-import static net.sf.reportengine.util.AlgoIOKeys.GROUP_COLS;
-import static net.sf.reportengine.util.AlgoIOKeys.NEW_REPORT_OUTPUT;
-import static net.sf.reportengine.util.AlgoIOKeys.SHOW_GRAND_TOTAL;
-import static net.sf.reportengine.util.AlgoIOKeys.SHOW_TOTALS;
-import static net.sf.reportengine.util.AlgoIOKeys.TABLE_INPUT;
-import static net.sf.reportengine.util.StepIOKeys.*;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.EnumMap;
-import java.util.List;
-import java.util.Map;
-
 import net.sf.reportengine.config.DataColumn;
 import net.sf.reportengine.config.GroupColumn;
 import net.sf.reportengine.config.PivotData;
 import net.sf.reportengine.config.PivotHeaderRow;
 import net.sf.reportengine.core.ConfigValidationException;
-import net.sf.reportengine.core.algorithm.AbstractAlgo;
 import net.sf.reportengine.core.algorithm.AbstractMultiStepAlgo;
+import net.sf.reportengine.core.algorithm.Algorithm;
 import net.sf.reportengine.core.algorithm.AlgorithmContainer;
-import net.sf.reportengine.core.algorithm.report.DeleteTempIntermFilesAlgo;
 import net.sf.reportengine.core.algorithm.report.DeleteTempSortedFilesAlgo;
 import net.sf.reportengine.core.algorithm.report.LoopThroughTableInputAlgo;
 import net.sf.reportengine.core.algorithm.report.MultipleSortedFilesInputAlgo;
-import net.sf.reportengine.core.algorithm.steps.AlgorithmExitStep;
-import net.sf.reportengine.core.algorithm.steps.AlgorithmInitStep;
 import net.sf.reportengine.core.steps.EndTableExitStep;
 import net.sf.reportengine.core.steps.ExternalSortPreparationStep;
 import net.sf.reportengine.core.steps.InitReportDataInitStep;
 import net.sf.reportengine.core.steps.StartTableInitStep;
-import net.sf.reportengine.core.steps.StepInput;
-import net.sf.reportengine.core.steps.StepResult;
-import net.sf.reportengine.core.steps.crosstab.ConstrDataColsForSecondProcessInitStep;
-import net.sf.reportengine.core.steps.crosstab.ConstrGrpColsForSecondProcessInitStep;
-import net.sf.reportengine.core.steps.crosstab.CrosstabHeaderOutputInitStep;
-import net.sf.reportengine.core.steps.crosstab.DistinctValuesDetectorStep;
-import net.sf.reportengine.core.steps.crosstab.GenerateCrosstabMetadataInitStep;
-import net.sf.reportengine.core.steps.crosstab.IntermedRowMangerStep;
-import net.sf.reportengine.core.steps.intermed.ConfigIntermedReportOutputInitStep;
-import net.sf.reportengine.core.steps.intermed.ConstrIntermedDataColsInitStep;
-import net.sf.reportengine.core.steps.intermed.ConstrIntermedGrpColsInitStep;
-import net.sf.reportengine.core.steps.intermed.IntermedDataRowsOutputStep;
-import net.sf.reportengine.core.steps.intermed.IntermedGroupLevelDetectorStep;
-import net.sf.reportengine.core.steps.intermed.IntermedPreviousRowManagerStep;
-import net.sf.reportengine.core.steps.intermed.IntermedReportExtractTotalsDataInitStep;
-import net.sf.reportengine.core.steps.intermed.IntermedSetResultsExitStep;
-import net.sf.reportengine.core.steps.intermed.IntermedTotalsCalculatorStep;
-import net.sf.reportengine.core.steps.intermed.IntermedTotalsOutputStep;
+import net.sf.reportengine.core.steps.crosstab.*;
+import net.sf.reportengine.core.steps.intermed.*;
 import net.sf.reportengine.in.IntermediateCrosstabReportTableInput;
 import net.sf.reportengine.in.TableInput;
 import net.sf.reportengine.out.AbstractReportOutput;
 import net.sf.reportengine.out.IntermediateCrosstabOutput;
 import net.sf.reportengine.out.ReportOutput;
-import net.sf.reportengine.util.AlgoIOKeys;
-import net.sf.reportengine.util.ReportUtils;
-import net.sf.reportengine.util.StepAlgoKeyMapBuilder;
-import net.sf.reportengine.util.StepIOKeys;
-
+import net.sf.reportengine.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.File;
+import java.util.*;
+
+import static net.sf.reportengine.core.steps.StepResult.NO_RESULT;
+import static net.sf.reportengine.util.AlgoIOKeys.*;
+import static net.sf.reportengine.util.StepIOKeys.*;
 
 /**
  * <p>
@@ -186,7 +153,7 @@ final class DefaultPivotTable extends AbstractColumnBasedTable implements PivotT
      * the container for potential algorithms : the sorting algorithm , the
      * intermediate algorithm and the reporting algorithm
      */
-    private AlgorithmContainer reportAlgoContainer = new AlgorithmContainer("Pivot Table Algorithm Container");
+    private AlgorithmContainer reportAlgoContainer = new AlgorithmContainer();
 
     /**
      * the crosstab header rows
@@ -206,7 +173,6 @@ final class DefaultPivotTable extends AbstractColumnBasedTable implements PivotT
     /**
      * constructs a crosstab report based on the builder values
      * 
-     * @param builder
      */
     DefaultPivotTable(TableInput input,
                       List<DataColumn> dataColumns,
@@ -265,8 +231,6 @@ final class DefaultPivotTable extends AbstractColumnBasedTable implements PivotT
     /**
      * configures the first intermediate report. Keep in mind that another
      * method is needed to configure the second report
-     * 
-     * @see #configSecondAlgo()
      */
     protected void config() {
         LOGGER.trace("configuring crosstab report ...");
@@ -291,13 +255,13 @@ final class DefaultPivotTable extends AbstractColumnBasedTable implements PivotT
      * 
      * @return
      */
-    private AbstractAlgo configSortingAlgo() {
+    private Algorithm configSortingAlgo() {
 
         // TODO: improve here (this sorting algo doesn't have multiple steps)
         AbstractMultiStepAlgo sortingAlgo =
             new LoopThroughTableInputAlgo("External Sort Algorithm", 
                                            new StepAlgoKeyMapBuilder()
-                                                .add(FILES_WITH_SORTED_VALUES, AlgoIOKeys.SORTED_FILES)
+                                                .add(FILES_WITH_SORTED_VALUES, SORTED_FILES)
                                                 .build());
 
         // main steps
@@ -314,12 +278,12 @@ final class DefaultPivotTable extends AbstractColumnBasedTable implements PivotT
      * 
      * @return the intermediate algorithm
      */
-    private AbstractAlgo configIntermedAlgo(final boolean hasBeenPreviouslySorted) {
+    private Algorithm configIntermedAlgo(final boolean hasBeenPreviouslySorted) {
 
         AbstractMultiStepAlgo algorithm = null; 
         Map<StepIOKeys, AlgoIOKeys> stepToAlgoKeysMapping = new StepAlgoKeyMapBuilder()
-                                        .add(INTERMEDIATE_DISTINCT_VALUES_HOLDER, AlgoIOKeys.DISTINCT_VALUES_HOLDER)
-                                        .add(INTERMEDIATE_SERIALIZED_FILE, AlgoIOKeys.INTERMEDIATE_OUTPUT_FILE)
+                                        .add(INTERMEDIATE_DISTINCT_VALUES_HOLDER, DISTINCT_VALUES_HOLDER)
+                                        .add(INTERMEDIATE_SERIALIZED_FILE, INTERMEDIATE_OUTPUT_FILE)
                                         .build();
         if(hasBeenPreviouslySorted){
             algorithm = new MultipleSortedFilesInputAlgo("Intermediate Algorithm", stepToAlgoKeysMapping); 
@@ -386,12 +350,12 @@ final class DefaultPivotTable extends AbstractColumnBasedTable implements PivotT
      * intermediate algo 2. computing the totals on data rows 3. outputting to
      * the output
      */
-    private AbstractAlgo configSecondAlgo(boolean hasBeenPreviouslySorted) {
+    private Algorithm configSecondAlgo(boolean hasBeenPreviouslySorted) {
         AbstractMultiStepAlgo algorithm = new LoopThroughTableInputAlgo("Pivot table algo") {
             @Override
             protected TableInput buildTableInput(Map<AlgoIOKeys, Object> inputParams) {
                 File previousAlgoSerializedOutput =
-                    (File) inputParams.get(AlgoIOKeys.INTERMEDIATE_OUTPUT_FILE);
+                    (File) inputParams.get(INTERMEDIATE_OUTPUT_FILE);
                 return new IntermediateCrosstabReportTableInput(previousAlgoSerializedOutput);
             }
         };
@@ -432,12 +396,17 @@ final class DefaultPivotTable extends AbstractColumnBasedTable implements PivotT
         return algorithm;
     }
     
-    private AbstractAlgo configCleaningAlgo(boolean hasBeenPreviouslySorted){
-        AlgorithmContainer cleaningAlgo = new AlgorithmContainer("Cleaning Algo"); 
+    private Algorithm configCleaningAlgo(boolean hasBeenPreviouslySorted){
+        AlgorithmContainer cleaningAlgo = new AlgorithmContainer();
         if(hasBeenPreviouslySorted){
             cleaningAlgo.addAlgo(new DeleteTempSortedFilesAlgo());
         }
-        cleaningAlgo.addAlgo(new DeleteTempIntermFilesAlgo());
+        //delete temporary intermediary files
+        cleaningAlgo.addAlgo( input -> {
+            File tempIntermFile = (File) input.get(INTERMEDIATE_OUTPUT_FILE);
+            ReportIoUtils.deleteTempFileIfNotDebug(tempIntermFile);
+            return new HashMap<>();
+        });
         return cleaningAlgo;
     }
 

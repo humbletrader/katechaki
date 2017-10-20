@@ -15,11 +15,9 @@
  */
 package net.sf.reportengine.core.algorithm;
 
-import java.util.EnumMap;
-import java.util.Map;
-
-import jdk.nashorn.internal.objects.annotations.Function;
 import net.sf.reportengine.util.AlgoIOKeys;
+
+import java.util.Map;
 
 /**
  * <p>

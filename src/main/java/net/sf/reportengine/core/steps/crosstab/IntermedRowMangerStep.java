@@ -55,8 +55,7 @@ public class IntermedRowMangerStep extends AbstractCrosstabStep<IntermediateRepo
 	 *
 	 */
 	private IntermediateReportRow intermediateRow = new IntermediateReportRow(); 
-	
-	
+
 	/**
 	 * 
 	 */
@@ -94,7 +93,7 @@ public class IntermedRowMangerStep extends AbstractCrosstabStep<IntermediateRepo
 	
 	
 	/* (non-Javadoc)
-	 * @see net.sf.reportengine.core.AbstractReportStep#execute(net.sf.reportengine.core.algorithm.NewRowEvent)
+	 * @see net.sf.reportengine.core.AbstractAlgoContextAwareStep#execute(net.sf.reportengine.core.algorithm.NewRowEvent)
 	 */
 	public StepResult<String> execute(NewRowEvent rowEvent, StepInput stepInput) {
 		//TODO: try to simplify this class (it is pretty complex as compared to the other step classes)

@@ -37,7 +37,7 @@ import org.slf4j.LoggerFactory;
  * @author dragos balan
  *
  */
-public class AlgorithmContainer extends AbstractAlgo {
+public class AlgorithmContainer implements Algorithm {
 
     /**
      * the one and only logger
@@ -47,16 +47,10 @@ public class AlgorithmContainer extends AbstractAlgo {
     /**
      * the list of algorithms
      */
-    private List<AbstractAlgo> algos = new ArrayList<AbstractAlgo>();
+    private List<Algorithm> algos = new ArrayList<>();
 
-    /**
-     * constructor for an algorithm container
-     */
-    public AlgorithmContainer(String algoName) {
-        super(algoName); 
-    }
 
-    public void addAlgo(AbstractAlgo newAlgo) {
+    public void addAlgo(Algorithm newAlgo) {
         algos.add(newAlgo);
     }
 
@@ -67,17 +61,14 @@ public class AlgorithmContainer extends AbstractAlgo {
     public Map<AlgoIOKeys, Object> execute(Map<AlgoIOKeys, Object> input) {
         Map<AlgoIOKeys, Object> result = null;
 
-        for (Iterator<AbstractAlgo> algoIterator = algos.iterator(); algoIterator.hasNext();) {
-            AbstractAlgo algo = algoIterator.next();
+        for (Iterator<Algorithm> algoIterator = algos.iterator(); algoIterator.hasNext();) {
+            Algorithm algo = algoIterator.next();
 
             // execution of the algorithm
-            LOGGER.debug("executing {} ...", algo.getName());
             result = algo.execute(input);
-            LOGGER.debug("algorithm {} ended succesfully with result {}", algo.getName(), result);
 
             if (algoIterator.hasNext() && !result.isEmpty()) {
                 // transfer this algo's output in next algo's input
-                LOGGER.debug("transferring results {} of {} to the next algorithm", result, algo.getName());
                 input.putAll(result);
             }
         }

@@ -22,12 +22,14 @@ import java.util.Arrays;
 import java.util.List;
 
 import net.sf.reportengine.config.GroupColumn;
-import net.sf.reportengine.core.AbstractReportStep;
+import net.sf.reportengine.core.AbstractAlgoContextAwareStep;
 import net.sf.reportengine.core.algorithm.NewRowEvent;
 import net.sf.reportengine.util.StepIOKeys;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static net.sf.reportengine.core.steps.StepResult.*;
 
 /**
  * 
@@ -37,7 +39,7 @@ import org.slf4j.LoggerFactory;
  * @author dragos balan
  *
  */
-public class PreviousRowManagerStep extends AbstractReportStep<String, Object[], String> {
+public class PreviousRowManagerStep extends AbstractAlgoContextAwareStep<String, Object[], String> {
 	
 	/**
 	 * the one and only logger
@@ -88,10 +90,10 @@ public class PreviousRowManagerStep extends AbstractReportStep<String, Object[],
     }
 
 	public StepResult<String> init(StepInput stepInput) {
-		return StepResult.NO_RESULT;
+		return NO_RESULT;
 	}
 
 	public StepResult<String> exit(StepInput stepInput) {
-		return StepResult.NO_RESULT;
+		return NO_RESULT;
 	}
 }

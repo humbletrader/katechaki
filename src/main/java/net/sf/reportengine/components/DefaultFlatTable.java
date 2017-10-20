@@ -22,8 +22,8 @@ import java.util.Map;
 import net.sf.reportengine.config.DataColumn;
 import net.sf.reportengine.config.GroupColumn;
 import net.sf.reportengine.core.ConfigValidationException;
-import net.sf.reportengine.core.algorithm.AbstractAlgo;
 import net.sf.reportengine.core.algorithm.AbstractMultiStepAlgo;
+import net.sf.reportengine.core.algorithm.Algorithm;
 import net.sf.reportengine.core.algorithm.AlgorithmContainer;
 import net.sf.reportengine.core.algorithm.report.DeleteTempSortedFilesAlgo;
 import net.sf.reportengine.core.algorithm.report.LoopThroughTableInputAlgo;
@@ -67,14 +67,18 @@ final class DefaultFlatTable extends AbstractColumnBasedTable implements FlatTab
      * sorting algorithm 2. the reporting algorithm 3. the FO post processor
      * algorithm
      */
-    private AlgorithmContainer tableAlgoContainer = new AlgorithmContainer("Flat Table Algorithm Container");
+    private AlgorithmContainer tableAlgoContainer = new AlgorithmContainer();
 
 
     /**
      * the one and only constructor based on a builder
-     * 
-     * @param builder
-     *            the helper builder for this class
+     * @param input
+     * @param dataColumns
+     * @param groupColumns
+     * @param showTotals
+     * @param showGrandTotal
+     * @param showDataRows
+     * @param  valuesSorted
      */
     DefaultFlatTable(TableInput input,
                      List<DataColumn> dataColumns,
@@ -116,7 +120,7 @@ final class DefaultFlatTable extends AbstractColumnBasedTable implements FlatTab
      * 
      * @return
      */
-    private AbstractAlgo configSortingAlgo() {
+    private Algorithm configSortingAlgo() {
         // TODO: this sorting algo does not have multiple steps
         AbstractMultiStepAlgo sortingAlgo = 
                 new LoopThroughTableInputAlgo("Sorting Algorithm", 
@@ -136,7 +140,7 @@ final class DefaultFlatTable extends AbstractColumnBasedTable implements FlatTab
      * 
      * @return the algorithm
      */
-    private AbstractAlgo configReportAlgo(final boolean hasBeenPreviouslySorted) {
+    private Algorithm configReportAlgo(final boolean hasBeenPreviouslySorted) {
         AbstractMultiStepAlgo reportAlgo = null; 
         if(hasBeenPreviouslySorted){
             // if the input has been previously sorted then the sorting algorithm (the previous) has created

@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import net.sf.reportengine.core.AbstractReportStep;
+import net.sf.reportengine.core.AbstractAlgoContextAwareStep;
 import net.sf.reportengine.core.ReportEngineRuntimeException;
 import net.sf.reportengine.core.algorithm.NewRowEvent;
 import net.sf.reportengine.util.ReportIoUtils;
@@ -39,7 +39,7 @@ import org.slf4j.LoggerFactory;
  * @author dragos balan
  *
  */
-public class ExternalSortPreparationStep extends AbstractReportStep<List<File>, String, String>{
+public class ExternalSortPreparationStep extends AbstractAlgoContextAwareStep<List<File>, String, String> {
 	
 	/**
 	 * the one and only logger

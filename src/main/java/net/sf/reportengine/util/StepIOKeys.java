@@ -21,7 +21,7 @@ package net.sf.reportengine.util;
 /**
  * Enumeration for context keys
  * 
- * @author dragos balan (dragos dot balan at gmail dot com)
+ * @author dragos balan
  * @since 0.4
  */
 public enum StepIOKeys {

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 
-import net.sf.reportengine.core.AbstractReportStep;
+import net.sf.reportengine.core.AbstractAlgoContextAwareStep;
 import net.sf.reportengine.core.algorithm.NewRowEvent;
 import net.sf.reportengine.util.StepIOKeys;
 
@@ -35,7 +35,7 @@ import static net.sf.reportengine.core.steps.StepResult.*;
  * @author dragos balan
  *
  */
-public class InMemorySortStep extends AbstractReportStep<String, String, List<NewRowEvent>> {
+public class InMemorySortStep extends AbstractAlgoContextAwareStep<String, String, List<NewRowEvent>> {
 	
 	/**
 	 * the one and only logger
@@ -54,7 +54,7 @@ public class InMemorySortStep extends AbstractReportStep<String, String, List<Ne
 	}
 	
 	/* (non-Javadoc)
-	 * @see net.sf.reportengine.core.AbstractReportStep#execute(net.sf.reportengine.core.algorithm.NewRowEvent)
+	 * @see net.sf.reportengine.core.AbstractAlgoContextAwareStep#execute(net.sf.reportengine.core.algorithm.NewRowEvent)
 	 */
 	public StepResult<String> execute(NewRowEvent rowEvent, StepInput stepInput) {
 		inMemoryResult.offer(rowEvent);

@@ -15,7 +15,7 @@
  */
 package net.sf.reportengine.core.steps;
 
-import net.sf.reportengine.core.AbstractReportStep;
+import net.sf.reportengine.core.AbstractAlgoContextAwareStep;
 import net.sf.reportengine.core.algorithm.NewRowEvent;
 import net.sf.reportengine.core.calc.CalcIntermResult;
 import net.sf.reportengine.util.CalculatorIntermResultsMatrix;
@@ -32,7 +32,7 @@ import org.slf4j.LoggerFactory;
  * @author dragos balan (dragos dot balan at gmail dot com)
  * @since 0.2
  */
-public class TotalsCalculatorStep extends AbstractReportStep<CalcIntermResult[][], String, String>{
+public class TotalsCalculatorStep extends AbstractAlgoContextAwareStep<CalcIntermResult[][], String, String> {
     
 	/**
 	 * the one and only logger

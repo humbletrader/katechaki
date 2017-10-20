@@ -38,7 +38,7 @@ import org.slf4j.LoggerFactory;
  * @author dragos balan
  * @since 0.2
  */
-public abstract class AbstractMultiStepAlgo extends AbstractAlgo {
+public abstract class AbstractMultiStepAlgo implements Algorithm {
     
     private static final Logger LOGGER = LoggerFactory.getLogger(AbstractMultiStepAlgo.class); 
     
@@ -76,8 +76,7 @@ public abstract class AbstractMultiStepAlgo extends AbstractAlgo {
     
     public AbstractMultiStepAlgo(String algorithmName, 
                                  Map<StepIOKeys, AlgoIOKeys> stepToAlgoOutputMapping) {
-        super(algorithmName);
-        this.stepToAlgoOutputMap = stepToAlgoOutputMapping; 
+        this.stepToAlgoOutputMap = stepToAlgoOutputMapping;
     }
 
     /**

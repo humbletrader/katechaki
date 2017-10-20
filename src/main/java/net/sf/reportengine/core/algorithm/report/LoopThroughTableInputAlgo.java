@@ -45,7 +45,7 @@ import org.slf4j.LoggerFactory;
  *  5. transfers the context into algo output (only those specified in the stepToAlgoMapping)
  * </p>
  * 
- * @author dragos balan (dragos.balan@gmail.com)
+ * @author dragos balan
  */
 public class LoopThroughTableInputAlgo extends AbstractMultiStepAlgo {
 

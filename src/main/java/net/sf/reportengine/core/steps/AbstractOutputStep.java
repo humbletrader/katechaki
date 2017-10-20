@@ -18,7 +18,7 @@
  */
 package net.sf.reportengine.core.steps;
 
-import net.sf.reportengine.core.AbstractReportStep;
+import net.sf.reportengine.core.AbstractAlgoContextAwareStep;
 import net.sf.reportengine.out.ReportOutput;
 import net.sf.reportengine.util.AlgoIOKeys;
 
@@ -26,7 +26,7 @@ import net.sf.reportengine.util.AlgoIOKeys;
  * @author dragos balan
  *
  */
-public abstract class AbstractOutputStep<T,U,V> extends AbstractReportStep<T,U,V> {
+public abstract class AbstractOutputStep<T,U,V> extends AbstractAlgoContextAwareStep<T,U,V> {
 
 	/**
 	 * 
