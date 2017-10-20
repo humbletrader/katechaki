@@ -20,7 +20,7 @@ import java.util.List;
 
 import net.sf.reportengine.config.DataColumn;
 import net.sf.reportengine.config.GroupColumn;
-import net.sf.reportengine.core.algorithm.steps.AbstractAlgoMainStep;
+import net.sf.reportengine.core.algorithm.steps.AlgorithmMainStep;
 import net.sf.reportengine.core.calc.CalcIntermResult;
 import net.sf.reportengine.core.steps.FlatTableTotalsOutputStep;
 import net.sf.reportengine.core.steps.StepInput;
@@ -35,7 +35,7 @@ import net.sf.reportengine.util.AlgoIOKeys;
  * @author dragos balan
  * @since 0.2
  */
-public abstract class AbstractReportStep<T, U, V> extends AbstractAlgoMainStep<T, U, V>{
+public abstract class AbstractReportStep<T, U, V> implements AlgorithmMainStep<T, U, V> {
 	
 	/**
 	 * constant for grand total grouping level

@@ -34,7 +34,7 @@ import org.slf4j.LoggerFactory;
  * this is the manager of the previous row. Normally this should be the last 
  * step in your algorithm
  * 
- * @author dragos balan (dragos dot balan at gmail dot com)
+ * @author dragos balan
  *
  */
 public class PreviousRowManagerStep extends AbstractReportStep<String, Object[], String> {

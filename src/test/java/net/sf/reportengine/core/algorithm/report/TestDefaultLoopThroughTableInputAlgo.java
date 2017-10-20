@@ -36,6 +36,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import static net.sf.reportengine.core.steps.StepResult.*;
+import static net.sf.reportengine.util.StepIOKeys.*;
+
 /**
  * @author dragos balan
  *
@@ -51,17 +54,16 @@ public class TestDefaultLoopThroughTableInputAlgo {
     private AlgorithmMainStep testMainStep = new AlgorithmMainStep<Integer, Integer, String>() {
 
         public StepResult<Integer> init(StepInput stepInput) {
-            return new StepResult(StepIOKeys.DATA_ROW_COUNT, NumberUtils.INTEGER_ZERO);
+            return new StepResult(DATA_ROW_COUNT, NumberUtils.INTEGER_ZERO);
         }
 
         public StepResult<Integer> execute(NewRowEvent dataRowEvent, StepInput stepInput) {
-            Integer executionCounts = (Integer) stepInput.getContextParam(StepIOKeys.DATA_ROW_COUNT);
-            return new StepResult<Integer>(StepIOKeys.DATA_ROW_COUNT,
-                                           executionCounts + 1);
+            Integer executionCounts = (Integer) stepInput.getContextParam(DATA_ROW_COUNT);
+            return new StepResult<>(DATA_ROW_COUNT, executionCounts + 1);
         }
 
         public StepResult<String> exit(StepInput stepInput) {
-            return StepResult.NO_RESULT;
+            return NO_RESULT;
         }
     };
 
@@ -74,7 +76,7 @@ public class TestDefaultLoopThroughTableInputAlgo {
      */
     @Before
     public void setUp() throws Exception {
-        classUnderTest = new LoopThroughTableInputAlgo("Test Loop Through TableInput", new HashMap<StepIOKeys, AlgoIOKeys>(){{put(StepIOKeys.DATA_ROW_COUNT, AlgoIOKeys.TEST_KEY);}});
+        classUnderTest = new LoopThroughTableInputAlgo("Test Loop Through TableInput", new HashMap<StepIOKeys, AlgoIOKeys>(){{put(DATA_ROW_COUNT, AlgoIOKeys.TEST_KEY);}});
 
         classUnderTest.addMainStep(testMainStep);
     }

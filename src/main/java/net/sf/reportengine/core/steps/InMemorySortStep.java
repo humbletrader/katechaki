@@ -29,6 +29,8 @@ import net.sf.reportengine.util.StepIOKeys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static net.sf.reportengine.core.steps.StepResult.*;
+
 /**
  * @author dragos balan
  *
@@ -48,7 +50,7 @@ public class InMemorySortStep extends AbstractReportStep<String, String, List<Ne
 								100, 
 								new NewRowComparator(	getGroupColumns(stepInput), 
 														getDataColumns(stepInput))); 
-		return StepResult.NO_RESULT; 
+		return NO_RESULT;
 	}
 	
 	/* (non-Javadoc)
@@ -56,7 +58,7 @@ public class InMemorySortStep extends AbstractReportStep<String, String, List<Ne
 	 */
 	public StepResult<String> execute(NewRowEvent rowEvent, StepInput stepInput) {
 		inMemoryResult.offer(rowEvent);
-		return StepResult.NO_RESULT; 
+		return NO_RESULT;
 	}
 	
 	public StepResult<List<NewRowEvent>> exit(StepInput stepInput){
@@ -67,7 +69,6 @@ public class InMemorySortStep extends AbstractReportStep<String, String, List<Ne
 		}
 		
 		//the result is ready for writing
-		//getAlgoContext().set(ContextKeys.IN_MEM_SORTED_RESULT, arrayResult); 
-		return new StepResult<List<NewRowEvent>>(StepIOKeys.IN_MEM_SORTED_RESULT, arrayResult); 
+		return new StepResult<>(StepIOKeys.IN_MEM_SORTED_RESULT, arrayResult);
 	}
 }

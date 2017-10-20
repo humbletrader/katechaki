@@ -39,11 +39,11 @@ public interface AlgorithmMainStep<T,U, V> {
      * and represents the construction step where you can define the keys and 
      * values used inside the execute method.
      * <b>Warning: this is the only place where you can add keys to the report context
-	 * @param stepInput TODO
+	 * @param stepInput the input for this step
      *  
-     * @return TODO
+     * @return the result of executing the initialization
      */
-    public StepResult<T> init(StepInput stepInput);
+    StepResult<T> init(StepInput stepInput);
 	
     /**
      * callback method called for each row
@@ -51,11 +51,11 @@ public interface AlgorithmMainStep<T,U, V> {
      * @param stepInput the input of the step
      * @return the result of the processing for this step
      */
-    public StepResult<U> execute(NewRowEvent newRowEvent, StepInput stepInput);
+    StepResult<U> execute(NewRowEvent newRowEvent, StepInput stepInput);
     
     
     /**
      * called when finishing the algorithm execution
      */
-    public StepResult<V> exit(StepInput stepInput);
+    StepResult<V> exit(StepInput stepInput);
 }
