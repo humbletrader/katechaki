@@ -47,9 +47,9 @@ public interface AlgorithmMainStep<T,U, V> {
 	
     /**
      * callback method called for each row
-     * @param newRowEvent
-     * @param stepInput TODO
-     * @return TODO
+     * @param newRowEvent  a new row event
+     * @param stepInput the input of the step
+     * @return the result of the processing for this step
      */
     public StepResult<U> execute(NewRowEvent newRowEvent, StepInput stepInput);
     
