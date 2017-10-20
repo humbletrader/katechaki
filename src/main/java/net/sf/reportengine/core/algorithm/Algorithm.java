@@ -18,6 +18,7 @@ package net.sf.reportengine.core.algorithm;
 import java.util.EnumMap;
 import java.util.Map;
 
+import jdk.nashorn.internal.objects.annotations.Function;
 import net.sf.reportengine.util.AlgoIOKeys;
 
 /**
@@ -27,11 +28,8 @@ import net.sf.reportengine.util.AlgoIOKeys;
  * 
  * @author dragos balan (dragos dot balan at gmail dot com)
  */
+@FunctionalInterface
 public interface Algorithm {
-
-    // TODO make it read only
-    public final Map<AlgoIOKeys, Object> EMPTY_READ_ONLY_PARAMS_MAP =
-        new EnumMap<AlgoIOKeys, Object>(AlgoIOKeys.class);
 
     /**
      * executes the algorithm based on the input and returns the output
@@ -40,6 +38,6 @@ public interface Algorithm {
      *            the input parameter map
      * @return an output parameter map
      */
-    public Map<AlgoIOKeys, Object> execute(Map<AlgoIOKeys, Object> input);
+    Map<AlgoIOKeys, Object> execute(Map<AlgoIOKeys, Object> input);
 
 }

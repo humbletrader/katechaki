@@ -23,28 +23,12 @@ import net.sf.reportengine.core.steps.StepInput;
 import net.sf.reportengine.core.steps.StepResult;
 
 /**
- * <p>
- *      Interface step in the algorithm. 
- *      The general contract is that :
- *          1. init() method is called after all useful values have been set
- *          2. exit() method is called after all executions have been done
- * </p>
- * @author dragos balan (dragos.balan@gmail.com)
+ * <p> Interface step in the algorithm </p>
+ * @author dragos balan
  */
-public interface AlgorithmMainStep<T,U, V> {
+public interface AlgorithmMainStep<T,U, V> extends AlgorithmInitStep<T>, AlgorithmExitStep<V>{
     
     
-	/**
-     * this method is called only once for a report 
-     * and represents the construction step where you can define the keys and 
-     * values used inside the execute method.
-     * <b>Warning: this is the only place where you can add keys to the report context
-	 * @param stepInput the input for this step
-     *  
-     * @return the result of executing the initialization
-     */
-    StepResult<T> init(StepInput stepInput);
-	
     /**
      * callback method called for each row
      * @param newRowEvent  a new row event
@@ -52,10 +36,4 @@ public interface AlgorithmMainStep<T,U, V> {
      * @return the result of the processing for this step
      */
     StepResult<U> execute(NewRowEvent newRowEvent, StepInput stepInput);
-    
-    
-    /**
-     * called when finishing the algorithm execution
-     */
-    StepResult<V> exit(StepInput stepInput);
 }

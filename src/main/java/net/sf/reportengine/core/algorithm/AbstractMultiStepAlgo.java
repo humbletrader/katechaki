@@ -35,7 +35,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author dragos balan (dragos dot balan at gmail dot com)
+ * @author dragos balan
  * @since 0.2
  */
 public abstract class AbstractMultiStepAlgo extends AbstractAlgo {
