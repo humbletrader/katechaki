@@ -15,6 +15,7 @@
  */
 package net.sf.reportengine.components;
 
+import static net.sf.reportengine.core.steps.StepResult.*;
 import static net.sf.reportengine.util.AlgoIOKeys.CROSSTAB_DATA;
 import static net.sf.reportengine.util.AlgoIOKeys.CROSSTAB_HEADER_ROWS;
 import static net.sf.reportengine.util.AlgoIOKeys.DATA_COLS;
@@ -341,7 +342,7 @@ final class DefaultPivotTable extends AbstractColumnBasedTable implements PivotT
 
         algorithm.addInitStep(stepInput -> {
             ((IntermediateCrosstabOutput) stepInput.getContextParam(INTERMEDIATE_CROSSTAB_OUTPUT)).open();
-            return StepResult.NO_RESULT;
+            return NO_RESULT;
         });
 
         // TODO: only when totals add the step below
@@ -370,11 +371,9 @@ final class DefaultPivotTable extends AbstractColumnBasedTable implements PivotT
         algorithm.addMainStep(new IntermedPreviousRowManagerStep());
         // }
 
-        algorithm.addExitStep(new AlgorithmExitStep<String>() {
-            public StepResult<String> exit(StepInput stepInput) {
+        algorithm.addExitStep(stepInput -> {
                 ((IntermediateCrosstabOutput) stepInput.getContextParam(INTERMEDIATE_CROSSTAB_OUTPUT)).close();
-                return StepResult.NO_RESULT;
-            }
+                return NO_RESULT;
         });
 
         algorithm.addExitStep(new IntermedSetResultsExitStep());

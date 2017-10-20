@@ -18,20 +18,20 @@
  */
 package net.sf.reportengine.core.steps;
 
+import net.sf.reportengine.core.algorithm.steps.AlgorithmExitStep;
 import net.sf.reportengine.out.AbstractReportOutput;
 import net.sf.reportengine.util.AlgoIOKeys;
+
+import static net.sf.reportengine.util.AlgoIOKeys.*;
 
 /**
  * @author dragos balan
  *
  */
-public class EndTableExitStep extends AbstractReportExitStep<String> {
+public class EndTableExitStep implements AlgorithmExitStep<String> {
 
-	/* (non-Javadoc)
-	 * @see net.sf.reportengine.core.algorithm.steps.AlgorithmExitStep#exit(net.sf.reportengine.core.steps.StepInput)
-	 */
 	public StepResult<String> exit(StepInput stepInput) {
-		((AbstractReportOutput)stepInput.getAlgoInput(AlgoIOKeys.NEW_REPORT_OUTPUT)).output("endTable.ftl");
+		((AbstractReportOutput)stepInput.getAlgoInput(NEW_REPORT_OUTPUT)).output("endTable.ftl");
 		return StepResult.NO_RESULT; 
 	}
 

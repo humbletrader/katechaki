@@ -22,11 +22,10 @@ import net.sf.reportengine.core.steps.StepInput;
 import net.sf.reportengine.core.steps.StepResult;
 
 /**
- * <p>
- *      Algorithm exit step interface
- * </p>
+ * <p> Defines the exit step of an algorithm</p>
  * @author dragos balan (dragos.balan@gmail.com)
  */
+@FunctionalInterface
 public interface AlgorithmExitStep<T> {
     
     /**
@@ -34,6 +33,6 @@ public interface AlgorithmExitStep<T> {
      * 
      * @param stepInput the input 
      */
-    public StepResult<T> exit(StepInput stepInput);
+    StepResult<T> exit(StepInput stepInput);
     
 }
