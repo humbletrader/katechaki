@@ -40,11 +40,11 @@ public class InMemorySortStep extends AbstractReportStep<String, String, List<Ne
 	 */
 	private static final Logger LOGGER = LoggerFactory.getLogger(InMemorySortStep.class);
 	
-	private PriorityQueue<NewRowEvent> inMemoryResult ; 
+	private PriorityQueue<NewRowEvent> inMemoryResult;
 	
 	
 	public StepResult<String> init(StepInput stepInput){
-		inMemoryResult = new PriorityQueue<NewRowEvent>(
+		inMemoryResult = new PriorityQueue<>(
 								100, 
 								new NewRowComparator(	getGroupColumns(stepInput), 
 														getDataColumns(stepInput))); 

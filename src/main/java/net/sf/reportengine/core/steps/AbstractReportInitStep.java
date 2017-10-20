@@ -22,7 +22,7 @@ import java.util.List;
 
 import net.sf.reportengine.config.DataColumn;
 import net.sf.reportengine.config.GroupColumn;
-import net.sf.reportengine.core.algorithm.steps.AbstractInitStep;
+import net.sf.reportengine.core.algorithm.steps.AlgorithmInitStep;
 import net.sf.reportengine.in.TableInput;
 import net.sf.reportengine.util.StepIOKeys;
 import net.sf.reportengine.util.AlgoIOKeys;
@@ -31,7 +31,7 @@ import net.sf.reportengine.util.AlgoIOKeys;
  * @author dragos balan
  *
  */
-public abstract class AbstractReportInitStep<U> extends AbstractInitStep<U> {
+public abstract class AbstractReportInitStep<U> implements AlgorithmInitStep<U> {
 	
 	/**
 	 * 

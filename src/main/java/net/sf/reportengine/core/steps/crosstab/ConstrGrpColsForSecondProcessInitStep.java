@@ -28,6 +28,8 @@ import net.sf.reportengine.core.steps.StepInput;
 import net.sf.reportengine.core.steps.StepResult;
 import net.sf.reportengine.util.StepIOKeys;
 
+import static net.sf.reportengine.util.StepIOKeys.*;
+
 /**
  * @author dragos balan
  *
@@ -37,9 +39,8 @@ public class ConstrGrpColsForSecondProcessInitStep extends AbstractCrosstabInitS
 	
 	public StepResult<List<GroupColumn>> init(StepInput stepInput) {
 		List<GroupColumn> newGroupCols = constructGroupColumnsForSecondProcess(getGroupColumns(stepInput)); 
-		//getAlgoContext().set(ContextKeys.INTERNAL_GROUP_COLS, newGroupCols); 
-		
-		return new StepResult<List<GroupColumn>>(StepIOKeys.INTERNAL_GROUP_COLS, newGroupCols); 
+
+		return new StepResult<>(INTERNAL_GROUP_COLS, newGroupCols);
 	}
 
 	/**
@@ -51,7 +52,7 @@ public class ConstrGrpColsForSecondProcessInitStep extends AbstractCrosstabInitS
 	protected List<GroupColumn> constructGroupColumnsForSecondProcess(List<GroupColumn> originalGroupCols){
 		List<GroupColumn> result = null; 
 		if(originalGroupCols != null && originalGroupCols.size() > 0){
-			result = new ArrayList<GroupColumn>(originalGroupCols.size());
+			result = new ArrayList<>(originalGroupCols.size());
 			for (GroupColumn originalGroupColumn : originalGroupCols) {
 				result.add(new SecondProcessGroupColumn(originalGroupColumn));
 			}

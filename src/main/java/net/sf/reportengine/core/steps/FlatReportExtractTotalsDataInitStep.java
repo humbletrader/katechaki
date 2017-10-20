@@ -27,6 +27,8 @@ import org.slf4j.LoggerFactory;
 import net.sf.reportengine.config.DataColumn;
 import net.sf.reportengine.util.StepIOKeys;
 
+import static net.sf.reportengine.util.StepIOKeys.*;
+
 /**
  * extracts some useful data to be used by the next steps in the report. 
  * 
@@ -66,8 +68,7 @@ public class FlatReportExtractTotalsDataInitStep extends AbstractReportInitStep<
 	public StepResult<ArrayList<Integer>> init(StepInput stepInput) {
 		ArrayList<Integer> calculatorsDistributionInDataColumnsArray = 
 				extractDistributionOfCalculatorsAcrossColumns(getDataColumns(stepInput)); 
-		//getAlgoContext().set(	ContextKeys.DISTRIBUTION_OF_CALCULATORS, calculatorsDistributionInDataColumnsArray);
-		return new StepResult<ArrayList<Integer>>(StepIOKeys.DISTRIBUTION_OF_CALCULATORS, calculatorsDistributionInDataColumnsArray); 
+		return new StepResult<>(DISTRIBUTION_OF_CALCULATORS, calculatorsDistributionInDataColumnsArray);
 	}
 	
 	/**

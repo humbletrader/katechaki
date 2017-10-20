@@ -18,25 +18,25 @@
  */
 package net.sf.reportengine.core.steps.crosstab;
 
-import net.sf.reportengine.core.algorithm.steps.AbstractInitStep;
+import net.sf.reportengine.core.algorithm.steps.AlgorithmInitStep;
 import net.sf.reportengine.core.steps.StepInput;
 import net.sf.reportengine.core.steps.StepResult;
-import net.sf.reportengine.util.StepIOKeys;
 import net.sf.reportengine.util.CtMetadata;
 import net.sf.reportengine.util.DistinctValuesHolder;
-import net.sf.reportengine.util.AlgoIOKeys;
+
+import static net.sf.reportengine.util.AlgoIOKeys.DISTINCT_VALUES_HOLDER;
+import static net.sf.reportengine.util.StepIOKeys.CROSSTAB_METADATA;
 
 /**
  * @author dragos balan
  *
  */
-public class GenerateCrosstabMetadataInitStep extends AbstractInitStep<CtMetadata> {
+public class GenerateCrosstabMetadataInitStep implements AlgorithmInitStep<CtMetadata> {
 
 	public StepResult<CtMetadata> init(StepInput stepInput) {
 		DistinctValuesHolder distinctValuesHolder = 
-				(DistinctValuesHolder)stepInput.getAlgoInput(AlgoIOKeys.DISTINCT_VALUES_HOLDER); 
+				(DistinctValuesHolder)stepInput.getAlgoInput(DISTINCT_VALUES_HOLDER);
 		CtMetadata ctMetadata = new CtMetadata(distinctValuesHolder); 
-		//getAlgoContext().set(ContextKeys.CROSSTAB_METADATA, ctMetadata); 
-		return new StepResult<CtMetadata>(StepIOKeys.CROSSTAB_METADATA, ctMetadata); 
+		return new StepResult<>(CROSSTAB_METADATA, ctMetadata);
 	}
 }

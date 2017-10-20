@@ -49,7 +49,7 @@ public class ConstrIntermedDataColsInitStep extends AbstractReportInitStep<List<
 		
 		List<DataColumn> dataColumns = transformCrosstabDataIntoDataColumns(originalCtData); 
 		LOGGER.debug("constructed intermediate data columns {}", dataColumns);
-		return new StepResult<List<DataColumn>>(StepIOKeys.INTERNAL_DATA_COLS, dataColumns);
+		return new StepResult<>(StepIOKeys.INTERNAL_DATA_COLS, dataColumns);
 	}
 	
 	/**

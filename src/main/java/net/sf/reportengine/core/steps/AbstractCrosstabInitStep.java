@@ -23,6 +23,9 @@ import net.sf.reportengine.util.StepIOKeys;
 import net.sf.reportengine.util.CtMetadata;
 import net.sf.reportengine.util.AlgoIOKeys;
 
+import static net.sf.reportengine.util.AlgoIOKeys.*;
+import static net.sf.reportengine.util.StepIOKeys.*;
+
 /**
  * @author dragos balan
  *
@@ -30,10 +33,10 @@ import net.sf.reportengine.util.AlgoIOKeys;
 public abstract class AbstractCrosstabInitStep<U> extends AbstractReportInitStep<U> {
 
 	protected CtMetadata getCrosstabMetadata(StepInput stepInput){
-		return (CtMetadata)stepInput.getContextParam(StepIOKeys.CROSSTAB_METADATA);
+		return (CtMetadata)stepInput.getContextParam(CROSSTAB_METADATA);
 	}
 	
 	public PivotData getCrosstabData(StepInput stepInput){
-		 return (PivotData)stepInput.getAlgoInput(AlgoIOKeys.CROSSTAB_DATA); 
+		 return (PivotData)stepInput.getAlgoInput(CROSSTAB_DATA);
 	}
 }

@@ -18,17 +18,17 @@
  */
 package net.sf.reportengine.core.steps;
 
-import net.sf.reportengine.core.algorithm.steps.AbstractInitStep;
-import net.sf.reportengine.util.StepIOKeys;
+import net.sf.reportengine.core.algorithm.steps.AlgorithmInitStep;
+
+import static net.sf.reportengine.util.StepIOKeys.DATA_ROW_COUNT;
 
 /**
- * @author dragos
+ * @author dragos balan
  *
  */
-public class InitReportDataInitStep extends AbstractInitStep<Integer> {
+public class InitReportDataInitStep implements AlgorithmInitStep<Integer> {
 
 	public StepResult<Integer> init(StepInput stepInput) {
-		//getAlgoContext().set(ContextKeys.DATA_ROW_COUNT, Integer.valueOf(0));
-		return new StepResult<Integer>(StepIOKeys.DATA_ROW_COUNT, Integer.valueOf(0)); 
+		return new StepResult<>(DATA_ROW_COUNT, Integer.valueOf(0));
 	}
 }

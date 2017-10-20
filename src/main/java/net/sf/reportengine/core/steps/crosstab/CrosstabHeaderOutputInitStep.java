@@ -40,6 +40,9 @@ import net.sf.reportengine.util.AlgoIOKeys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static net.sf.reportengine.util.AlgoIOKeys.*;
+import static net.sf.reportengine.util.StepIOKeys.*;
+
 /**
  * displays the column headers for the crosstab report
  * 
@@ -69,35 +72,22 @@ public class CrosstabHeaderOutputInitStep extends AbstractOutputInitStep<String>
 	}
 	
 	protected CtMetadata getCrosstabMetadata(StepInput stepInput){
-		return (CtMetadata)stepInput.getContextParam(StepIOKeys.CROSSTAB_METADATA);
+		return (CtMetadata)stepInput.getContextParam(CROSSTAB_METADATA);
 	}
 	
 	public PivotData getCrosstabData(StepInput stepInput){
-		 return (PivotData)stepInput.getAlgoInput(AlgoIOKeys.CROSSTAB_DATA); 
+		 return (PivotData)stepInput.getAlgoInput(CROSSTAB_DATA);
 	}
 	
 	@Override 
 	public List<DataColumn> getDataColumns(StepInput stepInput){
-		return (List<DataColumn>)stepInput.getContextParam(StepIOKeys.INTERNAL_DATA_COLS); 
+		return (List<DataColumn>)stepInput.getContextParam(INTERNAL_DATA_COLS);
 	}
 	
 	@Override 
 	public List<GroupColumn> getGroupColumns(StepInput stepInput){
-		return (List<GroupColumn>)stepInput.getContextParam(StepIOKeys.INTERNAL_GROUP_COLS); 
+		return (List<GroupColumn>)stepInput.getContextParam(INTERNAL_GROUP_COLS);
 	}
-	
-	/**
-	 * 
-	 * @param title
-	 * @param reportOutput
-	 */
-//	private void outputTitle(	String reportTitle, 
-//								int colspan,  
-//								ReportOutput reportOutput){
-//		if(reportTitle != null){
-//        	reportOutput.outputTitle(new TitleProps(reportTitle, colspan));
-//        }
-//	}
 	
 	/**
 	 * 

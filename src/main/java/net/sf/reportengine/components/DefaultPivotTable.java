@@ -23,6 +23,7 @@ import static net.sf.reportengine.util.AlgoIOKeys.NEW_REPORT_OUTPUT;
 import static net.sf.reportengine.util.AlgoIOKeys.SHOW_GRAND_TOTAL;
 import static net.sf.reportengine.util.AlgoIOKeys.SHOW_TOTALS;
 import static net.sf.reportengine.util.AlgoIOKeys.TABLE_INPUT;
+import static net.sf.reportengine.util.StepIOKeys.*;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -295,7 +296,7 @@ final class DefaultPivotTable extends AbstractColumnBasedTable implements PivotT
         AbstractMultiStepAlgo sortingAlgo =
             new LoopThroughTableInputAlgo("External Sort Algorithm", 
                                            new StepAlgoKeyMapBuilder()
-                                                .add(StepIOKeys.FILES_WITH_SORTED_VALUES, AlgoIOKeys.SORTED_FILES)
+                                                .add(FILES_WITH_SORTED_VALUES, AlgoIOKeys.SORTED_FILES)
                                                 .build());
 
         // main steps
@@ -316,8 +317,8 @@ final class DefaultPivotTable extends AbstractColumnBasedTable implements PivotT
 
         AbstractMultiStepAlgo algorithm = null; 
         Map<StepIOKeys, AlgoIOKeys> stepToAlgoKeysMapping = new StepAlgoKeyMapBuilder()
-                                        .add(StepIOKeys.INTERMEDIATE_DISTINCT_VALUES_HOLDER, AlgoIOKeys.DISTINCT_VALUES_HOLDER)
-                                        .add(StepIOKeys.INTERMEDIATE_SERIALIZED_FILE, AlgoIOKeys.INTERMEDIATE_OUTPUT_FILE)
+                                        .add(INTERMEDIATE_DISTINCT_VALUES_HOLDER, AlgoIOKeys.DISTINCT_VALUES_HOLDER)
+                                        .add(INTERMEDIATE_SERIALIZED_FILE, AlgoIOKeys.INTERMEDIATE_OUTPUT_FILE)
                                         .build();
         if(hasBeenPreviouslySorted){
             algorithm = new MultipleSortedFilesInputAlgo("Intermediate Algorithm", stepToAlgoKeysMapping); 
@@ -338,11 +339,9 @@ final class DefaultPivotTable extends AbstractColumnBasedTable implements PivotT
         // }
         algorithm.addInitStep(new ConfigIntermedReportOutputInitStep());
 
-        algorithm.addInitStep(new AlgorithmInitStep<String>() {
-            public StepResult<String> init(StepInput stepInput) {
-                ((IntermediateCrosstabOutput) stepInput.getContextParam(StepIOKeys.INTERMEDIATE_CROSSTAB_OUTPUT)).open();
-                return StepResult.NO_RESULT;
-            }
+        algorithm.addInitStep(stepInput -> {
+            ((IntermediateCrosstabOutput) stepInput.getContextParam(INTERMEDIATE_CROSSTAB_OUTPUT)).open();
+            return StepResult.NO_RESULT;
         });
 
         // TODO: only when totals add the step below
@@ -373,7 +372,7 @@ final class DefaultPivotTable extends AbstractColumnBasedTable implements PivotT
 
         algorithm.addExitStep(new AlgorithmExitStep<String>() {
             public StepResult<String> exit(StepInput stepInput) {
-                ((IntermediateCrosstabOutput) stepInput.getContextParam(StepIOKeys.INTERMEDIATE_CROSSTAB_OUTPUT)).close();
+                ((IntermediateCrosstabOutput) stepInput.getContextParam(INTERMEDIATE_CROSSTAB_OUTPUT)).close();
                 return StepResult.NO_RESULT;
             }
         });

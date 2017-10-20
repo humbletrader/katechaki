@@ -23,11 +23,12 @@ import net.sf.reportengine.core.steps.StepResult;
 
 /**
  * <p>
- *   Definition interface for an algorithm init step
+ *   The initialization step of an algorithm
  * </p>
  * @author dragos balan(dragos.balan@gmail.com)
  * @since 0.2
  */
+@FunctionalInterface
 public interface AlgorithmInitStep<U> {
     
     /**
@@ -36,8 +37,8 @@ public interface AlgorithmInitStep<U> {
      * values used inside the execute method.
      * <b>Warning: this is the only place where you can add keys to the report context
      *  
-     * @param algoInput		the input parameters 	
+     * @param input	the input parameters for this step
      */
-    public StepResult<U> init(StepInput input);
+    StepResult<U> init(StepInput input);
     
 }

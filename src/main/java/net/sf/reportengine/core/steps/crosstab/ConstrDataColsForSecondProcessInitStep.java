@@ -45,8 +45,7 @@ public class ConstrDataColsForSecondProcessInitStep extends AbstractCrosstabInit
 				getCrosstabData(stepInput), 
 				getShowTotals(stepInput), 
 				getShowGrandTotal(stepInput));
-		//getAlgoContext().set(ContextKeys.INTERNAL_DATA_COLS, newDataCols);
-		return new StepResult<List<DataColumn>>(StepIOKeys.INTERNAL_DATA_COLS, newDataCols); 
+		return new StepResult<>(StepIOKeys.INTERNAL_DATA_COLS, newDataCols);
 	}
 	
 	/**
