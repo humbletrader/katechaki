@@ -27,12 +27,12 @@ public interface ReportOutput {
 	/**
 	 * opens the required resources for this output
 	 */
-	public void open();
+	void open();
 	
 	/**
 	 * closes the resources used in this output
 	 */
-	public void close(); 
+	void close();
 	
 	/**
 	 * outputs the given model/data using the specified template
@@ -40,12 +40,12 @@ public interface ReportOutput {
 	 * @param templateName     the name of the template to be used for output
 	 * @param model            the data to be outputted
 	 */
-	public <T> void output(String templateName, T model);
+	<T> void output(String templateName, T model);
 	
 	/**
 	 * returns the output format of this report output
 	 * @return the output format
 	 */
-	public OutputFormat getFormat(); 
+	OutputFormat getFormat();
 	
 }

@@ -94,4 +94,6 @@ public class SecondProcessDataColumnFromOriginalDataColumn implements DataColumn
 	public SortType getSortType() {
 		return originalDataColumn.getSortType();
 	}
+
+	public HorizAlign getHeaderHorizAlign(){ return originalDataColumn.getHeaderHorizAlign();}
 }

@@ -71,7 +71,7 @@ public class ColumnHeaderOutputInitStep extends AbstractOutputInitStep<String> {
 	        for (GroupColumn groupColumn : groupCols) {
 				cellProps = new CellProps.Builder(groupColumn.getHeader())
 										.colspan(1)
-										.horizAlign(HorizAlign.CENTER)
+										.horizAlign(groupColumn.getHeaderHorizAlign())
 										.rowNumber(rowNumber)
 										.build();
 				//output.outputHeaderCell(cellProps);
@@ -83,7 +83,7 @@ public class ColumnHeaderOutputInitStep extends AbstractOutputInitStep<String> {
         for (DataColumn dataColumn: dataCols) {
             cellProps = new CellProps.Builder(dataColumn.getHeader())
             						.colspan(1)
-            						.horizAlign(HorizAlign.CENTER)
+            						.horizAlign(dataColumn.getHeaderHorizAlign())
             						.rowNumber(rowNumber)
             						.build();
             //output.outputHeaderCell(cellProps);

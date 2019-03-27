@@ -62,7 +62,12 @@ public abstract class AbstractDataColumn implements DataColumn {
 	/**
 	 * the vertical align
 	 */
-	private VertAlign vertAlign; 
+	private VertAlign vertAlign;
+
+	/**
+	 * the horizontal align of the header
+	 */
+	private HorizAlign headerHorizAlign;
 	
 	/**
 	 * the sorting level 
@@ -172,9 +177,31 @@ public abstract class AbstractDataColumn implements DataColumn {
 								VertAlign vertAlign, 
 								int sortLevel, 
 								SortType sortType){
-		this(header, calculator, valuesFormatter, null, horizAlign, vertAlign, sortLevel, sortType); 
+		this(header, calculator, valuesFormatter, null, horizAlign, vertAlign, sortLevel, sortType, HorizAlign.CENTER);
 	}
-	
+
+
+    /**
+     *
+     * @param header		the header of this column
+     * @param calculator	the calculator
+     * @param valuesFormatter		the valuesFormatter
+     * @param totalsFormatter		the valuesFormatter
+     * @param horizAlign	the horizontal alignment
+     * @param vertAlign		the vertical alignment
+     * @param sortLevel	the sorting level
+     * @param sortType		the sorting type (asc, desc)
+     */
+    public AbstractDataColumn(  String header,
+                                GroupCalculator calculator,
+                                String valuesFormatter,
+                                String totalsFormatter,
+                                HorizAlign horizAlign,
+                                VertAlign vertAlign,
+                                int sortLevel,
+                                SortType sortType){
+        this(header, calculator, valuesFormatter, totalsFormatter, horizAlign, vertAlign, sortLevel, sortType, HorizAlign.CENTER);
+    }
 	
 	/**
 	 * 
@@ -187,14 +214,15 @@ public abstract class AbstractDataColumn implements DataColumn {
 	 * @param sortLevel	the sorting level 
 	 * @param sortType		the sorting type (asc, desc)
 	 */
-	public AbstractDataColumn(	String header, 
+	public AbstractDataColumn(  String header,
 								GroupCalculator calculator, 
 								String valuesFormatter,
 								String totalsFormatter, 
 								HorizAlign horizAlign,
 								VertAlign vertAlign, 
 								int sortLevel, 
-								SortType sortType){
+								SortType sortType,
+                                HorizAlign headerHorizAlign){
 		this.header = header; 
 		this.valuesFormatter = valuesFormatter; 
 		this.totalFormatter = totalsFormatter;
@@ -203,6 +231,7 @@ public abstract class AbstractDataColumn implements DataColumn {
 		this.vertAlign = vertAlign;
 		this.sortLevel = sortLevel;
 		this.sortType = sortType;
+		this.headerHorizAlign = headerHorizAlign;
 	}
 	
 	/**
@@ -301,4 +330,6 @@ public abstract class AbstractDataColumn implements DataColumn {
 	public SortType getSortType(){
 		return sortType; 
 	}
+
+	public HorizAlign getHeaderHorizAlign(){ return headerHorizAlign;}
 }

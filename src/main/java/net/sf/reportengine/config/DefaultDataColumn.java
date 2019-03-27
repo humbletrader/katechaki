@@ -122,7 +122,8 @@ public class DefaultDataColumn extends AbstractDataColumn {
 		private int columnIndex; 
 		private String header = ""; 
 		private HorizAlign hAlign = HorizAlign.CENTER; 
-		private VertAlign  vAlign = VertAlign.MIDDLE; 
+		private VertAlign  vAlign = VertAlign.MIDDLE;
+		private HorizAlign headerHAlign = HorizAlign.CENTER;
 		private String valuesFormatter = null;
 		private String totalsFormatter = null; 
 		private GroupCalculator calculator = null; 
@@ -148,6 +149,11 @@ public class DefaultDataColumn extends AbstractDataColumn {
 			this.vAlign = vAlign; 
 			return this; 
 		}
+
+		public Builder headerHorizAlign(HorizAlign hAlign){
+		    this.headerHAlign = hAlign;
+		    return this;
+        }
 		
 		public Builder valuesFormatter(String format){
 			this.valuesFormatter = format; 

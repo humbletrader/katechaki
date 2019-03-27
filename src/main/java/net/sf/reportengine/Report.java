@@ -44,6 +44,6 @@ public interface Report {
 	/**
 	 * runs the report
 	 */
-	public void execute();
+	void execute();
 
 }

@@ -78,14 +78,7 @@ import net.sf.reportengine.core.calc.GroupCalculator;
  * @author dragos balan (dragos dot balan at gmail dot com)
  * @since 0.4
  */
-public interface GroupColumn {
-	
-	/**
-	 * this appears in the final report as the title/header of the column
-	 * @return the header of this column
-	 */
-	public String getHeader(); 
-	
+public interface GroupColumn extends TableColumn{
 	
 	/**
 	 * getter for the priority of this column 
@@ -93,35 +86,9 @@ public interface GroupColumn {
 	 *  
 	 * @return an integer representing the priority of this group column
 	 */
-	public int getGroupingLevel();
+	int getGroupingLevel();
 	
-	/**
-	 * getter for the current value on this column
-	 * 
-	 * @param newRowEvent  the new row event
-	 * @return the value of this column
-	 */
-	public Object getValue(NewRowEvent newRowEvent); 
-	
-	/**
-	 * returns the formatted value for the given object according to the 
-	 * formatting rules of this grouping column
-	 * 
-	 * @param object   an unformatted value
-	 */
-	public String getFormattedValue(Object object);
-	
-	/**
-	 * returns the horizontal alignment of the values of this column
-	 */
-	public HorizAlign getHorizAlign();
-	
-	/**
-	 * returns the vertical alignment of the values of this column
-	 * 
-	 * @return     the vertical alignment for this column
-	 */
-	public VertAlign getVertAlign();
+
 	
 	/**
 	 * whether or not this group column should display duplicate group values. 
@@ -173,12 +140,5 @@ public interface GroupColumn {
 	 * 
 	 * @return
 	 */
-	public boolean showDuplicates(); 
-	
-	/**
-	 * whether you want to sort this ascending or descending
-	 * 
-	 * @return
-	 */
-	public SortType getSortType(); 
+	boolean showDuplicates();
 }

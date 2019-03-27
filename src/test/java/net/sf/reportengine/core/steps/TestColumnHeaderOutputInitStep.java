@@ -18,21 +18,16 @@
  */
 package net.sf.reportengine.core.steps;
 
+import net.sf.reportengine.core.algorithm.AlgoContext;
+import net.sf.reportengine.core.algorithm.DefaultAlgorithmContext;
+import net.sf.reportengine.out.MockReportOutput;
+import net.sf.reportengine.scenarios.Scenario1;
+import net.sf.reportengine.util.AlgoIOKeys;
+import org.junit.Test;
+
 import java.io.StringWriter;
 import java.util.EnumMap;
 import java.util.Map;
-
-import net.sf.reportengine.core.algorithm.AlgoContext;
-import net.sf.reportengine.core.algorithm.DefaultAlgorithmContext;
-import net.sf.reportengine.core.steps.ColumnHeaderOutputInitStep;
-import net.sf.reportengine.core.steps.StepInput;
-import net.sf.reportengine.out.AbstractFreemarkerReportOutput;
-import net.sf.reportengine.out.MockReportOutput;
-import net.sf.reportengine.scenarios.Scenario1;
-import net.sf.reportengine.util.StepIOKeys;
-import net.sf.reportengine.util.AlgoIOKeys;
-
-import org.junit.Test;
 
 /**
  * @author dragos balan

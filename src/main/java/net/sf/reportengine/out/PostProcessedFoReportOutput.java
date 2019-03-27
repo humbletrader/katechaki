@@ -172,11 +172,7 @@ public class PostProcessedFoReportOutput extends AbstractReportOutput {
             transformer.transform(foSource, result);
 
             LOGGER.info("succesful tansformation to {}", mimeType);
-        } catch (TransformerConfigurationException e) {
-            throw new ReportOutputException(e);
-        } catch (TransformerException e) {
-            throw new ReportOutputException(e);
-        } catch (FOPException e) {
+        } catch (TransformerException | FOPException e) {
             throw new ReportOutputException(e);
         }
     }
@@ -202,11 +198,7 @@ public class PostProcessedFoReportOutput extends AbstractReportOutput {
             configuration =
                 configBuilder.build(ClassLoader.getSystemResourceAsStream(DEFAULT_FO_CONFIG_CLASSPATH));
 
-        } catch (ConfigurationException e) {
-            throw new ReportOutputException(e);
-        } catch (SAXException e) {
-            throw new ReportOutputException(e);
-        } catch (IOException e) {
+        } catch (ConfigurationException | SAXException | IOException e) {
             throw new ReportOutputException(e);
         }
 

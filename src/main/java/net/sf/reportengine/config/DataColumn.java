@@ -44,30 +44,12 @@ import net.sf.reportengine.core.calc.GroupCalculator;
  * @author dragos balan (dragos dot balan at gmail dot com)
  * @since 0.4
  */
-public interface DataColumn {
+public interface DataColumn extends TableColumn{
 	
 	/**
 	 * no sorting flag
 	 */
-	public static final int NO_SORTING = -1; 
-	
-	/**
-	 * returns the header of the column. 
-	 * The header will be displayed in the final report as the header of this column and 
-	 * it shouldn't be confused with the column name in case the report input is an SQL query
-	 * 
-	 * @return the header of the report column
-	 */
-	public String getHeader();
-	
-	
-	/**
-	 * returns the formatted value ready to be displayed in the report
-	 * 
-	 * @param value	the unformatted value
-	 * @return	the formatted value
-	 */
-	public String getFormattedValue(Object value);
+	int NO_SORTING = -1;
 	
 	/**
 	 * returns the formatted value of the total as it will be displayed in the report
@@ -75,50 +57,24 @@ public interface DataColumn {
 	 * @param totalValue
 	 * @return	the formatted total as a string
 	 */
-	public String getFormattedTotal(Object totalValue); 
+	String getFormattedTotal(Object totalValue);
 	
-	/**
-	 * retrieves the value for this column. 
-	 * This is the most important method as it retrieves the data for the row-column combination. 
-	 *  
-	 * @param newRowEvent the event containing the new row of data as an array
-	 * @return	the computed value for this column
-	 */
-	public Object getValue(NewRowEvent newRowEvent); 
-	
-	
+
 	/**
 	 * returns the calculator (if any) to be used on this column 
 	 * 
 	 * @return the group calculator
 	 */
-	public GroupCalculator getCalculator();
+	GroupCalculator getCalculator();
+
+    /**
+     * The sorting priority of this column
+     *
+     * @return the sorting priority
+     */
+    int getSortLevel();
 	
-	/**
-	 * returns the horizontal alignment of the values of this column
-	 * 
-	 * @return the horizontal alignment of this column
-	 */
-	public HorizAlign getHorizAlign();
+
 	
-	/**
-	 * returns the vertical alignment of the values of this column
-	 * 
-	 * @return the vertical alignment
-	 */
-	public VertAlign getVertAlign(); 
-	
-	/**
-	 * The sorting priority of this column
-	 * 
-	 * @return the sorting priority
-	 */
-	public int getSortLevel(); 
-	
-	/**
-	 * getter for the sort type (asc or desc)
-	 * 
-	 * @return the sort type 
-	 */
-	public SortType getSortType(); 
+
 }

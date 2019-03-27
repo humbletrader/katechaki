@@ -81,4 +81,6 @@ public class SecondProcessGroupColumn implements GroupColumn {
 	public SortType getSortType(){
 		return originalGroupColumn.getSortType(); 
 	}
+
+	public HorizAlign getHeaderHorizAlign(){ return originalGroupColumn.getHeaderHorizAlign(); }
 }

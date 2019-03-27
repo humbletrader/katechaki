@@ -57,8 +57,13 @@ public abstract class AbstractGroupColumn implements GroupColumn {
 	/**
 	 * sort type (default none)
 	 */
-	private SortType sortType = SortType.NONE; 
-	
+	private SortType sortType = SortType.NONE;
+
+    /**
+     *
+     */
+	private HorizAlign headerHorizAlign;
+
 	/**
 	 * 
 	 * @param header
@@ -90,7 +95,15 @@ public abstract class AbstractGroupColumn implements GroupColumn {
 								HorizAlign horizAlign, 
 								VertAlign vertAlign, 
 								boolean showDuplicates){
-		this(header, groupingLevel, valuesFormatter, horizAlign, vertAlign, showDuplicates, SortType.NONE/*no sorting*/); 
+		this(   header,
+                groupingLevel,
+                valuesFormatter,
+                horizAlign,
+                vertAlign,
+                showDuplicates,
+                SortType.NONE,/*no sorting*/
+                HorizAlign.CENTER
+        );
 	}
 	
 	
@@ -110,14 +123,16 @@ public abstract class AbstractGroupColumn implements GroupColumn {
 								HorizAlign horizAlign, 
 								VertAlign vertAlign, 
 								boolean showDuplicates, 
-								SortType sortType){
+								SortType sortType,
+								HorizAlign headerHorizAlign){
 		this.header = header;
 		this.groupingLevel = groupingLevel; 
 		this.valuesFormatter = valuesFormatter;
 		this.horizAlign = horizAlign;
 		this.vertAlign = vertAlign;
 		this.showDuplicates = showDuplicates;
-		this.sortType = sortType; 
+		this.sortType = sortType;
+		this.headerHorizAlign = headerHorizAlign;
 	}
 	
 	
@@ -185,4 +200,6 @@ public abstract class AbstractGroupColumn implements GroupColumn {
 	public SortType getSortType(){
 		return sortType; 
 	}
+
+	public HorizAlign getHeaderHorizAlign(){ return headerHorizAlign;}
 }

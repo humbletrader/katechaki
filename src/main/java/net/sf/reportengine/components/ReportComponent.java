@@ -30,5 +30,5 @@ public interface ReportComponent {
 	 * 
 	 * @param out the output of the report
 	 */
-	public void output(AbstractReportOutput out); 
+	void output(AbstractReportOutput out);
 }

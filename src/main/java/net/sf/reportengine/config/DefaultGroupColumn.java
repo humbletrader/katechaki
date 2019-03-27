@@ -42,7 +42,8 @@ public class DefaultGroupColumn extends AbstractGroupColumn {
 				builder.hAlign, 
 				builder.vAlign, 
 				builder.showDuplicateValues, 
-				builder.sortType); 
+				builder.sortType,
+                builder.headerHorizAlign);
 		this.inputColumnIndex = builder.columnIndex; 
 	}
 	
@@ -88,7 +89,8 @@ public class DefaultGroupColumn extends AbstractGroupColumn {
 		private HorizAlign hAlign = HorizAlign.CENTER; 
 		private VertAlign  vAlign = VertAlign.MIDDLE; 
 		private String valuesFormatter = null; 
-		private SortType sortType = SortType.NONE; 
+		private SortType sortType = SortType.NONE;
+		private HorizAlign headerHorizAlign = HorizAlign.CENTER;
 		
 		private int groupLevel = 0; 
 		private boolean showDuplicateValues = false; 
@@ -136,6 +138,11 @@ public class DefaultGroupColumn extends AbstractGroupColumn {
 		public Builder showDuplicateValues(){
 			this.showDuplicateValues = true; 
 			return this; 
+		}
+
+		public Builder headerHAlign(HorizAlign hAlign){
+			this.headerHorizAlign = hAlign;
+			return this;
 		}
 		
 		public DefaultGroupColumn build(){

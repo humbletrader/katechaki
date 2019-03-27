@@ -26,7 +26,7 @@ import org.slf4j.LoggerFactory;
 /**
  * non public class. Please use the ReportBuilder in order to create Report instances 
  * 
- * @author dragos balan (dragos dot balan at gmail dot com)
+ * @author dragos balan
  *
  */
 final class DefaultReport extends AbstractReport<AbstractReportOutput> {
