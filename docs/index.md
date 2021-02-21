@@ -1,18 +1,15 @@
-[[what-is-katechaki]]
 = What is Katechaki?
 
 Katechaki (former reportengine.sourceforge.net) is a java API for reports. The reports can contain paragraphs, tables (with groupings, sorting, and totals/subtotals), pivot tables and other user defined components. Katechaki accepts input from memory, files and databases and exports the data in a multitude of formats: HTML, PDF, EXCEL, PNG, SVG etc.
 
-[[why-katechaki]]
 = Why Katechaki?
 
 Well, the former reportengine.sourceforge.net has been revived while I was staying in Athens – Katechaki neighborhood.
 
-[[_Toc440115895]]**What java version is Katechaki designed for? **
+= What java version is Katechaki designed for? **
 
 Katechaki is developed and designed for JAVA 6 or higher.
 
-[[documentation]]
 = Documentation
 
 Html tutorial can be found http://reportengine.sourceforge.net/html/tutorial/reportengine_tutorial.htm[here].
@@ -21,15 +18,12 @@ The javadoc can be found http://reportengine.sourceforge.net/html/apidocs/index.
 
 This project’s website is http://reportengine.sourceforge.net[here].
 
-[[limitations]]
 = Limitations
 
 Katechaki does not have a chart component (but I strongly encourage you to create a report component for charts)
 
-[[how-to-add-katechaki-to-your-project]]
 = How to add Katechaki to your project?
 
-[[using-maven]]
 == Using Maven
 
 ```xml
@@ -40,21 +34,10 @@ Katechaki does not have a chart component (but I strongly encourage you to creat
     </dependency>
 ```
 
-[[using-scala-sbt]]
-== Using Scala SBT
-```scala
-libraryDependencies += "net.sf.reportengine" % "reportengine" % "0.13.2"
-```
-
-[[section]]
-==  +
-
-[[what-is-a-report]]
 = What is a Report?
 
 A report is a collection of components displayed in the report output.
 
-[[report-components]]
 = Report Components
 
 An example of a report component could be: the title of the report, a paragraph, a table inside the report or a pivot table. Below you’ll find a simple report with multiple components:
@@ -81,44 +64,42 @@ image:extracted-media/media/image1.png[image,width=470,height=395]
 
 Now, let’s discuss the report output (the other mandatory setting of a report)…
 
-[[report-output]]
 = Report Output
 
 Some of the most important output formats for your reports are:
 
-* _Html (i.e. HtmlReportOutput class): html output that creates a html page with styles into any java.io.Writer_
+* Html (i.e. HtmlReportOutput class): html output that creates a html page with styles into any java.io.Writer_
 ```java
-ReportOuput output *= new* HtmlReportOutput(*new* FileWriter("employees.html"))
+ReportOuput output = new HtmlReportOutput(new FileWriter("employees.html"))
 ```
 
-* _Excel (i.e. ExcelXmlReportOutput_): creates an excel-xml output into any _java.io.Writer_
+* Excel (i.e. ExcelXmlReportOutput_): creates an excel-xml output into any _java.io.Writer_
 ```java
-ReportOuput output = *new* ExcelXmlReportOutput(*new* FileWriter("empl.xml"));
+ReportOuput output = new ExcelXmlReportOutput(new FileWriter("empl.xml"));
 ```
-* _Pdf (i.e. PdfReportOutput): _
+* Pdf (i.e. PdfReportOutput): _
 ```java
-ReportOutput output = *new* PdfReportOutput(*new* FileOutputStrem("empl.pdf"));
+ReportOutput output = new PdfReportOutput(new FileOutputStrem("empl.pdf"));
 ```
-* _Png (i.e. PngReportOutput)_
-* _Tiff (i.e TiffReportOutput)_
-* _Formatting Objects (i.e. FoReportOutput)_
+* Png (i.e. PngReportOutput)_
+* Tiff (i.e TiffReportOutput)_
+* Formatting Objects (i.e. FoReportOutput)_
 
 If the existing outputs don’t cover all your needs, feel free to write your own report output by implementing the _ReportOutput_ interface.
 
-[[first-view-on-the-source-code-of-a-report]]
 = First view on the source code of a report
 
 As stated previously, any report needs an output and some components. These two attributes of a report should be configured with the help of a ReportBuilder (a helper class provided by ReportEngine for the creation of Reports)
 ```java
 //preparation of output and components
 
-HtmlReportOutput output = *new* HtmlReportOutput(*new* FileWriter("Hello.html"));
+HtmlReportOutput output = new HtmlReportOutput(new FileWriter("Hello.html"));
 
-Paragraph title = *new* Paragraph("Hello World report");
+Paragraph title = new Paragraph("Hello World report");
 
 //report set-up
 
-Report report = *new* ReportBuilder(output)
+Report report = new ReportBuilder(output)
 
 .add(title)
 
@@ -137,7 +118,6 @@ report.execute();
 
 Now, let’s discuss one by one the report components:
 
-[[paragraph]]
 = Paragraph
 
 This is a simple string that will be displayed using your specified text alignment. As you probably guessed, the input for this component is a String and/or a horizontal alignment:
@@ -150,38 +130,32 @@ Note: you can add as many titles as you like in a report.
 
 We’ve discussed about the report output, we’ve covered a first report component then we’re ready for our first report…
 
-[[hello-world-report]]
+
 = Hello World report
 
 Now that we’ve seen all aspects of a report (the report, its components and the output) it’s time to build a very simple report:
 ```java
-*package* net.sf.reportengine.samples;
+package net.sf.reportengine.samples;
+import java.io.FileWriter;
+import java.io.IOException;
+import net.sf.reportengine.Report;
+import net.sf.reportengine.ReportBuilder;
+import net.sf.reportengine.components.Paragraph;
+import net.sf.reportengine.out.HtmlReportOutput;
 
-*import* java.io.FileWriter;
+public class HelloWorldReport {
 
-*import* java.io.IOException;
-
-*import* net.sf.reportengine.Report;
-
-*import* net.sf.reportengine.ReportBuilder;
-
-*import* net.sf.reportengine.components.Paragraph;
-
-*import* net.sf.reportengine.out.HtmlReportOutput;
-
-*public* *class* HelloWorldReport \{
-
-*public* *static* *void* main(String[] args) *throws* IOException\{
+public static void main(String[] args) throws IOException{
 
 //preparation of output and components
 
-HtmlReportOutput output = *new* HtmlReportOutput(*new* FileWriter("Hello.html"));
+HtmlReportOutput output = new HtmlReportOutput(new FileWriter("Hello.html"));
 
-Paragraph title = *new* Paragraph("Hello World report", HorizAlign._*CENTER*_);
+Paragraph title = new Paragraph("Hello World report", HorizAlign._*CENTER*_);
 
 //report set-up
 
-Report report = *new* ReportBuilder(output)
+Report report = new ReportBuilder(output)
 
 .add(title)
 
@@ -233,13 +207,13 @@ The optional settings of a flat table are:
 Let’s have a look at the flat table below:
 
 ```java
-FlatTable table = *new* FlatTableBuilder(*new* TextTableInput("population.txt"))
+FlatTable table = new FlatTableBuilder(new TextTableInput("population.txt"))
 
-.addDataColumn(*new* DefaultDataColumn("Country", 0))
+.addDataColumn(new DefaultDataColumn("Country", 0))
 
-.addDataColumn(*new* DefaultDataColumn("City", 1))
+.addDataColumn(new DefaultDataColumn("City", 1))
 
-.addDataColumn(*new* DefaultDataColumn("Population", 2))
+.addDataColumn(new DefaultDataColumn("Population", 2))
 
 .build();
 ```
@@ -251,21 +225,20 @@ The main input classes are:
 
 * _*TextTableInput*_ - handles input from text streams of any kind and reads data columns separated by a user-defined separator (comma, tab, semicolon, etc). Let’s see an example below:
 ```java
-TableInput tableInput = *new* TextTableInput("employees.txt", "\t");
+TableInput tableInput = new TextTableInput("employees.txt", "\t");
 ```
 The example above builds the input based on a file having as data-separator the TAB character. Now let’s see a more sophisticated use of the TextTableInput class
 
 ```java
-URL url = *new* URL("http://www.mysite.com/inputData/expenses.csv");
+URL url = new URL("http://www.mysite.com/inputData/expenses.csv");
 
-TableInput tableInput = *new* TextTableInput(
-
-*new* InputStreamReader(url.openStream()),",");
+TableInput tableInput = new TextTableInput(
+        new InputStreamReader(url.openStream()),",");
 ```
 
-* _*SqlTableInput*_ - executes a query and sends the result as input for any flat table
+* SqlTableInput - executes a query and sends the result as input for any flat table
 ```java
-TableInput sqlInput = *new* SqlTableInput(
+TableInput sqlInput = new SqlTableInput(
 
 "jdbc:hsqldb:mem:countriesDB",
 
@@ -281,7 +254,7 @@ This class creates a connection to the database and executes the provided query.
 
 java.sql.Connection dbConnection = ...
 
-TableInput connBasedInput = *new* SqlConnectionBasedTableInput(
+TableInput connBasedInput = new SqlConnectionBasedTableInput(
 
 dbConnection,
 
@@ -290,15 +263,13 @@ dbConnection,
 false);
 ```
 
-* _*InMemoryTableInput – this is an array holding the java objects you want to serve as input for your flat table*_
-* _*Custom Input:*_ If the above inputs don’t cover your needs you can always write your own input by extending the AbstractTableInput class.
+* InMemoryTableInput – this is an array holding the java objects you want to serve as input for your flat table*_
+* Custom Input: If the above inputs don’t cover your needs you can always write your own input by extending the AbstractTableInput class.
 
-[[flat-table-columns-configuration]]
 == Flat Table Columns Configuration
 
 There are two kinds of columns accepted by a flat report: data columns and group columns.
 
-[[data-columns]]
 === Data columns
 
 Data columns are normal report columns used for displaying data and totals. The configurations supported by a data column are:
@@ -312,7 +283,6 @@ Data columns are normal report columns used for displaying data and totals. The 
 
 Let’s discuss each of these parameters in detail.
 
-[[what-is-the-column-header]]
 ==== What is the column header?
 
 It’s the string that will appear in the column header section of the report. In the example below the *Year, Month, Amount* are column headers.
@@ -332,13 +302,9 @@ ReportEngine can be instructed to get data from a specific *input* column or the
 
 The default implementation for a data column http://reportengine.sourceforge.net/html/apidocs/net/sf/reportengine/config/DefaultDataColumn.html[net.sf.reportengine.config.DefaultDataColumn] has an inputColumnIndex attribute which tells report-engine which column from your input should be displayed in that column. Using inputColumnIndex you instruct ReportEngine to display your data on the desired position:
 ```java
-*new* DefaultDataColumn
-
-.Builder(0) // builds a column based on the first input column
-
-.header("Month")
-
-.build();
+new DefaultDataColumn.Builder(0) // builds a column based on the first input column
+    .header("Month")
+    .build();
 ```
 
 ReportEngine uses column indexes starting from zero, so zero is our first input column. Another important note: for report-engine, the order in which you define your columns is very important because *it defines the output order of your columns*.
@@ -365,17 +331,15 @@ table.addDataColumn(column amount having inputColumnIndex = 2)
 table.addDataColumn(column year having inputColumnIndex = 0)
 ```
 
-[[what-is-the-group-calculator]]
 ==== What is the group calculator?
 
 The group calculator compiles all values of a column in order to get a SUM or an Average or whatever computation comes to your mind. You can use an existing calculator (SUM, AVG, MIN, MAX, COUNT, FIRST, LAST) or you can create your own by implementing the http://reportengine.sourceforge.net/html/apidocs/net/sf/reportengine/core/calc/GroupCalculator.html[net.sf.reportengine.core.calc.GroupCalculator] interface.
 
-[[how-to-set-these-properties-to-a-column]]
 ==== How to set these properties to a column?
 
 * by using the builder (recommended)
 ```java
-DefaultDataColumn column = *new* DefaultDataColumn.Builder(0)
+DefaultDataColumn column = new DefaultDataColumn.Builder(0)
 
 .header("Amount")
 
@@ -388,99 +352,67 @@ DefaultDataColumn column = *new* DefaultDataColumn.Builder(0)
 
 * or by using one of the available constructors (discouraged)
 ```java
-DefaultDataColumn column = *new* DefaultDataColumn("Month",0,Calculators._SUM_);
-
-DefaultDataColumn column = *new* DefaultDataColumn("Month",0);
-
-DefaultDataColumn column = *new* DefaultDataColumn(0);
+DefaultDataColumn column = new DefaultDataColumn("Month",0,Calculators.SUM);
+DefaultDataColumn column = new DefaultDataColumn("Month",0);
+DefaultDataColumn column = new DefaultDataColumn(0);
 ```
 
-[[a-report-with-a-flat-table]]
 === A report with a flat table
 
 It’s now time to build our first report containing a table: a report showing my expenses during several months. We will use as input http://svn.code.sf.net/p/reportengine/code/trunk/reportengine-samples/inputData/expenses.csv[a file] containing this list of expenses. Our initial target is to create just a simple html report containing all input column and nothing more:
 
 ```java
-*package* net.sf.reportengine.samples;
+package net.sf.reportengine.samples;
 
-*import* java.io.FileWriter;
-
-*import* java.io.IOException;
-
-*import* net.sf.reportengine.Report;
-
-*import* net.sf.reportengine.ReportBuilder;
-
-*import* net.sf.reportengine.components.FlatTable;
-
-*import* net.sf.reportengine.components.FlatTableBuilder;
-
-*import* net.sf.reportengine.components.Paragraph;
-
-*import* net.sf.reportengine.config.DefaultDataColumn;
-
-*import* net.sf.reportengine.in.TextTableInput;
-
-*import* net.sf.reportengine.out.HtmlReportOutput;
+import java.io.FileWriter;
+import java.io.IOException;
+import net.sf.reportengine.Report;
+import net.sf.reportengine.ReportBuilder;
+import net.sf.reportengine.components.FlatTable;
+import net.sf.reportengine.components.FlatTableBuilder;
+import net.sf.reportengine.components.Paragraph;
+import net.sf.reportengine.config.DefaultDataColumn;
+import net.sf.reportengine.in.TextTableInput;
+import net.sf.reportengine.out.HtmlReportOutput;
 
 /**
-
 * this is your first report having the following steps
-
 *
-
 * 1. construct the report output (_html_ in this case)
-
 * 2. construct the flat table having the expenses.csv file as input
-
 * 3. build the report for the output defined in step 1 by adding a title, the previous table
-
 * 5. report execution
-
 */
 
-*public* *class* FirstReportWithATable \{
+public class FirstReportWithATable {
 
-*public* *static* *void* main(String[] args) *throws* IOException \{
+public static void main(String[] args) throws IOException{
 
 //step 1:constructing the report output
 
-HtmlReportOutput reportOutput = *new* HtmlReportOutput(
-
-*new* FileWriter("c:/temp/FirstReportWithATable.html"));
+HtmlReportOutput reportOutput = new HtmlReportOutput(
+        new FileWriter("c:/temp/FirstReportWithATable.html"));
 
 //step 2: constructing a table with 3 columns
-
 FlatTable flatTable =
-
-*new* FlatTableBuilder(*new* TextTableInput("./inputData/expenses.csv",","))
-
-.addDataColumn(*new* DefaultDataColumn.Builder(0).header("Month").build())
-
-.addDataColumn(*new* DefaultDataColumn.Builder(1).header("Spent on").build())
-
-.addDataColumn(*new* DefaultDataColumn.Builder(2).header("Amount").build())
-
+        new FlatTableBuilder(new TextTableInput("./inputData/expenses.csv",","))
+.addDataColumn(new DefaultDataColumn.Builder(0).header("Month").build())
+.addDataColumn(new DefaultDataColumn.Builder(1).header("Spent on").build())
+.addDataColumn(new DefaultDataColumn.Builder(2).header("Amount").build())
 .build();
 
 //step 3: building a report with two components (a title and a flat table)
 
 //FileWriter is used just for demo purposes
-
-Report report = *new* ReportBuilder(reportOutput)
-
-.add(*new* Paragraph("My first report", HorizAlign._*CENTER*_))
-
+Report report = new ReportBuilder(reportOutput)
+.add(new Paragraph("My first report", HorizAlign._*CENTER*_))
 .add(flatTable)
-
 .build();
 
 //report execution
-
 report.execute();
 
 }
-
 }
 ```
 After executing the code, the result should be an html file like below:
@@ -500,141 +432,91 @@ After executing the code, the result should be an html file like below:
 
 Now, there are some things we can improve, for instance, the “Amount” column should have its values right-aligned while the other string columns should be left aligned. Let’s see how we can do this:
 ```java
-*import* java.io.FileWriter;
-
-*import* java.io.IOException;
-
-*import* net.sf.reportengine.Report;
-
-*import* net.sf.reportengine.ReportBuilder;
-
-*import* net.sf.reportengine.components.FlatTable;
-
-*import* net.sf.reportengine.components.FlatTableBuilder;
-
-*import* net.sf.reportengine.components.Paragraph;
-
-*import* net.sf.reportengine.config.DefaultDataColumn;
-
-*import* net.sf.reportengine.config.HorizAlign;
-
-*import* net.sf.reportengine.in.TextTableInput;
-
-*import* net.sf.reportengine.out.HtmlReportOutput;
+import java.io.FileWriter;
+import java.io.IOException;
+import net.sf.reportengine.Report;
+import net.sf.reportengine.ReportBuilder;
+import net.sf.reportengine.components.FlatTable;
+import net.sf.reportengine.components.FlatTableBuilder;
+import net.sf.reportengine.components.Paragraph;
+import net.sf.reportengine.config.DefaultDataColumn;
+import net.sf.reportengine.config.HorizAlign;
+import net.sf.reportengine.in.TextTableInput;
+import net.sf.reportengine.out.HtmlReportOutput;
 
 /**
-
 * the first and the second columns are aligned horizontally
-
 * to left and the third (Amount column) is right aligned
-
 */
 
-*public* *class* ColumnsWithAlignmentReport \{
+public class ColumnsWithAlignmentReport {
 
-*public* *static* *void* main(String[] args) *throws* IOException\{
+public static void main(String[] args) throws IOException{
 
 FlatTable table =
-
-*new* FlatTableBuilder(*new* TextTableInput("./input/expenses.csv",","))
-
-.addDataColumn(*new* DefaultDataColumn.Builder(0)
-
+        new FlatTableBuilder(new TextTableInput("./input/expenses.csv",","))
+.addDataColumn(new DefaultDataColumn.Builder(0)
 .header("Month")
-
-.horizAlign(HorizAlign._*LEFT*_)
-
+.horizAlign(HorizAlign.LEFT)
 .build())
-
-.addDataColumn(*new* DefaultDataColumn.Builder(1)
-
+.addDataColumn(new DefaultDataColumn.Builder(1)
 .header("Spent on ?")
-
-.horizAlign(HorizAlign._*LEFT*_)
-
+.horizAlign(HorizAlign.LEFT)
 .build())
-
-.addDataColumn(*new* DefaultDataColumn.Builder(2)
-
+.addDataColumn(new DefaultDataColumn.Builder(2)
 .header("Amount")
-
 .horizAlign(HorizAlign._*RIGHT*_)
-
 .build())
-
 .build();
 
-*new* ReportBuilder(
-
-*new* HtmlReportOutput(*new* FileWriter("./ColumnsWithAlign.html")))
-
-.add(*new* Paragraph("Report with columns aligned", HorizAlign._*CENTER*_))
-
+new ReportBuilder(
+        new HtmlReportOutput(new FileWriter("./ColumnsWithAlign.html")))
+.add(new Paragraph("Report with columns aligned", HorizAlign._*CENTER*_))
 .add(table)
-
 .build()
-
 .execute();
 
 }
-
 }
 
 ```
 
-[[sorting-your-column-data]]
 === Sorting your column data
 
 Sorting data on a specific column can be easily done by calling one of the sorting methods: sortAsc() , sortDesc() available in the builder of http://reportengine.sourceforge.net/html/apidocs/net/sf/reportengine/config/DefaultDataColumn.Builder.html[DefaultDataColumn].
 
 ```java
-flatTable.addDataColumn(*new* DefaultDataColumn.Builder(2)
-
+flatTable.addDataColumn(new DefaultDataColumn.Builder(2)
 .header("Amount")
-
-.*sortAsc()*
-
+.sortAsc()
 .build());
 ```
 
-[[programmatically-formatting-the-data]]
 === Programmatically formatting the data
 
 Another useful feature of every type of column is value-formatting. Currently data and group columns can be formatted using String.format() which is called by the framework. You just need to specify the string format as in http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Formatter.html[the specs].
 
 ```java
 flatTable.addDataColumn(
-
-*new* DefaultDataColumn.Builder(2)
-
+        new DefaultDataColumn.Builder(2)
 .header("Amount")
-
 .*valuesFormatter(*"%.2f"*)*
-
 .build());
 
 flatTable.addDataColumn(
-
-*new* DefaultDataColumn.Builder(2)
-
+        new DefaultDataColumn.Builder(2)
 .header("Birth Date")
-
 .*valuesFormatter(*"%tD"*))*
-
 .build());
 ```
 
 Please note that totals follow another formatting because they usually have another data type. To format the total values (i.e. those returned by calculators) you need to use the long version of the useCalculator() method as in the example below:
 
 ```java
-DefaultDataColumn column = *new* DefaultDataColumn.Builder(0)
-
+DefaultDataColumn column = new DefaultDataColumn.Builder(0)
 .header("Amount")
-
-.useCalculator(GroupCalculators._SUM,_ "%.2f" )
-
-.horizAlign(HorizAlign._LEFT_)
-
+.useCalculator(GroupCalculators.SUM, "%.2f" )
+.horizAlign(HorizAlign.LEFT)
 .build();
 ```
 
@@ -675,102 +557,68 @@ If we declare the first column as a group column and we add a http://reportengin
 The full example is presented in the code section below:
 
 ```java
-*import* java.io.FileWriter;
-
-*import* java.io.IOException;
-
-*import* net.sf.reportengine.Report;
-
-*import* net.sf.reportengine.ReportBuilder;
-
-*import* net.sf.reportengine.components.FlatTable;
-
-*import* net.sf.reportengine.components.FlatTableBuilder;
-
-*import* net.sf.reportengine.components.Paragraph;
-
-*import* net.sf.reportengine.config.DefaultDataColumn;
-
-*import* net.sf.reportengine.config.DefaultGroupColumn;
-
-*import* net.sf.reportengine.core.calc.GroupCalculators;
-
-*import* net.sf.reportengine.in.TextTableInput;
-
-*import* net.sf.reportengine.out.HtmlReportOutput;
+import java.io.FileWriter;
+import java.io.IOException;
+import net.sf.reportengine.Report;
+import net.sf.reportengine.ReportBuilder;
+import net.sf.reportengine.components.FlatTable;
+import net.sf.reportengine.components.FlatTableBuilder;
+import net.sf.reportengine.components.Paragraph;
+import net.sf.reportengine.config.DefaultDataColumn;
+import net.sf.reportengine.config.DefaultGroupColumn;
+import net.sf.reportengine.core.calc.GroupCalculators;
+import net.sf.reportengine.in.TextTableInput;
+import net.sf.reportengine.out.HtmlReportOutput;
 
 /**
-
 * The first report containing a group column.
-
 * The month column is declared as a group column so
-
 * after each change of a month a total will be displayed
-
 * on the Amount column where the calculator has been added
-
 */
 
-*public* *class* FirstReportWithGroups \{
+public class FirstReportWithGroups {
 
-*public* *static* *void* main(String[] args) *throws* IOException \{
+public static void main(String[] args) throws IOException {
 
 //constructing a flat table with 3 columns: first is declared as a group column
 
 //the third contains the group calculator (in this case an SUM)
 
 FlatTable flatTable =
-
-*new* FlatTableBuilder(*new* TextTableInput("./input/expenses.csv",","))
-
-.addGroupColumn(*new* DefaultGroupColumn.Builder(0).header("Month").build())
-
-.addDataColumn(*new* DefaultDataColumn.Builder(1).header("On What?").build())
-
-.addDataColumn(*new* DefaultDataColumn.Builder(2)
-
+        new FlatTableBuilder(new TextTableInput("./input/expenses.csv",","))
+.addGroupColumn(new DefaultGroupColumn.Builder(0).header("Month").build())
+.addDataColumn(new DefaultDataColumn.Builder(1).header("On What?").build())
+.addDataColumn(new DefaultDataColumn.Builder(2)
 .header("Amount")
-
 .useCalculator(GroupCalculators._*SUM*_)
-
 .build())
-
 .build();
 
 //building and executing the report
+        new ReportBuilder(new HtmlReportOutput(
+                new FileWriter("./target/MonthlyExpensesUsingGroups.html")))
 
-*new* ReportBuilder(*new* HtmlReportOutput(
-
-*new* FileWriter("./target/MonthlyExpensesUsingGroups.html")))
-
-.add(*new* Paragraph("Monthly Expenses", HorizAlign._*CENTER*_))
-
+.add(new Paragraph("Monthly Expenses", HorizAlign._*CENTER*_))
 .add(flatTable)
-
 .build()
-
 .execute();
 
 }
 
 }
 
-Let me draw your attention on the way we defined the Month column as a group column:
+//Let me draw your attention on the way we defined the Month column as a group column:
 
-.addGroupColumn(*new* *DefaultGroupColumn*.Builder(0) //input col. idx
-
+.addGroupColumn(new DefaultGroupColumn.Builder(0) //input col. idx
 .header("Month")
-
 .build());
 
-Don’t forget, calculators are specific to data columns not to group columns, that’s why, in the previous example, we’ve added the SUM to a data column:
+//Don’t forget, calculators are specific to data columns not to group columns, that’s why, in the previous example, we’ve added the SUM to a data column:
 
-flatTable.addDataColumn(*new* DefaultDataColumn.Builder(2)
-
+flatTable.addDataColumn(new DefaultDataColumn.Builder(2)
 .header("Amount")
-
 .useCalculator(*GroupCalculators*._SUM_)
-
 .build());
 ```
 
@@ -804,7 +652,6 @@ Other setting available to the group columns are:
 +
 Let’s see some of these settings at work in the example below.
 
-[[more-on-totals-and-groupings]]
 === More on totals and groupings
 
 Now, let’s see a more complex example: my yearly expenses report, a report having 2 group columns and 2 data columns with totals.
@@ -829,108 +676,68 @@ Let’s build a report that will show the totals spent for each year and month. 
 It’s time to introduce another attribute of the group columns: the group level which helps ReportEngine prioritize between multiple group columns. If the table has only one group column this parameter is not important but if you have more than one groups then the group level becomes important. The next section will further clarify this:
 
 ```java
-*new* DefaultGroupColumn.Builder(1) //1 is the input column index
-
+new DefaultGroupColumn.Builder(1) //1 is the input column index
 .header("Month")
-
 .level(2) //2 - is the grouping level
-
 .build());
 ```
 
 The source code for such a report should look like:
 
 ```java
-*import* java.io.FileOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import net.sf.reportengine.Report;
+import net.sf.reportengine.ReportBuilder;
+import net.sf.reportengine.components.FlatTable;
+import net.sf.reportengine.components.FlatTableBuilder;
+import net.sf.reportengine.components.Paragraph;
+import net.sf.reportengine.config.DefaultDataColumn;
+import net.sf.reportengine.config.DefaultGroupColumn;
+import net.sf.reportengine.config.HorizAlign;
+import net.sf.reportengine.core.calc.GroupCalculators;
+import net.sf.reportengine.in.TextTableInput;
+import net.sf.reportengine.out.PdfReportOutput;
 
-*import* java.io.IOException;
+public class YearlyExpenses {
 
-*import* net.sf.reportengine.Report;
-
-*import* net.sf.reportengine.ReportBuilder;
-
-*import* net.sf.reportengine.components.FlatTable;
-
-*import* net.sf.reportengine.components.FlatTableBuilder;
-
-*import* net.sf.reportengine.components.Paragraph;
-
-*import* net.sf.reportengine.config.DefaultDataColumn;
-
-*import* net.sf.reportengine.config.DefaultGroupColumn;
-
-*import* net.sf.reportengine.config.HorizAlign;
-
-*import* net.sf.reportengine.core.calc.GroupCalculators;
-
-*import* net.sf.reportengine.in.TextTableInput;
-
-*import* net.sf.reportengine.out.PdfReportOutput;
-
-*public* *class* YearlyExpenses \{
-
-*public* *static* *void* main(String[] args) *throws* IOException \{
+public static void main(String[] args) throws IOException {
 
 FlatTable table =
-
-*new* FlatTableBuilder(*new* TextTableInput("./input/yearlyExpenses.txt","\t"))
+        new FlatTableBuilder(new TextTableInput("./input/yearlyExpenses.txt","\t"))
 
 //groups configuration
-
-.addGroupColumn(*new* DefaultGroupColumn.Builder(0)
-
+.addGroupColumn(new DefaultGroupColumn.Builder(0)
 .header("Year")
-
 .horizAlign(HorizAlign._*LEFT*_)
-
 .level(0)
-
 .build())
-
-.addGroupColumn(*new* DefaultGroupColumn.Builder(1)
-
+.addGroupColumn(new DefaultGroupColumn.Builder(1)
 .header("Month")
-
 .horizAlign(HorizAlign._*LEFT*_)
-
 .level(1)
-
 .build())
 
 //data columns
-
-.addDataColumn(*new* DefaultDataColumn.Builder(2)
-
+.addDataColumn(new DefaultDataColumn.Builder(2)
 .header("Spent on")
-
 .horizAlign(HorizAlign._*LEFT*_)
-
 .build())
 
-.addDataColumn(*new* DefaultDataColumn.Builder(3)
-
+.addDataColumn(new DefaultDataColumn.Builder(3)
 .header("Amount")
-
 .horizAlign(HorizAlign._*RIGHT*_)
-
 .useCalculator(GroupCalculators._*SUM*_, "%.2f")
-
 .build())
-
 .build();
 
 //build and execute the report
+        new ReportBuilder(
+                new PdfReportOutput(new FileOutputStream("./YearlyExpensesReport.pdf")))
 
-*new* ReportBuilder(
-
-*new* PdfReportOutput(*new* FileOutputStream("./YearlyExpensesReport.pdf")))
-
-.add(*new* Paragraph("Yearly expenses report", HorizAlign._*CENTER*_))
-
+.add(new Paragraph("Yearly expenses report", HorizAlign._*CENTER*_))
 .add(table)
-
 .build()
-
 .execute();
 
 }
@@ -966,24 +773,17 @@ Note: the second data column contains a SUM calculator which will compute the am
 Let’s see one more time the groupings:
 
 ```java
-.addGroupColumn(*new* DefaultGroupColumn.Builder(0) //input column index
-
+.addGroupColumn(new DefaultGroupColumn.Builder(0) //input column index
 .header("Year")
-
 .level(0) //group priority
-
 .build())
-
-.addGroupColumn(*new* DefaultGroupColumn.Builder(1) //input column index
-
+.addGroupColumn(new DefaultGroupColumn.Builder(1) //input column index
 .header("Month")
-
 .level(1) //group priority
-
 .build())
 ```
 
-Now let’s discuss about the group level (or group priority): in the previous configuration the year group takes precedence over the month group. How is this translated into the report? When a change in the year happens then not only the totals for the year are shown but also the totals for the month as in the extract from the final result shown previously:
+Now let’s discuss the group level (or group priority): in the previous configuration the year group takes precedence over the month group. How is this translated into the report? When a change in the year happens then not only the totals for the year are shown but also the totals for the month as in the extract from the final result shown previously:
 
 [cols=",,,",options="header",]
 |==============================
@@ -991,111 +791,71 @@ Now let’s discuss about the group level (or group priority): in the previous c
 |*Total 2011* |* * | |*1721*
 |==============================
 
-[[what-if-my-input-data-doesnt-have-the-group-columns-sorted]]
 === What if my input data doesn’t have the group columns sorted
 
 In order to perform correct groupings the ReportEngine needs all data on group columns to be sorted. Usually the data comes sorted already (especially from sql queries where a simple “order by” statement can solve the ordering). If your group columns data is not sorted already you should inform ReportEngine about this by calling the sortValues() method from the builder of the FlatTable. This way, the reporting mechanism will programmatically sort your values:
 
 ```java
-*import* java.io.FileWriter;
-
-*import* java.io.IOException;
-
-*import* net.sf.reportengine.Report;
-
-*import* net.sf.reportengine.ReportBuilder;
-
-*import* net.sf.reportengine.components.FlatTable;
-
-*import* net.sf.reportengine.components.FlatTableBuilder;
-
-*import* net.sf.reportengine.components.Paragraph;
-
-*import* net.sf.reportengine.config.DefaultDataColumn;
-
-*import* net.sf.reportengine.config.DefaultGroupColumn;
-
-*import* net.sf.reportengine.config.HorizAlign;
-
-*import* net.sf.reportengine.core.calc.GroupCalculators;
-
-*import* net.sf.reportengine.in.TextTableInput;
-
-*import* net.sf.reportengine.out.HtmlReportOutput;
+import java.io.FileWriter;
+import java.io.IOException;
+import net.sf.reportengine.Report;
+import net.sf.reportengine.ReportBuilder;
+import net.sf.reportengine.components.FlatTable;
+import net.sf.reportengine.components.FlatTableBuilder;
+import net.sf.reportengine.components.Paragraph;
+import net.sf.reportengine.config.DefaultDataColumn;
+import net.sf.reportengine.config.DefaultGroupColumn;
+import net.sf.reportengine.config.HorizAlign;
+import net.sf.reportengine.core.calc.GroupCalculators;
+import net.sf.reportengine.in.TextTableInput;
+import net.sf.reportengine.out.HtmlReportOutput;
 
 /**
-
 * When using group columns, the data in those columns needs to be sorted
-
 * otherwise the report engine will see a change of group in every row.
-
 * In this example, the input data for the flat table is not sorted and
-
 * the report engine is informed about this by using the sortValues() method
-
 */
 
-*public* *class* UnsortedGroupValues \{
+public class UnsortedGroupValues {
 
-*public* *static* *void* main(String[] args) *throws* IOException \{
+public static void main(String[] args) throws IOException {
 
 FlatTable table =
+        new FlatTableBuilder(new TextTableInput("./input/unsortedExpenses.csv",","))
 
-*new* FlatTableBuilder(*new* TextTableInput("./input/unsortedExpenses.csv",","))
-
-*.sortValues()* //inform _reportengine_ that it has to sort the values
-
-.addGroupColumn(*new* DefaultGroupColumn.Builder(0)
-
+.sortValues() //inform _reportengine_ that it has to sort the values
+.addGroupColumn(new DefaultGroupColumn.Builder(0)
 .header("Month")
-
 .horizAlign(HorizAlign._*LEFT*_)
-
 .build())
-
-.addDataColumn(*new* DefaultDataColumn.Builder(1)
-
+.addDataColumn(new DefaultDataColumn.Builder(1)
 .header("On What?")
-
 .horizAlign(HorizAlign._*LEFT*_)
-
 .build())
 
-.addDataColumn(*new* DefaultDataColumn.Builder(2)
-
+.addDataColumn(new DefaultDataColumn.Builder(2)
 .header("Amount")
-
 .useCalculator(GroupCalculators._*SUM*_)
-
 .horizAlign(HorizAlign._*RIGHT*_)
-
 .build())
-
 .build();
 
 //build and execute the report
+        new ReportBuilder(new HtmlReportOutput(
+                new FileWriter("./target/MonthlyExpensesFromUnsortedInput.html")))
 
-*new* ReportBuilder(*new* HtmlReportOutput(
-
-*new* FileWriter("./target/MonthlyExpensesFromUnsortedInput.html")))
-
-.add(*new* Paragraph("Monthly Expenses", HorizAlign._*CENTER*_))
-
+.add(new Paragraph("Monthly Expenses", HorizAlign._*CENTER*_))
 .add(table)
-
 .build()
-
 .execute();
-
 }
 
 }
 ```
 
-[[pivot-or-crosstab-tables]]
 = Pivot (or Crosstab) tables
 
-[[what-is-a-pivot-table]]
 == What is a pivot table?
 
 Pivot tables are particular types of tables where data is arranged as a 2 dimensional table. Let’s go back to our first example: the monthly expenses report. As a flat report this used to look like this:
@@ -1121,7 +881,6 @@ Note that all values in the second column repeat themselves. Wouldn’t it be ea
 
 Think about a situation where you’d have much more data. Arranged in a pivot table all your data is much easier to follow and compare but this is only possible when the values in the column you want as header repeat themselves. Otherwise the column header would be much longer and it wouldn’t allow you to compare the values.
 
-[[what-i-have-to-set-up-for-a-pivot-table]]
 == What I have to set up for a Pivot table?
 
 The pivot table accepts all settings of a flat table (input, data columns, group columns) and it introduces two more mandatory settings:
@@ -1129,7 +888,6 @@ The pivot table accepts all settings of a flat table (input, data columns, group
 * the header rows
 * the pivot data.
 
-[[the-pivot-table-header-rows]]
 === The pivot table header rows
 
 As previously seen, the header row is the list of distinct values that should be displayed in the header of the report:
@@ -1150,7 +908,7 @@ As previously seen, the header row is the list of distinct values that should be
 
 Here’s how you configure a header row based on the values in the second column (column index = 1) to the report:
 
-pivotTable.addHeaderRow(*new* DefaultPivotHeaderRow(1));
+pivotTable.addHeaderRow(new DefaultPivotHeaderRow(1));
 
 There is no limit on the rows that can be displayed in the header, still, if you add too many; your report will be hard to follow. Here’s a report with two header rows (in blue):
 
@@ -1167,7 +925,6 @@ There is no limit on the rows that can be displayed in the header, still, if you
 
 The order in which you add the header rows is very important. For instance for the report above the first header row is the one containing the Males, Females values and the second one would be the one containing “under 20”, “above 50” …
 
-[[the-pivot-table-data]]
 === The pivot table data
 
 The crosstab data is the data shown in the report. It usually comes from an input column. Here’s the initial data (the input) :
@@ -1199,40 +956,30 @@ And now, the pivot table result:
 
 In order to configure the pivot data to a report you just have to add an instance of DefaultPivotData to the report:
 ```java
-*new* PivotTable.Builder().pivotData(*new* DefaultPivotData(2));
+new PivotTable.Builder()
+        .pivotData(new DefaultPivotData(2));
 ```
 
 The example above constructs a DefaultPivotData based on the third input column (column index 2)
 
-[[your-first-pivot-table-report]]
+
 == Your first Pivot table report
 
 It’s time to create our first pivot table report:
 
 ```java
-*import* java.io.FileWriter;
-
-*import* java.io.IOException;
-
-*import* net.sf.reportengine.Report;
-
-*import* net.sf.reportengine.ReportBuilder;
-
-*import* net.sf.reportengine.components.PivotTable;
-
-*import* net.sf.reportengine.components.PivotTableBuilder;
-
-*import* net.sf.reportengine.components.Paragraph;
-
-*import* net.sf.reportengine.config.DefaultDataColumn;
-
-*import* net.sf.reportengine.config.DefaultPivotData;
-
-*import* net.sf.reportengine.config.DefaultPivotHeaderRow;
-
-*import* net.sf.reportengine.in.TextTableInput;
-
-*import* net.sf.reportengine.out.HtmlReportOutput;
+import java.io.FileWriter;
+import java.io.IOException;
+import net.sf.reportengine.Report;
+import net.sf.reportengine.ReportBuilder;
+import net.sf.reportengine.components.PivotTable;
+import net.sf.reportengine.components.PivotTableBuilder;
+import net.sf.reportengine.components.Paragraph;
+import net.sf.reportengine.config.DefaultDataColumn;
+import net.sf.reportengine.config.DefaultPivotData;
+import net.sf.reportengine.config.DefaultPivotHeaderRow;
+import net.sf.reportengine.in.TextTableInput;
+import net.sf.reportengine.out.HtmlReportOutput;
 
 /**
 
@@ -1240,38 +987,25 @@ It’s time to create our first pivot table report:
 
 */
 
-*public* *class* FirstPivotTableReport \{
+public class FirstPivotTableReport {
 
-*public* *static* *void* main(String[] args) *throws* IOException\{
+public static void main(String[] args) throws IOException{
 
-PivotTable table =
+PivotTable table = new PivotTableBuilder(new TextTableInput("./input/expenses.csv", ","))
+    .addDataColumn(new DefaultDataColumn("Month", 0))
+    .addHeaderRow(new DefaultPivotHeaderRow(1))
+    .pivotData(new DefaultPivotData(2))
+    .build();
 
-*new* PivotTableBuilder(*new* TextTableInput("./input/expenses.csv", ","))
-
-.addDataColumn(*new* DefaultDataColumn("Month", 0))
-
-.addHeaderRow(*new* DefaultPivotHeaderRow(1))
-
-.pivotData(*new* DefaultPivotData(2))
-
-.build();
-
-*new* ReportBuilder(*new* HtmlReportOutput(*new* FileWriter("./ExpensesPivot.html")))
-
-.add(*new* Paragraph("My first report with a pivot table", HorizAlign._*CENTER*_))
-
-.add(table)
-
-.build()
-
-.execute();
-
-}
-
+new ReportBuilder(new HtmlReportOutput(new FileWriter("./ExpensesPivot.html")))
+    .add(new Paragraph("My first report with a pivot table", HorizAlign._*CENTER*_))
+    .add(table)
+    .build()
+    .execute();
+    }
 }
 ```
 
-[[totals-and-groupings-for-pivot-reports]]
 == Totals and groupings for pivot reports
 
 Everything a flat can do is also available for Pivot tables: groupings and aggregations, totals, subtotals, grand totals, etc. Now let’s see the yearly expenses flat report translated into a pivot table:
@@ -1294,72 +1028,45 @@ Everything a flat can do is also available for Pivot tables: groupings and aggre
 * the programmatic configuration:
 
 ```java
-*import* java.io.FileWriter;
-
-*import* java.io.IOException;
-
-*import* net.sf.reportengine.Report;
-
-*import* net.sf.reportengine.components.PivotTable;
-
-*import* net.sf.reportengine.ReportBuilder;
-
-*import* net.sf.reportengine.components.PivotTableBuilder;
-
-*import* net.sf.reportengine.components.Paragraph;
-
-*import* net.sf.reportengine.config.DefaultDataColumn;
-
-*import* net.sf.reportengine.config.DefaultGroupColumn;
-
-*import* net.sf.reportengine.config.DefaultPivotData;
-
-*import* net.sf.reportengine.config.DefaultPivotHeaderRow;
-
-*import* net.sf.reportengine.core.calc.GroupCalculators;
-
-*import* net.sf.reportengine.in.TextTableInput;
-
-*import* net.sf.reportengine.out.HtmlReportOutput;
+import java.io.FileWriter;
+import java.io.IOException;
+import net.sf.reportengine.Report;
+import net.sf.reportengine.components.PivotTable;
+import net.sf.reportengine.ReportBuilder;
+import net.sf.reportengine.components.PivotTableBuilder;
+import net.sf.reportengine.components.Paragraph;
+import net.sf.reportengine.config.DefaultDataColumn;
+import net.sf.reportengine.config.DefaultGroupColumn;
+import net.sf.reportengine.config.DefaultPivotData;
+import net.sf.reportengine.config.DefaultPivotHeaderRow;
+import net.sf.reportengine.core.calc.GroupCalculators;
+import net.sf.reportengine.in.TextTableInput;
+import net.sf.reportengine.out.HtmlReportOutput;
 
 /**
-
 * Sample Pivot table with groupings and sub-totals by year
-
 */
 
-*public* *class* YearlyExpensesPivotTable \{
+public class YearlyExpensesPivotTable {
 
-*public* *static* *void* main(String[] args) *throws* IOException \{
+public static void main(String[] args) throws IOException {
 
 PivotTable pivotTable =
-
-*new* PivotTableBuilder(*new* TextTableInput("./input/yearlyExpenses.txt", "\t"))
-
-.addGroupColumn(*new* DefaultGroupColumn("Year", 0, 0))
-
-.addDataColumn(*new* DefaultDataColumn("Month", 1))
-
-.addHeaderRow(*new* DefaultPivotHeaderRow(2))
-
-.pivotData(*new* DefaultPivotData.Builder(3)
-
+        new PivotTableBuilder(new TextTableInput("./input/yearlyExpenses.txt", "\t"))
+.addGroupColumn(new DefaultGroupColumn("Year", 0, 0))
+.addDataColumn(new DefaultDataColumn("Month", 1))
+.addHeaderRow(new DefaultPivotHeaderRow(2))
+.pivotData(new DefaultPivotData.Builder(3)
 .useCalculator(GroupCalculators._*SUM*_, "%.2f")
-
 .build())
-
 .showGrandTotal()
-
 .showTotals()
-
 .build();
 
-*new* ReportBuilder(*new* HtmlReportOutput(*new* FileWriter("PivotGroupByYear.html")))
+new ReportBuilder(new HtmlReportOutput(new FileWriter("PivotGroupByYear.html")))
 
-.add(*new* Paragraph("Yearly expenses as pivot table", HorizAlign._*CENTER*_))
-
+.add(new Paragraph("Yearly expenses as pivot table", HorizAlign._*CENTER*_))
 .add(pivotTable)
-
 .build()
 
 .execute();
@@ -1384,7 +1091,6 @@ PivotTable pivotTable =
 |Grand Total | |1573.00 |554.00 |502.00 |2629.00
 |====================================================
 
-[[useful-links]]
 = Useful links
 
 * Reportengine website: http://reportengine.sourceforge.net
