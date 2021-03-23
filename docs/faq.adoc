@@ -1,0 +1,23 @@
+= What is Katechaki?
+
+Katechaki (former reportengine.sourceforge.net) is a java API for reports. The reports can contain paragraphs, tables (with groupings, sorting, and totals/subtotals), pivot tables and other user defined components. Katechaki accepts input from memory, files and databases and exports the data in a multitude of formats: HTML, PDF, EXCEL, PNG, SVG etc.
+
+= What java version is Katechaki designed for?
+
+Katechaki is developed and designed for JAVA 6 or higher.
+
+= Documentation
+
+Html tutorial can be found http://reportengine.sourceforge.net/html/tutorial/reportengine_tutorial.htm[here].
+
+The javadoc can be found http://reportengine.sourceforge.net/html/apidocs/index.html[here].
+
+This project’s website is http://reportengine.sourceforge.net[here].
+
+= Limitations
+
+Katechaki does not have a chart component (but I strongly encourage you to create a report component for charts)
+
+= Why Katechaki?
+
+Well, the former reportengine.sourceforge.net has been revived while I was staying in Athens – Katechaki neighborhood.

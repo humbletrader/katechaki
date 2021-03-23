@@ -1,0 +1,6 @@
+= Useful links
+
+* Reportengine website: http://reportengine.sourceforge.net
+* The report engine source code can be found at: http://svn.code.sf.net/p/reportengine/code
+* The samples presented in this tutorial can be found at : http://svn.code.sf.net/p/reportengine/code/trunk/reportengine-samples/
+* Developer’s email: dragos dot balan at gmail dot com
