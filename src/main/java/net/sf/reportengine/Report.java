@@ -18,8 +18,6 @@ package net.sf.reportengine;
 import net.sf.reportengine.components.ReportComponent;
 
 /**
- * <p>The main interface for reports</p>
- * <p>
  * The typical usage is:
  * <pre>
  *  Report report = new ReportBuilder(new HtmlReportOutput(new FileWriter("/temp/test.html")))
@@ -28,11 +26,10 @@ import net.sf.reportengine.components.ReportComponent;
  *           .add(.. paragraph ..)
  *           .add( .. other report components..)
  *            ...
- *            .build(); 
- *  report.execute(); 
+ *            .build();
+ *  report.execute();
  * </pre>
- * </p>
- * 
+ *
  * @see ReportBuilder
  * @see ReportComponent
  * 

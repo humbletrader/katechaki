@@ -24,9 +24,7 @@ import net.sf.reportengine.out.PostProcessedFoReportOutput;
 import net.sf.reportengine.out.ReportOutput;
 
 /**
- * <p>The builder for any kind of report</p>
- * <p>
- * Typical usage: 
+ * Typical usage:
  * <pre>
  *  Report report = new ReportBuilder(new HtmlReportOutput(new FileWriter("/temp/test.html")))
  *                      .add(new Paragraph("My first report"))
@@ -35,8 +33,7 @@ import net.sf.reportengine.out.ReportOutput;
  *                      .build(); 
  *  report.execute(); 
  * </pre>
- * </p>
- * 
+ *
  * @see Report
  * @see ReportComponent
  * @see ReportOutput
